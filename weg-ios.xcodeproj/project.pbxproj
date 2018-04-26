@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0E459736774D2376060BE8F8 /* Pods_weg_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 953678E7444C56934AA747B4 /* Pods_weg_ios.framework */; };
+		8F79EE81208F5D4D002E95F9 /* Equipment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F79EE80208F5D4D002E95F9 /* Equipment.storyboard */; };
+		8F79EE86208F5EA7002E95F9 /* Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F79EE85208F5EA7002E95F9 /* Equipment.swift */; };
+		8F79EE88208F5F6A002E95F9 /* Land.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F79EE87208F5F6A002E95F9 /* Land.swift */; };
+		8F79EE8A208F5F72002E95F9 /* Sea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F79EE89208F5F72002E95F9 /* Sea.swift */; };
+		8F79EE8C208F5F79002E95F9 /* Air.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F79EE8B208F5F79002E95F9 /* Air.swift */; };
+		8F79EE8E208F5F81002E95F9 /* Gun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F79EE8D208F5F81002E95F9 /* Gun.swift */; };
 		8FC11C66208EB31C00B083F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC11C65208EB31C00B083F8 /* AppDelegate.swift */; };
 		8FC11C68208EB31C00B083F8 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC11C67208EB31C00B083F8 /* FirstViewController.swift */; };
 		8FC11C6A208EB31C00B083F8 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC11C69208EB31C00B083F8 /* SecondViewController.swift */; };
@@ -18,6 +24,12 @@
 
 /* Begin PBXFileReference section */
 		1E4178999A230A775DB0FA76 /* Pods-weg-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weg-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-weg-ios/Pods-weg-ios.release.xcconfig"; sourceTree = "<group>"; };
+		8F79EE80208F5D4D002E95F9 /* Equipment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Equipment.storyboard; sourceTree = "<group>"; };
+		8F79EE85208F5EA7002E95F9 /* Equipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipment.swift; sourceTree = "<group>"; };
+		8F79EE87208F5F6A002E95F9 /* Land.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Land.swift; sourceTree = "<group>"; };
+		8F79EE89208F5F72002E95F9 /* Sea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sea.swift; sourceTree = "<group>"; };
+		8F79EE8B208F5F79002E95F9 /* Air.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Air.swift; sourceTree = "<group>"; };
+		8F79EE8D208F5F81002E95F9 /* Gun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gun.swift; sourceTree = "<group>"; };
 		8FC11C62208EB31C00B083F8 /* weg-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "weg-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FC11C65208EB31C00B083F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FC11C67208EB31C00B083F8 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -50,6 +62,33 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8F79EE82208F5E37002E95F9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8F79EE85208F5EA7002E95F9 /* Equipment.swift */,
+				8F79EE87208F5F6A002E95F9 /* Land.swift */,
+				8F79EE89208F5F72002E95F9 /* Sea.swift */,
+				8F79EE8B208F5F79002E95F9 /* Air.swift */,
+				8F79EE8D208F5F81002E95F9 /* Gun.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8F79EE83208F5E44002E95F9 /* Equipment */ = {
+			isa = PBXGroup;
+			children = (
+				8F79EE80208F5D4D002E95F9 /* Equipment.storyboard */,
+			);
+			path = Equipment;
+			sourceTree = "<group>";
+		};
+		8F79EE84208F5E4C002E95F9 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
 		8FC11C59208EB31C00B083F8 = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +110,9 @@
 		8FC11C64208EB31C00B083F8 /* weg-ios */ = {
 			isa = PBXGroup;
 			children = (
+				8F79EE84208F5E4C002E95F9 /* Cards */,
+				8F79EE83208F5E44002E95F9 /* Equipment */,
+				8F79EE82208F5E37002E95F9 /* Models */,
 				8FC11C65208EB31C00B083F8 /* AppDelegate.swift */,
 				8FC11C67208EB31C00B083F8 /* FirstViewController.swift */,
 				8FC11C69208EB31C00B083F8 /* SecondViewController.swift */,
@@ -154,6 +196,7 @@
 				8FC11C72208EB31D00B083F8 /* LaunchScreen.storyboard in Resources */,
 				8FC11C6F208EB31D00B083F8 /* Assets.xcassets in Resources */,
 				8FC11C6D208EB31C00B083F8 /* Main.storyboard in Resources */,
+				8F79EE81208F5D4D002E95F9 /* Equipment.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,9 +248,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F79EE88208F5F6A002E95F9 /* Land.swift in Sources */,
+				8F79EE8C208F5F79002E95F9 /* Air.swift in Sources */,
 				8FC11C6A208EB31C00B083F8 /* SecondViewController.swift in Sources */,
 				8FC11C66208EB31C00B083F8 /* AppDelegate.swift in Sources */,
+				8F79EE86208F5EA7002E95F9 /* Equipment.swift in Sources */,
 				8FC11C68208EB31C00B083F8 /* FirstViewController.swift in Sources */,
+				8F79EE8E208F5F81002E95F9 /* Gun.swift in Sources */,
+				8F79EE8A208F5F72002E95F9 /* Sea.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,7 +403,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7S77A6SK97;
 				INFOPLIST_FILE = "weg-ios/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jamesjmtaylor.weg-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -371,7 +422,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7S77A6SK97;
 				INFOPLIST_FILE = "weg-ios/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jamesjmtaylor.weg-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
