@@ -15,7 +15,7 @@ protocol Equipment : Codable {
     
     
 }
-struct combinedList : Codable {
+struct CombinedList : Codable {
     let gun : [Gun]
     let land : [Land]
     let sea : [Sea]
