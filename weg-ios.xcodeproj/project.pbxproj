@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0E459736774D2376060BE8F8 /* Pods_weg_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 953678E7444C56934AA747B4 /* Pods_weg_ios.framework */; };
 		8F1C82FE2094AEF200570C8D /* EquipmentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1C82FD2094AEF200570C8D /* EquipmentRepository.swift */; };
+		8F1C83002094E3DD00570C8D /* Filesystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1C82FF2094E3DD00570C8D /* Filesystem.swift */; };
+		8F1C83022094E3F500570C8D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F1C83012094E3F500570C8D /* Info.plist */; };
+		8F1C83042094E47600570C8D /* UIColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1C83032094E47600570C8D /* UIColor+AppColors.swift */; };
 		8F79EE86208F5EA7002E95F9 /* Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F79EE85208F5EA7002E95F9 /* Equipment.swift */; };
 		8F79EE88208F5F6A002E95F9 /* Land.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F79EE87208F5F6A002E95F9 /* Land.swift */; };
 		8F79EE8A208F5F72002E95F9 /* Sea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F79EE89208F5F72002E95F9 /* Sea.swift */; };
@@ -25,6 +28,9 @@
 /* Begin PBXFileReference section */
 		1E4178999A230A775DB0FA76 /* Pods-weg-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weg-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-weg-ios/Pods-weg-ios.release.xcconfig"; sourceTree = "<group>"; };
 		8F1C82FD2094AEF200570C8D /* EquipmentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentRepository.swift; sourceTree = "<group>"; };
+		8F1C82FF2094E3DD00570C8D /* Filesystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filesystem.swift; sourceTree = "<group>"; };
+		8F1C83012094E3F500570C8D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F1C83032094E47600570C8D /* UIColor+AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+AppColors.swift"; sourceTree = "<group>"; };
 		8F79EE85208F5EA7002E95F9 /* Equipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipment.swift; sourceTree = "<group>"; };
 		8F79EE87208F5F6A002E95F9 /* Land.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Land.swift; sourceTree = "<group>"; };
 		8F79EE89208F5F72002E95F9 /* Sea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sea.swift; sourceTree = "<group>"; };
@@ -37,7 +43,6 @@
 		8FC11C6C208EB31C00B083F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8FC11C6E208EB31D00B083F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8FC11C71208EB31D00B083F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8FC11C73208EB31D00B083F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		953678E7444C56934AA747B4 /* Pods_weg_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weg_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA16DFA6F3EDF1D7D9A2CDF8 /* Pods-weg-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weg-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-weg-ios/Pods-weg-ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,6 +75,7 @@
 				8F79EE89208F5F72002E95F9 /* Sea.swift */,
 				8F79EE8B208F5F79002E95F9 /* Air.swift */,
 				8F79EE8D208F5F81002E95F9 /* Gun.swift */,
+				8F1C83032094E47600570C8D /* UIColor+AppColors.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -114,11 +120,12 @@
 				8F79EE82208F5E37002E95F9 /* Models */,
 				8FC11C65208EB31C00B083F8 /* AppDelegate.swift */,
 				8FC11C67208EB31C00B083F8 /* FirstViewController.swift */,
+				8F1C82FF2094E3DD00570C8D /* Filesystem.swift */,
+				8F1C83012094E3F500570C8D /* Info.plist */,
 				8FC11C69208EB31C00B083F8 /* SecondViewController.swift */,
 				8FC11C6B208EB31C00B083F8 /* Main.storyboard */,
 				8FC11C6E208EB31D00B083F8 /* Assets.xcassets */,
 				8FC11C70208EB31D00B083F8 /* LaunchScreen.storyboard */,
-				8FC11C73208EB31D00B083F8 /* Info.plist */,
 				8F1C82FD2094AEF200570C8D /* EquipmentRepository.swift */,
 			);
 			path = "weg-ios";
@@ -193,6 +200,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F1C83022094E3F500570C8D /* Info.plist in Resources */,
 				8FC11C72208EB31D00B083F8 /* LaunchScreen.storyboard in Resources */,
 				8FC11C6F208EB31D00B083F8 /* Assets.xcassets in Resources */,
 				8FC11C6D208EB31C00B083F8 /* Main.storyboard in Resources */,
@@ -251,6 +259,8 @@
 				8F79EE88208F5F6A002E95F9 /* Land.swift in Sources */,
 				8F79EE8C208F5F79002E95F9 /* Air.swift in Sources */,
 				8FC11C6A208EB31C00B083F8 /* SecondViewController.swift in Sources */,
+				8F1C83042094E47600570C8D /* UIColor+AppColors.swift in Sources */,
+				8F1C83002094E3DD00570C8D /* Filesystem.swift in Sources */,
 				8FC11C66208EB31C00B083F8 /* AppDelegate.swift in Sources */,
 				8F79EE86208F5EA7002E95F9 /* Equipment.swift in Sources */,
 				8FC11C68208EB31C00B083F8 /* FirstViewController.swift in Sources */,
