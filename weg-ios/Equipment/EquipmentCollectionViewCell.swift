@@ -14,6 +14,6 @@ class EquipmentCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     
     func configure(e: Equipment){
-        e.
+        nameLabel.text = e.name
     }
 }

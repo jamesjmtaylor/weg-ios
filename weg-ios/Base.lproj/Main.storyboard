@@ -202,7 +202,7 @@
                         <outlet property="collectionView" destination="lXI-FL-3Nl" id="J6Y-Rr-NgV"/>
                         <outlet property="collectionViewFlowLayout" destination="Mmq-4f-aGQ" id="qMs-xL-opA"/>
                         <outlet property="searchBar" destination="ojx-ob-105" id="Wvu-Mp-bBG"/>
-                        <segue destination="ngz-0c-au8" kind="presentation" id="YAh-8z-ijF"/>
+                        <segue destination="ngz-0c-au8" kind="presentation" identifier="showEquipmentSegue" id="YAh-8z-ijF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g0e-xb-Q5N" userLabel="First Responder" sceneMemberID="firstResponder"/>

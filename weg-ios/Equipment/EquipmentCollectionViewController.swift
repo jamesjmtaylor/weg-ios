@@ -8,49 +8,75 @@
 
 import UIKit
 
-class EquipmentCollectionViewController: UIViewController, UICollectionViewDelegate,
-UISearchBarDelegate{
+class EquipmentCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate{
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewFlowLayout: UICollectionViewFlowLayout!
     
+    var equipment = [Equipment]()
+    var searchedEquipment = [Equipment]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView.delegate = self
-        self.searchBar.delegate = self
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        searchBar.delegate = self
     }
 
     // MARK: - Navigation
+    private let equipmentSegue = "showEquipmentSegue"
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        if segue.identifier == equipmentSegue {
+            guard let dest = segue.destination as? EquipmentViewController else {return}
+            dest.equipment = sender as? Equipment
+        }
     }
 
 
     // MARK: - UICollectionViewDataSource
     private let reuseIdentifier = "EquipmentCollectionViewCell"
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
+        return (searchActive) ? searchedEquipment.count : equipment.count
     }
-
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! EquipmentCollectionViewCell
-        
-        // Configure the cell
-    
+        let e = (searchActive) ? searchedEquipment[indexPath.row] : equipment[indexPath.row]
+        cell.configure(e: e)
         return cell
     }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        return
+        let e = (searchActive) ? searchedEquipment[indexPath.row] : equipment[indexPath.row]
+        performSegue(withIdentifier: equipmentSegue, sender: e)
     }
+    
     // MARK: - SearchBar
     @IBOutlet weak var searchBar: UISearchBar!
-    
+    var searchActive = false
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = (searchBar.text != "")
+    }
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false
+        self.view.endEditing(true)
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+        self.view.endEditing(true)
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+        self.view.endEditing(true)
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchedEquipment = equipment.filter({ e in
+            return e.name.lowercased().contains(searchText.lowercased())  || searchText.isEmpty
+        })
+        if searchText.isEmpty {//searchString ∆-> nothing; user ended search
+            searchActive = false
+            self.view.endEditing(true)
+        } else {
+            searchActive = true
+        }
+        collectionView.reloadData()
+    }
 }

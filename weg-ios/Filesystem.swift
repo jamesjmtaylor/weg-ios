@@ -32,7 +32,7 @@ struct Filesystem {
         let file = removeFoldersFromFilename(filename: fileName)
         let imagePath = (self.getDirectoryPath() as NSString).appendingPathComponent(file)
         if fileManager.fileExists(atPath: imagePath){
-            return UIImage(named: imagePath)?.imageByMakingWhiteBackgroundTransparent()
+            return UIImage(named: imagePath)
         }
         print("No Image at \(file)")
         return nil

@@ -9,7 +9,7 @@
 import UIKit
 
 class EquipmentViewController: UIViewController {
-
+    var equipment : Equipment?
     override func viewDidLoad() {
         super.viewDidLoad()
 
