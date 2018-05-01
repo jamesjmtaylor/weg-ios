@@ -21,6 +21,8 @@
 		8F79EE8A208F5F72002E95F9 /* Sea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F79EE89208F5F72002E95F9 /* Sea.swift */; };
 		8F79EE8C208F5F79002E95F9 /* Air.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F79EE8B208F5F79002E95F9 /* Air.swift */; };
 		8F79EE8E208F5F81002E95F9 /* Gun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F79EE8D208F5F81002E95F9 /* Gun.swift */; };
+		8FC0051B209896F100E04417 /* UIView+ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC0051A209896F100E04417 /* UIView+ActivityIndicator.swift */; };
+		8FC0051D209896FD00E04417 /* UIViewController+PresentAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC0051C209896FC00E04417 /* UIViewController+PresentAlert.swift */; };
 		8FC11C66208EB31C00B083F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC11C65208EB31C00B083F8 /* AppDelegate.swift */; };
 		8FC11C6D208EB31C00B083F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FC11C6B208EB31C00B083F8 /* Main.storyboard */; };
 		8FC11C6F208EB31D00B083F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FC11C6E208EB31D00B083F8 /* Assets.xcassets */; };
@@ -42,6 +44,8 @@
 		8F79EE89208F5F72002E95F9 /* Sea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sea.swift; sourceTree = "<group>"; };
 		8F79EE8B208F5F79002E95F9 /* Air.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Air.swift; sourceTree = "<group>"; };
 		8F79EE8D208F5F81002E95F9 /* Gun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gun.swift; sourceTree = "<group>"; };
+		8FC0051A209896F100E04417 /* UIView+ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ActivityIndicator.swift"; sourceTree = "<group>"; };
+		8FC0051C209896FC00E04417 /* UIViewController+PresentAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+PresentAlert.swift"; sourceTree = "<group>"; };
 		8FC11C62208EB31C00B083F8 /* weg-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "weg-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FC11C65208EB31C00B083F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FC11C6C208EB31C00B083F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -74,8 +78,10 @@
 		8F1C830520962B3200570C8D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				8FC0051C209896FC00E04417 /* UIViewController+PresentAlert.swift */,
 				8F1C83032094E47600570C8D /* UIColor+AppColors.swift */,
 				8F1C830620962B5F00570C8D /* UILabel+IBDesignable.swift */,
+				8FC0051A209896F100E04417 /* UIView+ActivityIndicator.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -274,8 +280,10 @@
 				8F79EE8C208F5F79002E95F9 /* Air.swift in Sources */,
 				8F1C83042094E47600570C8D /* UIColor+AppColors.swift in Sources */,
 				8F1C83002094E3DD00570C8D /* Filesystem.swift in Sources */,
+				8FC0051B209896F100E04417 /* UIView+ActivityIndicator.swift in Sources */,
 				8FC11C66208EB31C00B083F8 /* AppDelegate.swift in Sources */,
 				8F1C830720962B5F00570C8D /* UILabel+IBDesignable.swift in Sources */,
+				8FC0051D209896FD00E04417 /* UIViewController+PresentAlert.swift in Sources */,
 				8F79EE86208F5EA7002E95F9 /* Equipment.swift in Sources */,
 				8F1C830B209631BB00570C8D /* EquipmentCollectionViewController.swift in Sources */,
 				8F1C830D209631D400570C8D /* EquipmentViewController.swift in Sources */,

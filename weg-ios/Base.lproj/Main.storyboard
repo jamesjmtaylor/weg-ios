@@ -139,17 +139,17 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="EquipmentCollectionViewCell" reuseIdentifier="EquipmentCollectionViewCell" id="lhL-Gp-q5H" customClass="EquipmentCollectionViewCell" customModule="weg_ios" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AY3-cr-VE9">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oB0-3M-vRU">
-                                                    <rect key="frame" x="4" y="21" width="42" height="21"/>
+                                                    <rect key="frame" x="54" y="21" width="42" height="21"/>
                                                     <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.94509803920000002" green="0.95294117649999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -173,6 +173,7 @@
                                             <constraint firstAttribute="trailing" secondItem="AY3-cr-VE9" secondAttribute="trailing" id="y6Y-1j-FdN"/>
                                             <constraint firstAttribute="bottom" secondItem="AY3-cr-VE9" secondAttribute="bottom" id="yvg-k2-94k"/>
                                         </constraints>
+                                        <size key="customSize" width="150" height="150"/>
                                         <connections>
                                             <outlet property="imageView" destination="AY3-cr-VE9" id="UYL-Cc-K5o"/>
                                             <outlet property="nameLabel" destination="oB0-3M-vRU" id="cu2-pB-MiU"/>

@@ -16,11 +16,32 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
     var equipment = [Equipment]()
     var searchedEquipment = [Equipment]()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
         searchBar.delegate = self
+        getEquipment()
+    }
+    var spinner : UIActivityIndicatorView?
+    func getEquipment(){
+        let storedEquipment = EquipmentRepository.getEquipment { (fetchedEquipment, error) in
+            DispatchQueue.main.async {
+                self.spinner?.stopAnimating()
+                if let errorString = error {
+                    self.presentAlert(alert: errorString)
+                } else if let e = fetchedEquipment {
+                    self.equipment = e
+                    self.collectionView.reloadData()
+                }
+            }
+        }
+        guard let unwrappedEquipment = storedEquipment else {
+            spinner = self.view.getAndStartActivityIndicator();return
+        }
+        equipment = unwrappedEquipment
+        collectionView.reloadData()
     }
 
     // MARK: - Navigation
