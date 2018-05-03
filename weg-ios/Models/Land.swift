@@ -11,16 +11,32 @@ import Foundation
 struct Land : Equipment {
     var id: Int = 0
     var name: String = ""
-    var  description: String?
-    var  groupIconUrl: String?
-    var  individualIconUrl: String?
-    var  photoUrl: String?
-    var  primaryWeapon: Gun?
-    var  secondaryWeapon: Gun?
-    var  atgm: Gun?
-    var  armor: Int?
-    var  speed: Int?
-    var  auto: Int?
-    var  weight: Int?
-    var  type = EquipmentType.LAND
+    var description: String?
+    var groupIconUrl: String?
+    var individualIconUrl: String?
+    var photoUrl: String?
+    var primaryWeapon: Gun?
+    var secondaryWeapon: Gun?
+    var atgm: Gun?
+    var armor: Int?
+    var speed: Int?
+    var auto: Int?
+    var weight: Int?
+    var type = EquipmentType.LAND
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case description
+        case groupIconUrl
+        case individualIconUrl
+        case photoUrl
+        case primaryWeapon
+        case secondaryWeapon
+        case atgm
+        case armor
+        case speed
+        case auto
+        case weight
+    }
 }

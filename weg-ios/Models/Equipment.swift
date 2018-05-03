@@ -38,14 +38,14 @@ extension Equipment {
     }
 }
 struct CombinedList : Codable {
-    let gun : [Gun]
+    let guns : [Gun]
     let land : [Land]
     let sea : [Sea]
     let air : [Air]
     
     func getEquipment() -> [Equipment] {
         var equipmentList = [Equipment]()
-        equipmentList.append(contentsOf: gun)
+        equipmentList.append(contentsOf: guns)
         equipmentList.append(contentsOf: land)
         equipmentList.append(contentsOf: sea)
         equipmentList.append(contentsOf: air)
