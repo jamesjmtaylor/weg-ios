@@ -24,6 +24,16 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
         searchBar.delegate = self
         getEquipment()
     }
+    override func viewDidLayoutSubviews() {
+        setupCollectionViewLayout()
+    }
+    var sideSize: CGFloat = 0
+    func setupCollectionViewLayout(){
+        sideSize = (collectionView.bounds.width ) / 3
+        collectionViewFlowLayout.itemSize = CGSize(width: sideSize, height: sideSize)
+        collectionViewFlowLayout.minimumLineSpacing = 0
+        collectionViewFlowLayout.minimumInteritemSpacing = 0
+    }
     var spinner : UIActivityIndicatorView?
     func getEquipment(){
         let storedEquipment = EquipmentRepository.getEquipment { (fetchedEquipment, error) in

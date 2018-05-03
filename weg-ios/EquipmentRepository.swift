@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Kingfisher
 
 class EquipmentRepository {
     static func baseUrl() -> String {return "http://api.jjmtaylor.com:8080/"}
@@ -42,7 +43,17 @@ class EquipmentRepository {
                 guard let jsonData = data else {completionHandler(nil,"Network returned an empty response.");return}
                 do {
                     let combined = try decoder.decode(CombinedList.self, from: jsonData)
-                    completionHandler(combined.getEquipment(),nil)
+                    
+                    //prefetch some images and cache them before you display them on the screen
+                    
+                    let urls = combined.getEquipment()
+                        .map { URL(string: EquipmentRepository.baseUrl() + ($0.photoUrl ?? ""))! }
+                    let prefetcher = ImagePrefetcher(urls: urls) {
+                        skippedResources, failedResources, completedResources in
+                        print("These resources are prefetched: \(completedResources)")
+                        completionHandler(combined.getEquipment(),nil)
+                    }
+                    prefetcher.start()
                 } catch {
                     completionHandler(nil,error.localizedDescription);return
                 }

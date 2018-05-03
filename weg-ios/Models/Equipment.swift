@@ -29,6 +29,7 @@ extension Equipment {
         }
         return nil
     }
+
     func setImageView(imageView: UIImageView) {
         if let image = getPhotoUIImage(completionHandler: { (image) in
             DispatchQueue.main.async {imageView.image = image}})
