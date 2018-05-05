@@ -12,6 +12,7 @@ protocol Equipment : Codable {
     var id : Int {get set}
     var name : String {get set}
     var photoUrl: String? {get set}
+    var individualIconUrl: String? {get set}
     var type : EquipmentType {get set}
 }
 extension Equipment {
