@@ -24,7 +24,7 @@ class EquipmentRepository {
         }
         return equipment
     }
-    
+ 
     private static func getEquipmentFromNetwork(completionHandler: @escaping ([Equipment]?, String?)->()) {
         guard let url = URL(string: getAllUrl()) else {
             completionHandler(nil,"Failed to convert url to strign"); return
@@ -43,34 +43,41 @@ class EquipmentRepository {
                 guard let jsonData = data else {completionHandler(nil,"Network returned an empty response.");return}
                 do {
                     let combined = try decoder.decode(CombinedList.self, from: jsonData)
-                    
-                    //prefetch some images and cache them before you display them on the screen
-                    var urls = [URL]()
-                    let photoUrls = combined.getEquipment()
-                        .map { URL(string: EquipmentRepository.baseUrl() + ($0.photoUrl ?? ""))! }
-                    let indIconUrls = combined.getEquipment()
-                        .map { URL(string: EquipmentRepository.baseUrl() + ($0.individualIconUrl ?? ""))! }
-                    //TODO: pre-fetch group icons (sea doesn't have them)
-                    let grpIconUrls = combined.getEquipment()
-                        .map { switch $0.type {
-                        case EquipmentType.AIR : URL(string: EquipmentRepository.baseUrl() + (($0 as! Air).groupIconUrl ?? ""))!
-                        case EquipmentType.GUN : URL(string: EquipmentRepository.baseUrl() + (($0 as! Gun).groupIconUrl ?? ""))!
-                        case EquipmentType.LAND : URL(string: EquipmentRepository.baseUrl() + (($0 as! Land).groupIconUrl ?? ""))!
-                        default: URL(string: EquipmentRepository.baseUrl())!}}
-                    urls.append(contentsOf: photoUrls)
-                    urls.append(contentsOf: indIconUrls)
-                    urls.append(grpIconUrls)
-                    let prefetcher = ImagePrefetcher(urls: urls) {
-                        skippedResources, failedResources, completedResources in
-                        print("These resources are prefetched: \(completedResources)")
-                        completionHandler(combined.getEquipment(),nil)
+                    prefetchImages(combined: combined) { (fetched, error) in
+                        let filteredFetch = fetched.filter({ (e) -> Bool in return e.photoUrl != nil})
+                        completionHandler(filteredFetch,nil)
                     }
-                    prefetcher.start()
                 } catch {
                     completionHandler(nil,error.localizedDescription);return
                 }
             }
         })
         dataTask.resume()
+    }
+    private static func prefetchImages(combined : CombinedList, completionHandler: @escaping ([Equipment],Error?)->()) {
+        var urls = [URL]()
+        let e = combined.getEquipment()
+        let placeholder = URL(string: EquipmentRepository.baseUrl())!
+        let photoUrls = e.map { URL(string: EquipmentRepository.baseUrl() + ($0.photoUrl ?? "")) ?? placeholder }
+        let indIconUrls = e.map { URL(string: EquipmentRepository.baseUrl() + ($0.individualIconUrl ?? "")) ?? placeholder }
+        let airGroupIconUrls = combined.air.map {
+            URL(string: EquipmentRepository.baseUrl() + ($0.groupIconUrl ?? "")) ?? placeholder }
+        let landGroupIconUrls = combined.land.map {
+            URL(string: EquipmentRepository.baseUrl() + ($0.groupIconUrl ?? "")) ?? placeholder }
+        let gunGroupIconUrls = combined.guns.map {
+            URL(string: EquipmentRepository.baseUrl() + ($0.groupIconUrl ?? "")) ?? placeholder }
+        
+        urls.append(contentsOf: photoUrls)
+        urls.append(contentsOf: indIconUrls)
+        
+        urls.append(contentsOf: airGroupIconUrls)
+        urls.append(contentsOf: landGroupIconUrls)
+        urls.append(contentsOf: gunGroupIconUrls)
+        
+        let prefetcher = ImagePrefetcher(urls: urls) {
+            skippedResources, failedResources, completedResources in
+            completionHandler(combined.getEquipment(),nil)
+        }
+        prefetcher.start()
     }
 }
