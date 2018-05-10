@@ -16,6 +16,9 @@
 		8F1C830B209631BB00570C8D /* EquipmentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1C830A209631BB00570C8D /* EquipmentCollectionViewController.swift */; };
 		8F1C830D209631D400570C8D /* EquipmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1C830C209631D400570C8D /* EquipmentViewController.swift */; };
 		8F1C830F2096349400570C8D /* EquipmentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1C830E2096349400570C8D /* EquipmentCollectionViewCell.swift */; };
+		8F6912C520A3BA770011C942 /* EquipmentDetailRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6912C420A3BA770011C942 /* EquipmentDetailRow.swift */; };
+		8F6912C720A3BA910011C942 /* EquipmentDetailRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F6912C620A3BA910011C942 /* EquipmentDetailRow.xib */; };
+		8F6912C920A46C1A0011C942 /* UILabel+BoldUnderline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6912C820A46C1A0011C942 /* UILabel+BoldUnderline.swift */; };
 		8F79EE86208F5EA7002E95F9 /* Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F79EE85208F5EA7002E95F9 /* Equipment.swift */; };
 		8F79EE88208F5F6A002E95F9 /* Land.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F79EE87208F5F6A002E95F9 /* Land.swift */; };
 		8F79EE8A208F5F72002E95F9 /* Sea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F79EE89208F5F72002E95F9 /* Sea.swift */; };
@@ -39,6 +42,9 @@
 		8F1C830A209631BB00570C8D /* EquipmentCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentCollectionViewController.swift; sourceTree = "<group>"; };
 		8F1C830C209631D400570C8D /* EquipmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentViewController.swift; sourceTree = "<group>"; };
 		8F1C830E2096349400570C8D /* EquipmentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentCollectionViewCell.swift; sourceTree = "<group>"; };
+		8F6912C420A3BA770011C942 /* EquipmentDetailRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentDetailRow.swift; sourceTree = "<group>"; };
+		8F6912C620A3BA910011C942 /* EquipmentDetailRow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EquipmentDetailRow.xib; sourceTree = "<group>"; };
+		8F6912C820A46C1A0011C942 /* UILabel+BoldUnderline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+BoldUnderline.swift"; sourceTree = "<group>"; };
 		8F79EE85208F5EA7002E95F9 /* Equipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipment.swift; sourceTree = "<group>"; };
 		8F79EE87208F5F6A002E95F9 /* Land.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Land.swift; sourceTree = "<group>"; };
 		8F79EE89208F5F72002E95F9 /* Sea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sea.swift; sourceTree = "<group>"; };
@@ -82,6 +88,7 @@
 				8F1C83032094E47600570C8D /* UIColor+AppColors.swift */,
 				8F1C830620962B5F00570C8D /* UILabel+IBDesignable.swift */,
 				8FC0051A209896F100E04417 /* UIView+ActivityIndicator.swift */,
+				8F6912C820A46C1A0011C942 /* UILabel+BoldUnderline.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -104,6 +111,8 @@
 				8F1C830A209631BB00570C8D /* EquipmentCollectionViewController.swift */,
 				8F1C830C209631D400570C8D /* EquipmentViewController.swift */,
 				8F1C830E2096349400570C8D /* EquipmentCollectionViewCell.swift */,
+				8F6912C420A3BA770011C942 /* EquipmentDetailRow.swift */,
+				8F6912C620A3BA910011C942 /* EquipmentDetailRow.xib */,
 			);
 			path = Equipment;
 			sourceTree = "<group>";
@@ -220,6 +229,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F6912C720A3BA910011C942 /* EquipmentDetailRow.xib in Resources */,
 				8F1C83022094E3F500570C8D /* Info.plist in Resources */,
 				8FC11C72208EB31D00B083F8 /* LaunchScreen.storyboard in Resources */,
 				8FC11C6F208EB31D00B083F8 /* Assets.xcassets in Resources */,
@@ -279,8 +289,10 @@
 				8F79EE88208F5F6A002E95F9 /* Land.swift in Sources */,
 				8F79EE8C208F5F79002E95F9 /* Air.swift in Sources */,
 				8F1C83042094E47600570C8D /* UIColor+AppColors.swift in Sources */,
+				8F6912C920A46C1A0011C942 /* UILabel+BoldUnderline.swift in Sources */,
 				8F1C83002094E3DD00570C8D /* Filesystem.swift in Sources */,
 				8FC0051B209896F100E04417 /* UIView+ActivityIndicator.swift in Sources */,
+				8F6912C520A3BA770011C942 /* EquipmentDetailRow.swift in Sources */,
 				8FC11C66208EB31C00B083F8 /* AppDelegate.swift in Sources */,
 				8F1C830720962B5F00570C8D /* UILabel+IBDesignable.swift in Sources */,
 				8FC0051D209896FD00E04417 /* UIViewController+PresentAlert.swift in Sources */,
