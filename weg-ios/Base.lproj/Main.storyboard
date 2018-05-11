@@ -226,6 +226,9 @@
                                     <constraint firstAttribute="width" constant="44" id="kEj-8A-j0E"/>
                                 </constraints>
                                 <state key="normal" image="close"/>
+                                <connections>
+                                    <action selector="closeButtonPressed:" destination="ngz-0c-au8" eventType="touchUpInside" id="hDP-lB-dxH"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Equipment Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUj-EM-SC6">
                                 <rect key="frame" x="121.5" y="32" width="132" height="21"/>
@@ -308,8 +311,8 @@
                     </view>
                     <connections>
                         <outlet property="descriptionLabel" destination="64f-WI-oFr" id="0bu-oZ-Fd9"/>
-                        <outlet property="groupIcnImageView" destination="m37-xc-Fp7" id="uy4-dB-3jd"/>
-                        <outlet property="indIconImageView" destination="E1D-cw-iqE" id="6KM-ZA-uFf"/>
+                        <outlet property="groupImageView" destination="m37-xc-Fp7" id="uy4-dB-3jd"/>
+                        <outlet property="individualImageView" destination="E1D-cw-iqE" id="6KM-ZA-uFf"/>
                         <outlet property="photoImageView" destination="bBd-MW-Z4i" id="z9N-D7-OxU"/>
                         <outlet property="stackView" destination="owV-kW-MUW" id="oru-SU-lqr"/>
                         <outlet property="stackViewHeight" destination="Upa-Op-L8c" id="gck-VZ-f6g"/>

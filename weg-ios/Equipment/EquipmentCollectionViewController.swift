@@ -58,8 +58,9 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
     private let equipmentSegue = "showEquipmentSegue"
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == equipmentSegue {
-            guard let dest = segue.destination as? EquipmentViewController else {return}
-            dest.equipment = sender as? Equipment
+            let dest = segue.destination as! EquipmentViewController 
+            dest.equipmentToView = sender as? Equipment
+            print(dest.equipmentToView.debugDescription)
         }
     }
 
