@@ -58,9 +58,12 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
     private let equipmentSegue = "showEquipmentSegue"
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == equipmentSegue {
-            let dest = segue.destination as! EquipmentViewController 
-            dest.equipmentToView = sender as? Equipment
-            print(dest.equipmentToView.debugDescription)
+            guard let dest = segue.destination as? EquipmentViewController else{return}
+            let index = sender as! Int
+            let item = (searchActive) ? searchedEquipment[index] : equipment[index]
+            dest.equipmentToView = item   
+        } else {
+            super.prepare(for: segue, sender: sender)
         }
     }
 
@@ -77,8 +80,7 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let e = (searchActive) ? searchedEquipment[indexPath.row] : equipment[indexPath.row]
-        performSegue(withIdentifier: equipmentSegue, sender: e)
+        performSegue(withIdentifier: equipmentSegue, sender: indexPath.row)
     }
     
     // MARK: - SearchBar
