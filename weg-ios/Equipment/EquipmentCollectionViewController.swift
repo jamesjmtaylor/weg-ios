@@ -19,6 +19,7 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "WEG 2015"
         collectionView.dataSource = self
         collectionView.delegate = self
         searchBar.delegate = self
@@ -61,7 +62,7 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
             guard let dest = segue.destination as? EquipmentViewController else{return}
             let index = sender as! Int
             let item = (searchActive) ? searchedEquipment[index] : equipment[index]
-            dest.equipmentToView = item   
+            dest.equipmentToView = item
         } else {
             super.prepare(for: segue, sender: sender)
         }
