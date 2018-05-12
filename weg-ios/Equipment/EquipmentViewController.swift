@@ -27,6 +27,8 @@ class EquipmentViewController: UIViewController{
     }
     
     func configureViewToEquipmentType(item: Equipment?){
+        self.navigationItem.title = item?.name
+
         descriptionLabel.text = "Description: "
         descriptionLabel?.bold()
         

@@ -8,11 +8,11 @@
 
 import UIKit
 
-class EquipmentCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate{
+class EquipmentCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate, UITabBarControllerDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewFlowLayout: UICollectionViewFlowLayout!
-    
+    var allEquipment = [Equipment]()
     var equipment = [Equipment]()
     var searchedEquipment = [Equipment]()
     
@@ -23,6 +23,9 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
         collectionView.dataSource = self
         collectionView.delegate = self
         searchBar.delegate = self
+        guard let tabBar = UIApplication.shared.keyWindow?.rootViewController
+            as? UITabBarController else {return}
+        tabBar.delegate = self
         getEquipment()
     }
     override func viewDidLayoutSubviews() {
@@ -43,23 +46,25 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
                 if let errorString = error {
                     self.presentAlert(alert: errorString)
                 } else if let e = fetchedEquipment {
-                    self.equipment = e
-                    self.collectionView.reloadData()
+                    self.allEquipment = e
                 }
             }
         }
         guard let unwrappedEquipment = storedEquipment else {
             spinner = self.view.getAndStartActivityIndicator();return
         }
-        equipment = unwrappedEquipment
+        allEquipment = unwrappedEquipment
+        //self.setEquipmentToLand()
         collectionView.reloadData()
     }
+
 
     // MARK: - Navigation
     private let equipmentSegue = "showEquipmentSegue"
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == equipmentSegue {
-            guard let dest = segue.destination as? EquipmentViewController else{return}
+            guard let nav = segue.destination as? UINavigationController else {return}
+            guard let dest = nav.topViewController as? EquipmentViewController else {return}
             let index = sender as! Int
             let item = (searchActive) ? searchedEquipment[index] : equipment[index]
             dest.equipmentToView = item
@@ -67,8 +72,32 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
             super.prepare(for: segue, sender: sender)
         }
     }
-
-
+    let LandNavController = "LandNavController"
+    let AirNavController = "AirNavController"
+    let SeaNavController = "SeaNavController"
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        switch viewController.restorationIdentifier {
+        case LandNavController: self.setEquipmentToLand()
+        case AirNavController: self.setEquipmentToAir()
+        case SeaNavController: self.setEquipmentToSea()
+        default: return}//Do nothing
+    }
+    func setEquipmentToLand(){
+        self.equipment = self.allEquipment.filter({ (e) -> Bool in
+            return e.type == EquipmentType.LAND || e.type == EquipmentType.GUN
+        })
+        collectionView.reloadData()
+    }
+    func setEquipmentToAir(){
+        self.equipment =
+            self.allEquipment.filter { (e) -> Bool in return e.type == EquipmentType.AIR}
+        collectionView.reloadData()
+    }
+    func setEquipmentToSea(){
+        self.equipment =
+            self.allEquipment.filter { (e) -> Bool in return e.type == EquipmentType.SEA}
+        collectionView.reloadData()
+    }
     // MARK: - UICollectionViewDataSource
     private let reuseIdentifier = "EquipmentCollectionViewCell"
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
