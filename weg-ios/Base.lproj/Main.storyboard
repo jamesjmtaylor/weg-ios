@@ -238,20 +238,20 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ox1-Wj-sUO">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bBd-MW-Z4i" userLabel="photoImageView">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bBd-MW-Z4i" userLabel="photoImageView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="192"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="192" id="IHD-Mk-6ct"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="m37-xc-Fp7" userLabel="groupIcnImageView">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="m37-xc-Fp7" userLabel="groupIcnImageView">
                                         <rect key="frame" x="8" y="200" width="117" height="117"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="m37-xc-Fp7" secondAttribute="height" multiplier="1:1" id="MMN-ro-O8Z"/>
                                             <constraint firstAttribute="height" constant="117" id="smz-Ji-xJI"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E1D-cw-iqE" userLabel="indIconImageView">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E1D-cw-iqE" userLabel="indIconImageView">
                                         <rect key="frame" x="133" y="200" width="117" height="117"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="E1D-cw-iqE" secondAttribute="height" multiplier="1:1" id="3ar-CZ-SCf"/>
@@ -354,6 +354,6 @@
         <image name="ic_sea" width="36" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mO4-kz-D5W"/>
+        <segue reference="Pne-KN-GwL"/>
     </inferredMetricsTieBreakers>
 </document>

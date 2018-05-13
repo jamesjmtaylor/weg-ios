@@ -30,7 +30,6 @@ class EquipmentViewController: UIViewController{
         self.navigationItem.title = item?.name
 
         descriptionLabel.text = "Description: "
-        descriptionLabel?.bold()
         
         if let item = item as? Gun {
             setImage(groupImageView, item.groupIconUrl)
