@@ -65,13 +65,16 @@ class EquipmentViewController: UIViewController{
     var numRows = 0
     var rowHeight = 45
     func createDetailRow(_ title: String, _ value: String, _ header: Bool = false) {
-        guard let toggleView = Bundle.main.loadNibNamed("EquipmentDetailRow", owner: self, options: nil)?.first as? EquipmentDetailRow else {return}
-        toggleView.configure(title: title, value: value, header: header)
-        self.stackView.addArrangedSubview(toggleView)
+        guard let detailRowView = Bundle.main.loadNibNamed("EquipmentDetailRow", owner: self, options: nil)?.first as? EquipmentDetailRow else {return}
+        let frame = CGRect(x: 0, y: 0, width: Int(self.view.frame.width), height: rowHeight)
+        detailRowView.frame = frame
+        detailRowView.configure(title: title, value: value, header: header)
+        self.stackView.addArrangedSubview(detailRowView)
         numRows += 1
     }
     func adjustStackViewHeight(stackViewHeight: NSLayoutConstraint, numRows: Int, rowHeight: Int){
         stackViewHeight.constant = CGFloat(numRows * rowHeight)
+        stackView.layoutIfNeeded()
     }
     func setDetailViews(gun: Gun){
         if (gun.range ?? 0 > 0 ) {createDetailRow("Range",gun.range!.description+" meters")}

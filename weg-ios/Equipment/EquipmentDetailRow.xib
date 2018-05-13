@@ -13,18 +13,17 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" restorationIdentifier="EquipmentDetailRow" id="iN0-l3-epB" customClass="EquipmentDetailRow" customModule="weg_ios" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="474" height="61"/>
+            <rect key="frame" x="0.0" y="0.0" width="474" height="40"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Equipment Attribute" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haB-kt-omQ">
-                    <rect key="frame" x="20" y="20" width="167" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Equipment Attribute" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haB-kt-omQ">
+                    <rect key="frame" x="16" y="4" width="167" height="32"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNN-0L-Qri">
-                    <rect key="frame" x="408" y="20" width="42" height="21"/>
+                    <rect key="frame" x="416" y="4" width="42" height="32"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -32,8 +31,12 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="vNN-0L-Qri" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="Qww-Hu-Y5H"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vNN-0L-Qri" secondAttribute="trailing" constant="24" id="Tl0-Gz-F4O"/>
+                <constraint firstItem="vNN-0L-Qri" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="4" id="1og-SA-FWV"/>
+                <constraint firstItem="haB-kt-omQ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="AK7-4k-Fyc"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vNN-0L-Qri" secondAttribute="trailing" constant="16" id="Tl0-Gz-F4O"/>
+                <constraint firstItem="haB-kt-omQ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="4" id="VqL-Qx-MIa"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="vNN-0L-Qri" secondAttribute="bottom" constant="4" id="lK9-ui-xxE"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="haB-kt-omQ" secondAttribute="bottom" constant="4" id="uKf-Yr-ld1"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -41,7 +44,7 @@
                 <outlet property="titleLabel" destination="haB-kt-omQ" id="D6z-dT-YCM"/>
                 <outlet property="valueLabel" destination="vNN-0L-Qri" id="buk-Gf-YDM"/>
             </connections>
-            <point key="canvasLocation" x="140" y="-385.5"/>
+            <point key="canvasLocation" x="140" y="-396"/>
         </view>
     </objects>
 </document>
