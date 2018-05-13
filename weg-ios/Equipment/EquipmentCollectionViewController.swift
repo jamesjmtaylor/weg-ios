@@ -22,14 +22,11 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
         self.navigationItem.title = "WEG 2015"
         collectionView.dataSource = self
         collectionView.delegate = self
-        searchBar.delegate = self
-        guard let tabBar = UIApplication.shared.keyWindow?.rootViewController
-            as? UITabBarController else {return}
-        tabBar.delegate = self
-        getEquipment()
+        searchBar.delegate = self     
     }
     override func viewDidLayoutSubviews() {
         setupCollectionViewLayout()
+        getEquipment()
     }
     var sideSize: CGFloat = 0
     func setupCollectionViewLayout(){
@@ -47,6 +44,7 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
                     self.presentAlert(alert: errorString)
                 } else if let e = fetchedEquipment {
                     self.allEquipment = e
+                    self.filterTypeToSelectedTab()
                 }
             }
         }
@@ -54,10 +52,20 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
             spinner = self.view.getAndStartActivityIndicator();return
         }
         allEquipment = unwrappedEquipment
-        //self.setEquipmentToLand()
+        filterTypeToSelectedTab()
         collectionView.reloadData()
     }
-
+    // MARK: - Filter Equipment Type
+    func filterTypeToSelectedTab(){
+        guard let tabBar = UIApplication.shared.keyWindow?.rootViewController
+            as? UITabBarController else {return}
+        guard let selectedTab = tabBar.selectedViewController else {return}
+        switch selectedTab.restorationIdentifier {
+        case LandNavController: self.setEquipmentToLand()
+        case AirNavController: self.setEquipmentToAir()
+        case SeaNavController: self.setEquipmentToSea()
+        default: return}//Do nothing
+    }
 
     // MARK: - Navigation
     private let equipmentSegue = "showEquipmentSegue"
@@ -72,16 +80,10 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
             super.prepare(for: segue, sender: sender)
         }
     }
+
     let LandNavController = "LandNavController"
     let AirNavController = "AirNavController"
     let SeaNavController = "SeaNavController"
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        switch viewController.restorationIdentifier {
-        case LandNavController: self.setEquipmentToLand()
-        case AirNavController: self.setEquipmentToAir()
-        case SeaNavController: self.setEquipmentToSea()
-        default: return}//Do nothing
-    }
     func setEquipmentToLand(){
         self.equipment = self.allEquipment.filter({ (e) -> Bool in
             return e.type == EquipmentType.LAND || e.type == EquipmentType.GUN
