@@ -10,46 +10,29 @@ import Foundation
 import UIKit
 
 extension UILabel {
-    func underline() {
-        if let textString = self.text {
-            let attributedString = NSMutableAttributedString(string: textString)
-            attributedString.addAttribute(NSAttributedStringKey.underlineStyle,
-                                          value: NSUnderlineStyle.styleSingle.rawValue,
-                                          range: NSRange(location: 0, length: attributedString.length - 1))
-            attributedText = attributedString
-        }
-    }
-    func bold() {
-        if let textString = self.text {
-            let attributedString = NSMutableAttributedString(string: textString).bold(textString)
-            self.attributedText = attributedString
-        }
-    }
-}
-
-extension UIButton {
-    func underline() {
-        let attributedString = NSMutableAttributedString(string: (self.titleLabel?.text!)!)
-        attributedString.addAttribute(NSAttributedStringKey.underlineStyle,
-                                      value: NSUnderlineStyle.styleSingle.rawValue,
-                                      range: NSRange(location: 0, length: (self.titleLabel?.text!.count)!))
-        self.setAttributedTitle(attributedString, for: .normal)
+    func addAttributes(isBolded: Bool = false, isUnderlined: Bool = false){
+        var attrs = [NSAttributedStringKey:Any]()
+        let underline = [NSAttributedStringKey.underlineStyle : NSUnderlineStyle.styleSingle.rawValue]
+        let bold = [NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 17)]
+        if isBolded {attrs[bold.keys.first!] = (bold.values.first!)}
+        if isUnderlined {attrs[underline.keys.first!] = (underline.values.first!)}
+        let attributedString = NSMutableAttributedString(string: self.text ?? "",
+                                                         attributes: attrs)
+        self.attributedText = attributedString
     }
 }
 
 extension NSMutableAttributedString {
     @discardableResult func bold(_ text: String) -> NSMutableAttributedString {
-        let attrs: [NSAttributedStringKey: Any] = [.font: UIFont(name: "AvenirNext-Medium", size: 12)!]
+        let attrs = [NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 17)]
         let boldString = NSMutableAttributedString(string:text, attributes: attrs)
         append(boldString)
-        
         return self
     }
     
     @discardableResult func normal(_ text: String) -> NSMutableAttributedString {
         let normal = NSAttributedString(string: text)
         append(normal)
-        
         return self
     }
 }

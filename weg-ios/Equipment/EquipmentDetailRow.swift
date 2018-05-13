@@ -15,10 +15,8 @@ class EquipmentDetailRow: UIView {
         titleLabel.text = title
         valueLabel.text = value
         if header {
-            titleLabel.bold()
-            titleLabel.underline()
-            valueLabel.bold()
-            valueLabel.underline()
+            titleLabel.addAttributes(isBolded: true, isUnderlined: true)
+            valueLabel.addAttributes(isBolded: true, isUnderlined: true)
         }
     }
 

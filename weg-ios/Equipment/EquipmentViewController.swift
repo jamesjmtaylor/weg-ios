@@ -29,27 +29,34 @@ class EquipmentViewController: UIViewController{
     func configureViewToEquipmentType(item: Equipment?){
         self.navigationItem.title = item?.name
 
-        descriptionLabel.text = "Description: "
-        
+        let formattedString = NSMutableAttributedString()
         if let item = item as? Gun {
             setImage(groupImageView, item.groupIconUrl)
             setImage(individualImageView, item.individualIconUrl)
-            descriptionLabel.text?.append(item.description ?? "")
+            formattedString.bold("Description: ").normal(item.description ?? "")
+            descriptionLabel.attributedText = formattedString
+
             setDetailViews(gun: item)
         } else if let item = item as? Land {
             setImage(groupImageView, item.groupIconUrl)
             setImage(individualImageView, item.individualIconUrl)
-            descriptionLabel.text?.append(item.description ?? "")
+            formattedString.bold("Description: ").normal(item.description ?? "")
+            descriptionLabel.attributedText = formattedString
+
             setDetailViews(land: item)
         } else if let item = item as? Sea {
             setImage(individualImageView, item.individualIconUrl)
-            descriptionLabel.text?.append(item.description ?? "")
+            formattedString.bold("Description: ").normal(item.description ?? "")
+            descriptionLabel.attributedText = formattedString
+
             groupImageView?.isHidden = true
             setDetailViews(sea: item)
         } else if let item = item as? Air {
             setImage(groupImageView, item.groupIconUrl)
             setImage(individualImageView, item.individualIconUrl)
-            descriptionLabel.text?.append(item.description ?? "")
+            formattedString.bold("Description: ").normal(item.description ?? "")
+            descriptionLabel.attributedText = formattedString
+
             setDetailViews(air: item)
         }
         adjustStackViewHeight(stackViewHeight: self.stackViewHeight,
