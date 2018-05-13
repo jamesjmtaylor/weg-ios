@@ -70,7 +70,7 @@ class EquipmentViewController: UIViewController{
     
     // MARK: - Detail Row Logic
     var numRows = 0
-    var rowHeight = 45
+    var rowHeight = 28
     func createDetailRow(_ title: String, _ value: String, _ header: Bool = false) {
         guard let detailRowView = Bundle.main.loadNibNamed("EquipmentDetailRow", owner: self, options: nil)?.first as? EquipmentDetailRow else {return}
         let frame = CGRect(x: 0, y: 0, width: Int(self.view.frame.width), height: rowHeight)
