@@ -30,6 +30,9 @@
 		8FC11C6D208EB31C00B083F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FC11C6B208EB31C00B083F8 /* Main.storyboard */; };
 		8FC11C6F208EB31D00B083F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FC11C6E208EB31D00B083F8 /* Assets.xcassets */; };
 		8FC11C72208EB31D00B083F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FC11C70208EB31D00B083F8 /* LaunchScreen.storyboard */; };
+		8FD30BE420A9B25900ED7C5B /* CardsSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD30BE320A9B25900ED7C5B /* CardsSetupViewController.swift */; };
+		8FD30BE620A9B30200ED7C5B /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD30BE520A9B30200ED7C5B /* CardsViewController.swift */; };
+		8FD30BE820A9B7DF00ED7C5B /* ButtonRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD30BE720A9B7DF00ED7C5B /* ButtonRow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +60,9 @@
 		8FC11C6C208EB31C00B083F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8FC11C6E208EB31D00B083F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8FC11C71208EB31D00B083F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8FD30BE320A9B25900ED7C5B /* CardsSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsSetupViewController.swift; sourceTree = "<group>"; };
+		8FD30BE520A9B30200ED7C5B /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
+		8FD30BE720A9B7DF00ED7C5B /* ButtonRow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonRow.xib; sourceTree = "<group>"; };
 		953678E7444C56934AA747B4 /* Pods_weg_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weg_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA16DFA6F3EDF1D7D9A2CDF8 /* Pods-weg-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weg-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-weg-ios/Pods-weg-ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +126,9 @@
 		8F79EE84208F5E4C002E95F9 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
+				8FD30BE320A9B25900ED7C5B /* CardsSetupViewController.swift */,
+				8FD30BE520A9B30200ED7C5B /* CardsViewController.swift */,
+				8FD30BE720A9B7DF00ED7C5B /* ButtonRow.xib */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -229,6 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FD30BE820A9B7DF00ED7C5B /* ButtonRow.xib in Resources */,
 				8F6912C720A3BA910011C942 /* EquipmentDetailRow.xib in Resources */,
 				8F1C83022094E3F500570C8D /* Info.plist in Resources */,
 				8FC11C72208EB31D00B083F8 /* LaunchScreen.storyboard in Resources */,
@@ -289,8 +299,10 @@
 				8F79EE88208F5F6A002E95F9 /* Land.swift in Sources */,
 				8F79EE8C208F5F79002E95F9 /* Air.swift in Sources */,
 				8F1C83042094E47600570C8D /* UIColor+AppColors.swift in Sources */,
+				8FD30BE620A9B30200ED7C5B /* CardsViewController.swift in Sources */,
 				8F6912C920A46C1A0011C942 /* UILabel+BoldUnderline.swift in Sources */,
 				8F1C83002094E3DD00570C8D /* Filesystem.swift in Sources */,
+				8FD30BE420A9B25900ED7C5B /* CardsSetupViewController.swift in Sources */,
 				8FC0051B209896F100E04417 /* UIView+ActivityIndicator.swift in Sources */,
 				8F6912C520A3BA770011C942 /* EquipmentDetailRow.swift in Sources */,
 				8FC11C66208EB31C00B083F8 /* AppDelegate.swift in Sources */,
