@@ -22,6 +22,7 @@ class EquipmentViewController: UIViewController{
     var equipmentToView : Equipment?
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configureViewToEquipmentType(item: equipmentToView)
         setImage(photoImageView, equipmentToView?.photoUrl)
     }
