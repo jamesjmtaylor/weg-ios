@@ -80,4 +80,9 @@ class EquipmentRepository {
         }
         prefetcher.start()
     }
+    static func setImage(_ imageView: UIImageView ,_ url: String?){
+        guard let imageUrl = url else {return}
+        guard let url = URL(string: EquipmentRepository.baseUrl() + imageUrl) else {return}
+        imageView.kf.setImage(with: url, options: nil)
+    }
 }

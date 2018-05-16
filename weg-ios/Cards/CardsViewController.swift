@@ -20,40 +20,55 @@ class CardsViewController: UIViewController {
     var currentDeckIndex = -1
     var difficulty = Difficulty.EASY
     var timeRemaining = 10
-    private var incorrectGuesses = 0
-    private var totalGuesses = 0
+    var incorrectGuesses = 0
+    var totalGuesses = 0
+    
+    var oneSecondTimer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         createGuessRows()
         updateUi()
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.initOneSecondTimer(start: true)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.initOneSecondTimer(start: false)
+    }
+    @IBOutlet weak var cardCountLabel: UILabel!
+    @IBOutlet weak var equipmentImageView: UIImageView!
+    
+    @IBOutlet weak var timeRemainingLabel: UILabel!
     private func updateUi() {
-        let current = getCurrentCardNumber().toString()
-        let total = deckSize.toString()
-        cardCountTextView.text = "${current} of ${total}"
-        if (nildifficulty?.equals(Difficulty.EASY)??true){
-            timeRemainingTextView.visibility = View.GONE
+        let current = getCurrentCardNumber().description
+        let total = deckSize.description
+        cardCountLabel.text = "\(current) of \(total)"
+        if difficulty == Difficulty.EASY{
+            timeRemainingLabel.isHidden = true
         }
-//        Glide.with(this)
-//            .load(baseUrl + nilcorrectCard?.photoUrl)
-//            .apply(RequestOptions()
-//                .diskCacheStrategy(DiskCacheStrategy.ALL)
-//                .centerInside())
-//            .into(equipmentImageView)
+        EquipmentRepository.setImage(equipmentImageView, correctCard?.photoUrl)
         populateGuessButtons()
     }
     func createGuessRows() {
-        for i in 0 ..< difficulty?.ordinal ?? 0 {
-            let inflater = LayoutInflater.from(activity)
-            let guessRow = inflater.inflate(R.layout.row_cards, nil, false)
-            let choice0 = guessRow.findViewById<Button>(R.id.choice0)
-            let choice1 = guessRow.findViewById<Button>(R.id.choice1)
-            let choice2 = guessRow.findViewById<Button>(R.id.choice2)
-            choice0.setOnClickListener(guessClickListener)
-            choice1.setOnClickListener(guessClickListener)
-            choice2.setOnClickListener(guessClickListener)
-            guessLinearLayout.addView(guessRow)
+        var numEows = 0
+        switch difficulty {
+        case Difficulty.EASY : numEows = 1
+        case Difficulty.MEDIUM : numEows = 2
+        case Difficulty.HARD : numEows = 3 }
+        
+        for i in 0 ..< numEows {
+            //            let inflater = LayoutInflater.from(activity)
+            //            let guessRow = inflater.inflate(R.layout.row_cards, nil, false)
+            //            let choice0 = guessRow.findViewById<Button>(R.id.choice0)
+            //            let choice1 = guessRow.findViewById<Button>(R.id.choice1)
+            //            let choice2 = guessRow.findViewById<Button>(R.id.choice2)
+            //            choice0.setOnClickListener(guessClickListener)
+            //            choice1.setOnClickListener(guessClickListener)
+            //            choice2.setOnClickListener(guessClickListener)
+            //            guessLinearLayout.addView(guessRow)
         }
     }
     func populateGuessButtons() {
@@ -77,29 +92,26 @@ class CardsViewController: UIViewController {
     private let guessClickListener = object -> View.OnClickListener{
         override func onClick(p0: View?) {
             let button = (p0 as? Button)
-            let guess = button?.text.toString()
+            let guess = button?.text.description
             if ((nilcheckGuessAndIncrementTotal(guess) ?? false)||button==nil){ //Go to next card
                 reactivateGuessButtons()
-                if (nilisEnd() ?? false){ //Last answer
-                    nilstopTimer()
-                    let percentage = nilcalculateCorrectPercentage() ?? 0
-                    let builder = AlertDialog.Builder(context, android.R.style.Theme_Material_Dialog_Alert)
-                    builder.setTitle("Quiz Completed")
-                        .setMessage("You got ${percentage}% correct.")
-                        .setPositiveButton("Restart Quiz") { dialog, which ->
-                            nilresetTest()
-                            updateUi()
-                        }
-                        .setNegativeButton("Change Quiz") { dialog, which ->
-                            activity?.fragmentFrameLayout?.id?.let {
-                                let cardsSetupFragment = CardsSetupFragment()
-                                let transaction = activity?.supportFragmentManager
-                                transaction?.beginTransaction()?.replace(it, cardsSetupFragment, cardsSetupFragment.TAG)?.commit()
-                            }
-                        }
-                        .show()
+                if (isEnd() ?? false){ //Last answer
+                    stopTimer()
+                    let percentage = calculateCorrectPercentage() ?? 0
+                    let alert = UIAlertController(title: "Quiz Completed", message: "You got \(percentage)% correct.", preferredStyle: .alert)
+                    let restartAction = UIAlertAction(title: "Restart Quiz", style: .default, handler: {
+                        resetTest()
+                        updateUi()
+                    })
+                    let changeAction = UIAlertAction(title: "Change Quiz", style: .default, handler: {
+                        dismiss
+                    })
+                    alert.addAction(restartAction)
+                    alert.addAction(restartAction)
+                    self.present(alert, animated: true, completion: nil)
+                    
                 } else { //Not last answer
-                    nilsetNextCardGetChoicesResetTimer()
+                    setNextCardGetChoicesResetTimer()
                     updateUi()
                 }
             } else {//Incorrect answer
@@ -107,28 +119,18 @@ class CardsViewController: UIViewController {
             }
         }
     }
-    let timeObserver = Observer<Int> { timeRemaining ->
-        let timeText = "00:${String.format("%02d", timeRemaining)} Remaining"
-        timeRemainingTextView.text = timeText
-        if (timeRemaining != nil && timeRemaining < 1) {
-            guessClickListener.onClick(nil)
-        }
-    }
     
-    func getCurrentCardNumber()->Int{
-        return currentDeckIndex + 1
-        //return totalGuesses - incorrectGuesses + 1
-    }
+    func getCurrentCardNumber()->Int {return currentDeckIndex + 1}
     private func generateCards(){
-        let possibleCards = equipment.letue?.filter { selectedTypes.contains(it.type) }
-        if (deckSize > possibleCards?.size ?? 0){
-            cards.addAll(0,possibleCards as? Collection<Equipment> ?? return)
-            deckSize = possibleCards.size
+        let possibleCards = equipment.filter { (e) -> Bool in selectedTypes.contains(e.type)}
+        if deckSize > possibleCards.count{
+            cards.append(contentsOf: possibleCards)
+            deckSize = possibleCards.count
         } else {
-            Collections.shuffle(possibleCards)
-            for (i in 0 ..< deckSize) {
-                let card = possibleCards?.get(i)
-                cards.add(card ?? return)
+            possibleCards.shuffle(possibleCards)
+            for i in 0 ..< deckSize {
+                if let card = possibleCards?[i] {cards.add(card)}
+                
             }
         }
     }
@@ -136,46 +138,44 @@ class CardsViewController: UIViewController {
         let possibleCards = equipment.letue ?? ArrayList<Equipment>()
         Collections.shuffle(possibleCards)
         var i = -1
-        choices.removeAll{true}
+        choices.removeAll()
         while (choices.size < difficulty.choices && i < possibleCards.lastIndex){
-            i++
-            if (possibleCards.get(i).name.equals(correctCard?.name)) continue //Don't add correct answer yet
-            choices.add(shorten(possibleCards.get(i).name))
+            i = i + 1
+            if (possibleCards[i].name == correctCard?.name) {continue} //Don't add correct answer yet
+            choices.add(shorten(possibleCards[i].name))
         }
-        correctChoiceIndex = (0 .. difficulty.choices).random()
-        choices[correctChoiceIndex] = (shorten(correctCard?.name??"")) //choices fully generated
+        correctChoiceIndex = (0 ... difficulty.choices).random()
+        choices[correctChoiceIndex] = (shorten(correctCard?.name ?? "")) //choices fully generated
     }
     func checkGuessAndIncrementTotal(selectedAnswer: String)->Bool{
-        let correct = selectedAnswer == choices.get(correctChoiceIndex)
+        let correct = selectedAnswer == choices[correctChoiceIndex]
         totalGuesses = totalGuesses + 1
         if !correct {incorrectGuesses = incorrectGuesses + 1
-        return correct
+            return correct
+        }
     }
     func setNextCardGetChoicesResetTimer(){
-        currentDeckIndex++
-        if (currentDeckIndex >= cards.size) return
-        correctCard = cards.get(currentDeckIndex)
-        generateChoices(correctCard)
+        currentDeckIndex = currentDeckIndex + 1
+        if currentDeckIndex >= cards.count {return}
+        correctCard = cards[currentDeckIndex]
+        generateChoices(correctCard: correctCard)
         resetTimer()
     }
     func isEnd()->Bool{
-        return (currentDeckIndex >= cards.lastIndex)
+        return (currentDeckIndex >= cards.endIndex)
     }
     func calculateCorrectPercentage()-> Int{
-        return (((totalGuesses - incorrectGuesses).toDouble()) / (totalGuesses.toDouble()) * 100).toInt()
+        return Int((Double(totalGuesses - incorrectGuesses)) / Double(totalGuesses) * 100)
     }
     func resetTest(){
         totalGuesses = 0
         incorrectGuesses = 0
         currentDeckIndex = -1
-        cards = ArrayList()
+        cards = [Equipment]()
         generateCards()
         setNextCardGetChoicesResetTimer()
     }
-    private var timer = Timer()
-    func stopTimer(){
-        timer.cancel()
-    }
+    
     private func resetTimer(){
         setTimeToDifficulty()
         timer.cancel()
@@ -188,20 +188,42 @@ class CardsViewController: UIViewController {
     }
     
     private func setTimeToDifficulty() {
-        when (difficulty) {
-            Difficulty.EASY -> timeRemaining = 999
-            Difficulty.MEDIUM -> timeRemaining = 11
-            Difficulty.HARD -> timeRemaining = 6
-        }
+        switch difficulty {
+        case .EASY : timeRemaining = 999
+        case .MEDIUM : timeRemaining = 11
+        case .HARD : timeRemaining = 6}
     }
     
     // A helper method to take the string returned by toString and shorten it
     private func shorten(longName: String)-> String {
-        let descriptionStart = longName.indexOf(";")
-        return if (descriptionStart > 0) {
-            longName.substring(0, descriptionStart)
+        if let descriptionStart = longName.index(of: ";"){
+            return String(longName[..<descriptionStart])
         } else {
-            longName
+            return longName
+        }
+    }
+    
+    //MARK: - Timer methods
+    func initOneSecondTimer(start: Bool) {
+        if(start) {
+            if(self.oneSecondTimer == nil) {
+                let t = Timer.scheduledTimer(timeInterval: 0.5,target: self,selector: #selector(oneSecondUIRefresh), userInfo: nil,repeats: true)
+                self.oneSecondTimer = t
+            }
+        } else {
+            if(self.oneSecondTimer != nil) {
+                self.oneSecondTimer?.invalidate()
+                self.oneSecondTimer = nil
+            }
+        }
+    }
+    
+    @objc func oneSecondUIRefresh() {
+        let timeText = "00:\("%02d", timeRemaining) Remaining"
+        timeRemainingLabel.text = timeText
+        if timeRemaining < 1 {
+            guessClickListener.onClick(nil)
         }
     }
 }
+

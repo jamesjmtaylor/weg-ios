@@ -63,11 +63,6 @@ class EquipmentViewController: UIViewController{
         adjustStackViewHeight(stackViewHeight: self.stackViewHeight,
                               numRows: self.numRows, rowHeight: self.rowHeight)
     }
-    func setImage(_ imageView: UIImageView ,_ url: String?){
-        guard let imageUrl = url else {return}
-        guard let url = URL(string: EquipmentRepository.baseUrl() + imageUrl) else {return}
-        imageView.kf.setImage(with: url, options: nil)
-    }
     
     // MARK: - Detail Row Logic
     var numRows = 0

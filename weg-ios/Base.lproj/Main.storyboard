@@ -264,6 +264,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="zrW-FQ-Lwy"/>
                     </view>
+                    <connections>
+                        <outlet property="cardCountLabel" destination="5yk-MY-PXx" id="QHP-rR-041"/>
+                        <outlet property="equipmentImageView" destination="JAQ-D1-3u7" id="DDM-Og-w9m"/>
+                        <outlet property="timeRemainingLabel" destination="2Tj-2b-CUm" id="QYI-qB-5QO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DHt-cN-8zr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+enum Difficulty: String {case EASY; case MEDIUM; case HARD}
 class CardsSetupViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var qtyStepper: UIStepper!
     @IBOutlet weak var pickerView: UIPickerView!
@@ -31,7 +31,7 @@ class CardsSetupViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     // MARK: - PickerView
     @IBOutlet weak var difficultyPicker: UIPickerView!
-    let difficultyChoices = ["Easy","Medium","Hard"]
+    let difficultyChoices = [Difficulty.EASY,Difficulty.MEDIUM,Difficulty.HARD]
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -41,7 +41,7 @@ class CardsSetupViewController: UIViewController, UIPickerViewDelegate, UIPicker
         return difficultyChoices.count
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return difficultyChoices[row]
+        return difficultyChoices[row].rawValue
     }
     
     // MARK: - Buttons
