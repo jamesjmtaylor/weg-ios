@@ -16,6 +16,7 @@
 		8F1C830B209631BB00570C8D /* EquipmentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1C830A209631BB00570C8D /* EquipmentCollectionViewController.swift */; };
 		8F1C830D209631D400570C8D /* EquipmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1C830C209631D400570C8D /* EquipmentViewController.swift */; };
 		8F1C830F2096349400570C8D /* EquipmentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1C830E2096349400570C8D /* EquipmentCollectionViewCell.swift */; };
+		8F2DACE620B05B1C00F908FB /* Array+Shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2DACE520B05B1C00F908FB /* Array+Shuffle.swift */; };
 		8F6912C520A3BA770011C942 /* EquipmentDetailRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6912C420A3BA770011C942 /* EquipmentDetailRow.swift */; };
 		8F6912C720A3BA910011C942 /* EquipmentDetailRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F6912C620A3BA910011C942 /* EquipmentDetailRow.xib */; };
 		8F6912C920A46C1A0011C942 /* UILabel+BoldUnderline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6912C820A46C1A0011C942 /* UILabel+BoldUnderline.swift */; };
@@ -46,6 +47,7 @@
 		8F1C830A209631BB00570C8D /* EquipmentCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentCollectionViewController.swift; sourceTree = "<group>"; };
 		8F1C830C209631D400570C8D /* EquipmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentViewController.swift; sourceTree = "<group>"; };
 		8F1C830E2096349400570C8D /* EquipmentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentCollectionViewCell.swift; sourceTree = "<group>"; };
+		8F2DACE520B05B1C00F908FB /* Array+Shuffle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Shuffle.swift"; sourceTree = "<group>"; };
 		8F6912C420A3BA770011C942 /* EquipmentDetailRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentDetailRow.swift; sourceTree = "<group>"; };
 		8F6912C620A3BA910011C942 /* EquipmentDetailRow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EquipmentDetailRow.xib; sourceTree = "<group>"; };
 		8F6912C820A46C1A0011C942 /* UILabel+BoldUnderline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+BoldUnderline.swift"; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				8F1C830620962B5F00570C8D /* UILabel+IBDesignable.swift */,
 				8FC0051A209896F100E04417 /* UIView+ActivityIndicator.swift */,
 				8F6912C820A46C1A0011C942 /* UILabel+BoldUnderline.swift */,
+				8F2DACE520B05B1C00F908FB /* Array+Shuffle.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				8FD30BE420A9B25900ED7C5B /* CardsSetupViewController.swift in Sources */,
 				8FC0051B209896F100E04417 /* UIView+ActivityIndicator.swift in Sources */,
 				8F6912C520A3BA770011C942 /* EquipmentDetailRow.swift in Sources */,
+				8F2DACE620B05B1C00F908FB /* Array+Shuffle.swift in Sources */,
 				8FC11C66208EB31C00B083F8 /* AppDelegate.swift in Sources */,
 				8F1C830720962B5F00570C8D /* UILabel+IBDesignable.swift in Sources */,
 				8FC0051D209896FD00E04417 /* UIViewController+PresentAlert.swift in Sources */,

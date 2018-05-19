@@ -19,7 +19,7 @@ class CardsViewController: UIViewController {
     var deckSize = 10
     var currentDeckIndex = -1
     var difficulty = Difficulty.EASY
-    var timeRemaining = 10
+    var timeRemaining = 10.0
     var incorrectGuesses = 0
     var totalGuesses = 0
     
@@ -122,29 +122,30 @@ class CardsViewController: UIViewController {
     
     func getCurrentCardNumber()->Int {return currentDeckIndex + 1}
     private func generateCards(){
-        let possibleCards = equipment.filter { (e) -> Bool in selectedTypes.contains(e.type)}
+        var possibleCards = equipment.filter { (e) -> Bool in selectedTypes.contains(e.type)}
         if deckSize > possibleCards.count{
             cards.append(contentsOf: possibleCards)
             deckSize = possibleCards.count
         } else {
-            possibleCards.shuffle(possibleCards)
+            possibleCards.shuffle()
             for i in 0 ..< deckSize {
-                if let card = possibleCards?[i] {cards.add(card)}
-                
+                let card = possibleCards[i]
+                cards.append(card)
             }
         }
     }
     private func generateChoices(correctCard: Equipment?){
-        let possibleCards = equipment.letue ?? ArrayList<Equipment>()
-        Collections.shuffle(possibleCards)
+        var possibleCards = equipment
+        possibleCards.shuffle()
         var i = -1
         choices.removeAll()
-        while (choices.size < difficulty.choices && i < possibleCards.lastIndex){
+        while (choices.count < getChoicesForDifficulty() && i < possibleCards.count - 1){
             i = i + 1
             if (possibleCards[i].name == correctCard?.name) {continue} //Don't add correct answer yet
-            choices.add(shorten(possibleCards[i].name))
+            choices.append(shorten(possibleCards[i].name))
         }
-        correctChoiceIndex = (0 ... difficulty.choices).random()
+        
+        correctChoiceIndex = Int(arc4random_uniform(UInt32(getChoicesForDifficulty()-1)))
         choices[correctChoiceIndex] = (shorten(correctCard?.name ?? "")) //choices fully generated
     }
     func checkGuessAndIncrementTotal(selectedAnswer: String)->Bool{
@@ -178,13 +179,7 @@ class CardsViewController: UIViewController {
     
     private func resetTimer(){
         setTimeToDifficulty()
-        timer.cancel()
-        timer = Timer() //Chuck the old-timer & old task
-        let task = timerTask {
-            timeRemaining--; if (timeRemaining < 0) setTimeToDifficulty()
-            timeRemainingData.postletue(timeRemaining)
-        }
-        timer.schedule(task,0, 1000)
+        self.initOneSecondTimer(start: true)
     }
     
     private func setTimeToDifficulty() {
@@ -193,9 +188,15 @@ class CardsViewController: UIViewController {
         case .MEDIUM : timeRemaining = 11
         case .HARD : timeRemaining = 6}
     }
+    private func getChoicesForDifficulty() -> Int {
+        switch difficulty {
+        case .EASY : return 3
+        case .MEDIUM : return 6
+        case .HARD : return 9}
+    }
     
     // A helper method to take the string returned by toString and shorten it
-    private func shorten(longName: String)-> String {
+    private func shorten(_ longName: String)-> String {
         if let descriptionStart = longName.index(of: ";"){
             return String(longName[..<descriptionStart])
         } else {
@@ -204,10 +205,11 @@ class CardsViewController: UIViewController {
     }
     
     //MARK: - Timer methods
+    let timeInterval = 0.5
     func initOneSecondTimer(start: Bool) {
         if(start) {
             if(self.oneSecondTimer == nil) {
-                let t = Timer.scheduledTimer(timeInterval: 0.5,target: self,selector: #selector(oneSecondUIRefresh), userInfo: nil,repeats: true)
+                let t = Timer.scheduledTimer(timeInterval: timeInterval,target: self,selector: #selector(oneSecondUIRefresh), userInfo: nil,repeats: true)
                 self.oneSecondTimer = t
             }
         } else {
@@ -219,7 +221,8 @@ class CardsViewController: UIViewController {
     }
     
     @objc func oneSecondUIRefresh() {
-        let timeText = "00:\("%02d", timeRemaining) Remaining"
+        timeRemaining = timeRemaining - timeInterval
+        let timeText = "00:\("%02d", Int(timeRemaining)) Remaining"
         timeRemainingLabel.text = timeText
         if timeRemaining < 1 {
             guessClickListener.onClick(nil)

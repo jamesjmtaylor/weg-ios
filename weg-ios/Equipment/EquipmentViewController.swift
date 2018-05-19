@@ -24,7 +24,7 @@ class EquipmentViewController: UIViewController{
         super.viewDidLoad()
         
         configureViewToEquipmentType(item: equipmentToView)
-        setImage(photoImageView, equipmentToView?.photoUrl)
+        EquipmentRepository.setImage(photoImageView, equipmentToView?.photoUrl)
     }
     
     func configureViewToEquipmentType(item: Equipment?){
@@ -32,29 +32,29 @@ class EquipmentViewController: UIViewController{
 
         let formattedString = NSMutableAttributedString()
         if let item = item as? Gun {
-            setImage(groupImageView, item.groupIconUrl)
-            setImage(individualImageView, item.individualIconUrl)
+            EquipmentRepository.setImage(groupImageView, item.groupIconUrl)
+            EquipmentRepository.setImage(individualImageView, item.individualIconUrl)
             formattedString.bold("Description: ").normal(item.description ?? "")
             descriptionLabel.attributedText = formattedString
 
             setDetailViews(gun: item)
         } else if let item = item as? Land {
-            setImage(groupImageView, item.groupIconUrl)
-            setImage(individualImageView, item.individualIconUrl)
+            EquipmentRepository.setImage(groupImageView, item.groupIconUrl)
+            EquipmentRepository.setImage(individualImageView, item.individualIconUrl)
             formattedString.bold("Description: ").normal(item.description ?? "")
             descriptionLabel.attributedText = formattedString
 
             setDetailViews(land: item)
         } else if let item = item as? Sea {
-            setImage(individualImageView, item.individualIconUrl)
+            EquipmentRepository.setImage(individualImageView, item.individualIconUrl)
             formattedString.bold("Description: ").normal(item.description ?? "")
             descriptionLabel.attributedText = formattedString
 
             groupImageView?.isHidden = true
             setDetailViews(sea: item)
         } else if let item = item as? Air {
-            setImage(groupImageView, item.groupIconUrl)
-            setImage(individualImageView, item.individualIconUrl)
+            EquipmentRepository.setImage(groupImageView, item.groupIconUrl)
+            EquipmentRepository.setImage(individualImageView, item.individualIconUrl)
             formattedString.bold("Description: ").normal(item.description ?? "")
             descriptionLabel.attributedText = formattedString
 
