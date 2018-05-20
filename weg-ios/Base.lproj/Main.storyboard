@@ -78,7 +78,7 @@
             </objects>
             <point key="canvasLocation" x="-469" y="1181"/>
         </scene>
-        <!--Cards Setup View Controller-->
+        <!--Flashcard Setup-->
         <scene sceneID="TcG-lp-hRJ">
             <objects>
                 <viewController storyboardIdentifier="CardsSetupViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1bA-D9-EbV" customClass="CardsSetupViewController" customModule="weg_ios" customModuleProvider="target" sceneMemberID="viewController">
@@ -207,7 +207,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="v2F-Ip-UIK"/>
                     </view>
-                    <navigationItem key="navigationItem" id="tkb-Ng-hjg"/>
+                    <navigationItem key="navigationItem" title="Flashcard Setup" id="tkb-Ng-hjg"/>
                     <connections>
                         <outlet property="airSwitch" destination="aKv-p3-CYq" id="R16-A3-WzI"/>
                         <outlet property="difficultyPicker" destination="UH2-d4-z4a" id="CDE-9L-jRe"/>
@@ -217,13 +217,14 @@
                         <outlet property="qtyStepper" destination="Y7z-rw-sZQ" id="h0a-14-wCP"/>
                         <outlet property="seaSwitch" destination="glx-DQ-cyY" id="uVE-x8-x9C"/>
                         <outlet property="weaponsSwitch" destination="xE7-7L-8D3" id="6Fp-hc-9Oe"/>
+                        <segue destination="Eyb-7O-uQH" kind="presentation" id="pnY-Su-h3u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YLx-9C-aRS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="536" y="1181"/>
         </scene>
-        <!--Cards View Controller-->
+        <!--Identify the Equipment-->
         <scene sceneID="BER-aP-L9d">
             <objects>
                 <viewController storyboardIdentifier="CardsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UR3-QE-T93" customClass="CardsViewController" customModule="weg_ios" customModuleProvider="target" sceneMemberID="viewController">
@@ -231,48 +232,62 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Identify the Equipment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qm4-iM-0Bw">
-                                <rect key="frame" x="74" y="73" width="173" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 of 40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yk-MY-PXx">
+                                <rect key="frame" x="132" y="72" width="56" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3 of 40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yk-MY-PXx">
-                                <rect key="frame" x="132" y="102" width="56" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JAQ-D1-3u7">
-                                <rect key="frame" x="0.0" y="131" width="320" height="180"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JAQ-D1-3u7">
+                                <rect key="frame" x="0.0" y="101" width="320" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="Bh7-XM-6xn"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:06 Remaining" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Tj-2b-CUm">
-                                <rect key="frame" x="95" y="319" width="131" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:06 Remaining" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Tj-2b-CUm">
+                                <rect key="frame" x="95" y="289" width="131" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TvP-Nd-fh7">
-                                <rect key="frame" x="0.0" y="355" width="320" height="164"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TvP-Nd-fh7">
+                                <rect key="frame" x="0.0" y="325" width="320" height="164"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="164" id="HHq-Im-u4t"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5yk-MY-PXx" firstAttribute="top" secondItem="zrW-FQ-Lwy" secondAttribute="top" constant="8" id="6dx-gX-UfN"/>
+                            <constraint firstItem="JAQ-D1-3u7" firstAttribute="leading" secondItem="zrW-FQ-Lwy" secondAttribute="leading" id="Bs4-X6-5OX"/>
+                            <constraint firstItem="zrW-FQ-Lwy" firstAttribute="trailing" secondItem="TvP-Nd-fh7" secondAttribute="trailing" id="Kh8-CH-FQk"/>
+                            <constraint firstItem="zrW-FQ-Lwy" firstAttribute="trailing" secondItem="JAQ-D1-3u7" secondAttribute="trailing" id="MG9-n8-j81"/>
+                            <constraint firstItem="TvP-Nd-fh7" firstAttribute="top" secondItem="2Tj-2b-CUm" secondAttribute="bottom" constant="15" id="NwW-qJ-Obf"/>
+                            <constraint firstItem="JAQ-D1-3u7" firstAttribute="top" secondItem="5yk-MY-PXx" secondAttribute="bottom" constant="8" id="UUa-Na-xbg"/>
+                            <constraint firstItem="TvP-Nd-fh7" firstAttribute="leading" secondItem="zrW-FQ-Lwy" secondAttribute="leading" id="VXF-dL-yMG"/>
+                            <constraint firstItem="2Tj-2b-CUm" firstAttribute="centerX" secondItem="JAQ-D1-3u7" secondAttribute="centerX" id="gT5-2t-1IL"/>
+                            <constraint firstItem="5yk-MY-PXx" firstAttribute="centerX" secondItem="zrW-FQ-Lwy" secondAttribute="centerX" id="gVw-sE-Pxm"/>
+                            <constraint firstItem="2Tj-2b-CUm" firstAttribute="top" secondItem="JAQ-D1-3u7" secondAttribute="bottom" constant="8" id="i2B-zE-LOh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="zrW-FQ-Lwy"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Identify the Equipment" id="wfE-9x-g9v">
+                        <barButtonItem key="leftBarButtonItem" image="close" style="plain" id="Ngc-8o-ub3">
+                            <color key="tintColor" red="0.94509803920000002" green="0.95294117649999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="cardCountLabel" destination="5yk-MY-PXx" id="QHP-rR-041"/>
                         <outlet property="equipmentImageView" destination="JAQ-D1-3u7" id="DDM-Og-w9m"/>
+                        <outlet property="guessStackView" destination="TvP-Nd-fh7" id="VpG-do-OMj"/>
+                        <outlet property="guessStackViewHeight" destination="HHq-Im-u4t" id="2YM-Ru-tHy"/>
                         <outlet property="timeRemainingLabel" destination="2Tj-2b-CUm" id="QYI-qB-5QO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DHt-cN-8zr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1434.375" y="1180.9859154929577"/>
+            <point key="canvasLocation" x="2256" y="1181"/>
         </scene>
         <!--Sea-->
         <scene sceneID="ugj-NE-pMO">
@@ -396,7 +411,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sx5-2j-DEJ"/>
                     </view>
-                    <navigationItem key="navigationItem" id="pdl-GA-88t"/>
+                    <navigationItem key="navigationItem" title="WEG 2015" id="pdl-GA-88t"/>
                     <connections>
                         <outlet property="collectionView" destination="lXI-FL-3Nl" id="J6Y-Rr-NgV"/>
                         <outlet property="collectionViewFlowLayout" destination="Mmq-4f-aGQ" id="qMs-xL-opA"/>
@@ -408,7 +423,7 @@
             </objects>
             <point key="canvasLocation" x="1438" y="-251"/>
         </scene>
-        <!--Equipment View Controller-->
+        <!--Equipment Name-->
         <scene sceneID="ajx-br-EmC">
             <objects>
                 <viewController storyboardIdentifier="EquipmentViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ngz-0c-au8" customClass="EquipmentViewController" customModule="weg_ios" customModuleProvider="target" sceneMemberID="viewController">
@@ -482,7 +497,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rWf-WV-eJk"/>
                     </view>
-                    <navigationItem key="navigationItem" id="o8g-rs-b4I">
+                    <navigationItem key="navigationItem" title="Equipment Name" id="o8g-rs-b4I">
                         <barButtonItem key="leftBarButtonItem" image="close" id="SqD-jf-cnj">
                             <color key="tintColor" red="0.94509803920000002" green="0.95294117649999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -525,6 +540,28 @@
             </objects>
             <point key="canvasLocation" x="2169" y="-251"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="XAL-dh-eyu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Eyb-7O-uQH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jPP-zR-5fV">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.94509803920000002" green="0.95294117649999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="UR3-QE-T93" kind="relationship" relationship="rootViewController" id="Gzq-Kj-3xq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lmt-5K-DaP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1434.375" y="1180.9859154929577"/>
+        </scene>
     </scenes>
     <resources>
         <image name="close" width="16" height="16"/>
@@ -534,6 +571,6 @@
         <image name="ic_sea" width="36" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Pne-KN-GwL"/>
+        <segue reference="mO4-kz-D5W"/>
     </inferredMetricsTieBreakers>
 </document>

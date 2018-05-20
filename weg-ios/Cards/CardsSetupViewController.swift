@@ -14,7 +14,6 @@ class CardsSetupViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "WEG 2015"
         pickerView.delegate = self
         pickerView.dataSource = self
         pickerView.selectRow(1,inComponent:0,animated:false)

@@ -19,7 +19,6 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "WEG 2015"
         collectionView.dataSource = self
         collectionView.delegate = self
         searchBar.delegate = self     

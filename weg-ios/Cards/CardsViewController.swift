@@ -8,22 +8,28 @@
 
 import UIKit
 
-class CardsViewController: UIViewController {
+class CardsViewController: UIViewController, ButtonRowDelegate {
     let equipment = [Equipment]()
     var selectedTypes = [EquipmentType]()
+    
     private let repo = EquipmentRepository()
     private var cards = [Equipment]()
     var correctCard : Equipment? = nil
+    
     var choices = [String]()
     private var correctChoiceIndex = 0
+    
     var deckSize = 10
     var currentDeckIndex = -1
     var difficulty = Difficulty.EASY
-    var timeRemaining = 10.0
+    
     var incorrectGuesses = 0
     var totalGuesses = 0
+    @IBOutlet weak var guessStackView: UIStackView!
+    @IBOutlet weak var guessStackViewHeight: NSLayoutConstraint!
     
     var oneSecondTimer: Timer?
+    var timeRemaining = 10.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +56,26 @@ class CardsViewController: UIViewController {
             timeRemainingLabel.isHidden = true
         }
         EquipmentRepository.setImage(equipmentImageView, correctCard?.photoUrl)
-        populateGuessButtons()
+        createGuessRows()
+    }
+    //MARK: - Guess Rows
+    var numRows = 0
+    var rowHeight = 28
+    func createGuessRow(choice0: String, choice1: String, choice2: String,
+                        answer: String) {
+        guard let guessRowView = Bundle.main.loadNibNamed("ButtonRow", owner: self, options: nil)?.first as? ButtonRow else {return}
+        let frame = CGRect(x: 0, y: 0, width: Int(self.view.frame.width), height: rowHeight)
+        guessRowView.frame = frame
+        guessRowView.configure(option0: choice0,
+                               option1: choice1,
+                               option2: choice2, correctAnser: answer)
+        guessRowView.delegate = self
+        self.guessStackView.addArrangedSubview(guessRowView)
+        numRows += 1
+    }
+    func adjustStackViewHeight(stackViewHeight: NSLayoutConstraint, numRows: Int, rowHeight: Int){
+        guessStackViewHeight.constant = CGFloat(numRows * rowHeight)
+        guessStackView.layoutIfNeeded()
     }
     func createGuessRows() {
         var numEows = 0
@@ -59,80 +84,44 @@ class CardsViewController: UIViewController {
         case Difficulty.MEDIUM : numEows = 2
         case Difficulty.HARD : numEows = 3 }
         
-        for i in 0 ..< numEows {
-            //            let inflater = LayoutInflater.from(activity)
-            //            let guessRow = inflater.inflate(R.layout.row_cards, nil, false)
-            //            let choice0 = guessRow.findViewById<Button>(R.id.choice0)
-            //            let choice1 = guessRow.findViewById<Button>(R.id.choice1)
-            //            let choice2 = guessRow.findViewById<Button>(R.id.choice2)
-            //            choice0.setOnClickListener(guessClickListener)
-            //            choice1.setOnClickListener(guessClickListener)
-            //            choice2.setOnClickListener(guessClickListener)
-            //            guessLinearLayout.addView(guessRow)
+        for row in 0 ..< numEows {
+            
+            createGuessRow(choice0: choices[row * 3],
+                           choice1: choices[row * 3 + 1],
+                           choice2: choices[row * 3 + 2],
+            answer: shorten(correctCard?.name))
         }
     }
-    func populateGuessButtons() {
-        for row in 0 ..< guessLinearLayout.childCount {
-            let rowLayout = guessLinearLayout.getChildAt(row) as LinearLayout
-            for column in 0 ..< rowLayout.childCount {
-                let button = rowLayout.getChildAt(column) as Button
-                button.text = nilchoices?.get(column + row * 3)
-            }
-        }
-    }
-    func reactivateGuessButtons(){
-        for row in 0 ..< guessLinearLayout.childCount{
-            let rowLayout = guessLinearLayout.getChildAt(row) as LinearLayout
-            for (column in 0 ..< rowLayout.childCount){
-                let button = rowLayout.getChildAt(column) as Button
-                button.isEnabled = true
-            }
-        }
-    }
-    private let guessClickListener = object -> View.OnClickListener{
-        override func onClick(p0: View?) {
-            let button = (p0 as? Button)
-            let guess = button?.text.description
-            if ((nilcheckGuessAndIncrementTotal(guess) ?? false)||button==nil){ //Go to next card
-                reactivateGuessButtons()
-                if (isEnd() ?? false){ //Last answer
-                    stopTimer()
-                    let percentage = calculateCorrectPercentage() ?? 0
-                    let alert = UIAlertController(title: "Quiz Completed", message: "You got \(percentage)% correct.", preferredStyle: .alert)
-                    let restartAction = UIAlertAction(title: "Restart Quiz", style: .default, handler: {
-                        resetTest()
-                        updateUi()
-                    })
-                    let changeAction = UIAlertAction(title: "Change Quiz", style: .default, handler: {
-                        dismiss
-                    })
-                    alert.addAction(restartAction)
-                    alert.addAction(restartAction)
-                    self.present(alert, animated: true, completion: nil)
-                    
-                } else { //Not last answer
-                    setNextCardGetChoicesResetTimer()
-                    updateUi()
+    func buttonPressed(buttonText: String?) {
+        if checkGuessAndIncrementTotal(selectedAnswer: buttonText ?? ""){ //Go to next card
+            //reactivateGuessButtons()
+            if isEnd(){ //Last answer
+                //stopTimer()
+                let percentage = calculateCorrectPercentage()
+                let alert = UIAlertController(title: "Quiz Completed", message: "You got \(percentage)% correct.", preferredStyle: .alert)
+                let restartAction = UIAlertAction(title: "Restart Quiz", style: .default) { (_) in
+                    self.resetTest()
+                    self.updateUi()
                 }
-            } else {//Incorrect answer
-                button?.isEnabled = false
+                let changeAction = UIAlertAction(title: "Change Quiz", style: .default) { (_) in
+                    self.dismiss(animated: true, completion: nil)
+                }
+                alert.addAction(restartAction)
+                alert.addAction(changeAction)
+                self.present(alert, animated: true, completion: nil)
+                
+            } else { //Not last answer
+                setNextCardGetChoicesResetTimer()
+                updateUi()
             }
-        }
+        } //else Incorrect answer
     }
-    
-    func getCurrentCardNumber()->Int {return currentDeckIndex + 1}
-    private func generateCards(){
-        var possibleCards = equipment.filter { (e) -> Bool in selectedTypes.contains(e.type)}
-        if deckSize > possibleCards.count{
-            cards.append(contentsOf: possibleCards)
-            deckSize = possibleCards.count
-        } else {
-            possibleCards.shuffle()
-            for i in 0 ..< deckSize {
-                let card = possibleCards[i]
-                cards.append(card)
-            }
-        }
+    //MARK: - Card generation & progression
+    private func getChoicesForDifficulty() -> Int {
+        switch difficulty {
+        case .EASY : return 3
+        case .MEDIUM : return 6
+        case .HARD : return 9}
     }
     private func generateChoices(correctCard: Equipment?){
         var possibleCards = equipment
@@ -146,7 +135,21 @@ class CardsViewController: UIViewController {
         }
         
         correctChoiceIndex = Int(arc4random_uniform(UInt32(getChoicesForDifficulty()-1)))
-        choices[correctChoiceIndex] = (shorten(correctCard?.name ?? "")) //choices fully generated
+        choices[correctChoiceIndex] = shorten(correctCard?.name) //choices fully generated
+    }
+    func getCurrentCardNumber()->Int {return currentDeckIndex + 1}
+    private func generateCards(){
+        var possibleCards = equipment.filter { (e) -> Bool in selectedTypes.contains(e.type)}
+        if deckSize > possibleCards.count{
+            cards.append(contentsOf: possibleCards)
+            deckSize = possibleCards.count
+        } else {
+            possibleCards.shuffle()
+            for i in 0 ..< deckSize {
+                let card = possibleCards[i]
+                cards.append(card)
+            }
+        }
     }
     func checkGuessAndIncrementTotal(selectedAnswer: String)->Bool{
         let correct = selectedAnswer == choices[correctChoiceIndex]
@@ -176,34 +179,7 @@ class CardsViewController: UIViewController {
         generateCards()
         setNextCardGetChoicesResetTimer()
     }
-    
-    private func resetTimer(){
-        setTimeToDifficulty()
-        self.initOneSecondTimer(start: true)
-    }
-    
-    private func setTimeToDifficulty() {
-        switch difficulty {
-        case .EASY : timeRemaining = 999
-        case .MEDIUM : timeRemaining = 11
-        case .HARD : timeRemaining = 6}
-    }
-    private func getChoicesForDifficulty() -> Int {
-        switch difficulty {
-        case .EASY : return 3
-        case .MEDIUM : return 6
-        case .HARD : return 9}
-    }
-    
-    // A helper method to take the string returned by toString and shorten it
-    private func shorten(_ longName: String)-> String {
-        if let descriptionStart = longName.index(of: ";"){
-            return String(longName[..<descriptionStart])
-        } else {
-            return longName
-        }
-    }
-    
+
     //MARK: - Timer methods
     let timeInterval = 0.5
     func initOneSecondTimer(start: Bool) {
@@ -225,7 +201,28 @@ class CardsViewController: UIViewController {
         let timeText = "00:\("%02d", Int(timeRemaining)) Remaining"
         timeRemainingLabel.text = timeText
         if timeRemaining < 1 {
-            guessClickListener.onClick(nil)
+            buttonPressed(buttonText: "")
+        }
+    }
+    
+    private func resetTimer(){
+        setTimeToDifficulty()
+        self.initOneSecondTimer(start: true)
+    }
+    
+    private func setTimeToDifficulty() {
+        switch difficulty {
+        case .EASY : timeRemaining = 999
+        case .MEDIUM : timeRemaining = 11
+        case .HARD : timeRemaining = 6}
+    }
+    
+    // A helper method to take the string returned by toString and shorten it
+    private func shorten(_ longName: String?)-> String {
+        if let descriptionStart = longName?.index(of: ";"){
+            return String(longName?[..<descriptionStart] ?? "")
+        } else {
+            return longName ?? ""
         }
     }
 }
