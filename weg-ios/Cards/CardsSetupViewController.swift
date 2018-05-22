@@ -7,7 +7,7 @@
 //
 
 import UIKit
-enum Difficulty: String {case EASY; case MEDIUM; case HARD}
+
 class CardsSetupViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var qtyStepper: UIStepper!
     @IBOutlet weak var pickerView: UIPickerView!
@@ -21,20 +21,27 @@ class CardsSetupViewController: UIViewController, UIPickerViewDelegate, UIPicker
         qtyStepper.minimumValue = 5.0
         qtyStepper.maximumValue = 100.0
     }
-
-
     
     // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+    let presentCardsSegue = "presentCardsSegue"
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.identifier == presentCardsSegue {
+            guard let navVc = segue.destination as? UINavigationController else {return}
+            guard let vc = navVc.topViewController as? CardsViewController else {return}
+            vc.deckSize = Int(qtyStepper.value)
+            vc.difficulty = selectedDifficulty
+            vc.selectedTypes = getSelectedTypes()
+        } else {
+            super.prepare(for: segue, sender: sender)
+        }
     }
     // MARK: - PickerView
     @IBOutlet weak var difficultyPicker: UIPickerView!
     let difficultyChoices = [Difficulty.EASY,Difficulty.MEDIUM,Difficulty.HARD]
+    var selectedDifficulty = Difficulty.MEDIUM
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
     func pickerView(_ pickerView: UIPickerView,
                     numberOfRowsInComponent component: Int) -> Int {
         return difficultyChoices.count
@@ -42,17 +49,31 @@ class CardsSetupViewController: UIViewController, UIPickerViewDelegate, UIPicker
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return difficultyChoices[row].rawValue
     }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedDifficulty = difficultyChoices[row]
+    }
     
     // MARK: - Buttons
     @IBOutlet weak var weaponsSwitch: UISwitch!
     @IBOutlet weak var landSwitch: UISwitch!
     @IBOutlet weak var seaSwitch: UISwitch!
     @IBOutlet weak var airSwitch: UISwitch!
+    func getSelectedTypes() -> [EquipmentType] {
+        var selectedTypes = [EquipmentType]()
+        if weaponsSwitch.isOn {selectedTypes.append(EquipmentType.GUN)}
+        if landSwitch.isOn {selectedTypes.append(EquipmentType.LAND)}
+        if seaSwitch.isOn {selectedTypes.append(EquipmentType.SEA)}
+        if airSwitch.isOn {selectedTypes.append(EquipmentType.AIR)}
+        return selectedTypes
+    }
     
     @IBOutlet weak var qtyLabel: UILabel!
     @IBAction func qtyStepperPressed(_ sender: UIStepper) {
         qtyLabel.text = Int(sender.value).description
     }
+    
     @IBAction func startButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: presentCardsSegue, sender: self)
     }
 }
+enum Difficulty: String {case EASY; case MEDIUM; case HARD}

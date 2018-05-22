@@ -15,8 +15,7 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
     var allEquipment = [Equipment]()
     var equipment = [Equipment]()
     var searchedEquipment = [Equipment]()
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self

@@ -9,7 +9,7 @@
 import UIKit
 
 class CardsViewController: UIViewController, ButtonRowDelegate {
-    let equipment = [Equipment]()
+    var equipment = [Equipment]()
     var selectedTypes = [EquipmentType]()
     
     private let repo = EquipmentRepository()
@@ -31,10 +31,32 @@ class CardsViewController: UIViewController, ButtonRowDelegate {
     var oneSecondTimer: Timer?
     var timeRemaining = 10.0
     
+    var spinner : UIActivityIndicatorView?
     override func viewDidLoad() {
         super.viewDidLoad()
-        createGuessRows()
-        updateUi()
+        spinner = self.view.getAndStartActivityIndicator()
+        let fetchedEquipment = EquipmentRepository.getEquipment { (fetchedEquipment, error) in
+            DispatchQueue.main.async {
+                self.spinner?.stopAnimating()
+                if let errorString = error {
+                    self.presentAlert(alert: errorString)
+                } else if let e = fetchedEquipment {
+                    if self.equipment.count == 0 {
+                        self.equipment = e
+                        self.resetTest()
+                        self.updateUi()
+                    }
+                    
+                }
+            }
+        }
+        if fetchedEquipment != nil {
+            self.spinner?.stopAnimating()
+            equipment = fetchedEquipment!
+            resetTest()
+            updateUi()
+        }
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -60,7 +82,7 @@ class CardsViewController: UIViewController, ButtonRowDelegate {
     }
     //MARK: - Guess Rows
     var numRows = 0
-    var rowHeight = 28
+    var rowHeight = 38
     func createGuessRow(choice0: String, choice1: String, choice2: String,
                         answer: String) {
         guard let guessRowView = Bundle.main.loadNibNamed("ButtonRow", owner: self, options: nil)?.first as? ButtonRow else {return}
@@ -78,6 +100,7 @@ class CardsViewController: UIViewController, ButtonRowDelegate {
         guessStackView.layoutIfNeeded()
     }
     func createGuessRows() {
+        for view in guessStackView.subviews {view.removeFromSuperview()}
         var numEows = 0
         switch difficulty {
         case Difficulty.EASY : numEows = 1
@@ -85,7 +108,6 @@ class CardsViewController: UIViewController, ButtonRowDelegate {
         case Difficulty.HARD : numEows = 3 }
         
         for row in 0 ..< numEows {
-            
             createGuessRow(choice0: choices[row * 3],
                            choice1: choices[row * 3 + 1],
                            choice2: choices[row * 3 + 2],
@@ -96,7 +118,7 @@ class CardsViewController: UIViewController, ButtonRowDelegate {
         if checkGuessAndIncrementTotal(selectedAnswer: buttonText ?? ""){ //Go to next card
             //reactivateGuessButtons()
             if isEnd(){ //Last answer
-                //stopTimer()
+                self.initOneSecondTimer(start: false)
                 let percentage = calculateCorrectPercentage()
                 let alert = UIAlertController(title: "Quiz Completed", message: "You got \(percentage)% correct.", preferredStyle: .alert)
                 let restartAction = UIAlertAction(title: "Restart Quiz", style: .default) { (_) in
@@ -139,7 +161,7 @@ class CardsViewController: UIViewController, ButtonRowDelegate {
     }
     func getCurrentCardNumber()->Int {return currentDeckIndex + 1}
     private func generateCards(){
-        var possibleCards = equipment.filter { (e) -> Bool in selectedTypes.contains(e.type)}
+        var possibleCards = equipment.filter { (e) -> Bool in return selectedTypes.contains(e.type)}
         if deckSize > possibleCards.count{
             cards.append(contentsOf: possibleCards)
             deckSize = possibleCards.count
@@ -154,9 +176,8 @@ class CardsViewController: UIViewController, ButtonRowDelegate {
     func checkGuessAndIncrementTotal(selectedAnswer: String)->Bool{
         let correct = selectedAnswer == choices[correctChoiceIndex]
         totalGuesses = totalGuesses + 1
-        if !correct {incorrectGuesses = incorrectGuesses + 1
-            return correct
-        }
+        if !correct {incorrectGuesses = incorrectGuesses + 1}
+        return correct
     }
     func setNextCardGetChoicesResetTimer(){
         currentDeckIndex = currentDeckIndex + 1

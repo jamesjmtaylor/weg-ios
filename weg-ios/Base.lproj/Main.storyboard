@@ -217,7 +217,7 @@
                         <outlet property="qtyStepper" destination="Y7z-rw-sZQ" id="h0a-14-wCP"/>
                         <outlet property="seaSwitch" destination="glx-DQ-cyY" id="uVE-x8-x9C"/>
                         <outlet property="weaponsSwitch" destination="xE7-7L-8D3" id="6Fp-hc-9Oe"/>
-                        <segue destination="Eyb-7O-uQH" kind="presentation" id="pnY-Su-h3u"/>
+                        <segue destination="Eyb-7O-uQH" kind="presentation" identifier="presentCardsSegue" id="pnY-Su-h3u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YLx-9C-aRS" userLabel="First Responder" sceneMemberID="firstResponder"/>
