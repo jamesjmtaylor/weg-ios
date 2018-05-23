@@ -113,30 +113,31 @@ class CardsViewController: UIViewController, ButtonRowDelegate {
                            choice2: choices[row * 3 + 2],
             answer: shorten(correctCard?.name))
         }
+        adjustStackViewHeight(stackViewHeight: guessStackViewHeight,
+                              numRows: numEows, rowHeight: rowHeight)
     }
     func buttonPressed(buttonText: String?) {
-        if checkGuessAndIncrementTotal(selectedAnswer: buttonText ?? ""){ //Go to next card
-            //reactivateGuessButtons()
-            if isEnd(){ //Last answer
-                self.initOneSecondTimer(start: false)
-                let percentage = calculateCorrectPercentage()
-                let alert = UIAlertController(title: "Quiz Completed", message: "You got \(percentage)% correct.", preferredStyle: .alert)
-                let restartAction = UIAlertAction(title: "Restart Quiz", style: .default) { (_) in
-                    self.resetTest()
-                    self.updateUi()
-                }
-                let changeAction = UIAlertAction(title: "Change Quiz", style: .default) { (_) in
-                    self.dismiss(animated: true, completion: nil)
-                }
-                alert.addAction(restartAction)
-                alert.addAction(changeAction)
-                self.present(alert, animated: true, completion: nil)
-                
-            } else { //Not last answer
-                setNextCardGetChoicesResetTimer()
-                updateUi()
+        checkGuessAndIncrementTotal(selectedAnswer: buttonText ?? "") 
+        if isEnd(){ //Last answer
+            self.initOneSecondTimer(start: false)
+            let percentage = calculateCorrectPercentage()
+            let alert = UIAlertController(title: "Quiz Completed", message: "You got \(percentage)% correct.", preferredStyle: .alert)
+            let restartAction = UIAlertAction(title: "Restart Quiz", style: .default) { (_) in
+                self.resetTest()
+                self.updateUi()
             }
-        } //else Incorrect answer
+            let changeAction = UIAlertAction(title: "Change Quiz", style: .default) { (_) in
+                self.dismiss(animated: true, completion: nil)
+            }
+            alert.addAction(restartAction)
+            alert.addAction(changeAction)
+            self.present(alert, animated: true, completion: nil)
+            
+        } else { //Not last answer
+            setNextCardGetChoicesResetTimer()
+            updateUi()
+        }
+
     }
     //MARK: - Card generation & progression
     private func getChoicesForDifficulty() -> Int {
@@ -187,7 +188,7 @@ class CardsViewController: UIViewController, ButtonRowDelegate {
         resetTimer()
     }
     func isEnd()->Bool{
-        return (currentDeckIndex >= cards.endIndex)
+        return (currentDeckIndex == cards.endIndex - 1)
     }
     func calculateCorrectPercentage()-> Int{
         return Int((Double(totalGuesses - incorrectGuesses)) / Double(totalGuesses) * 100)
@@ -219,10 +220,10 @@ class CardsViewController: UIViewController, ButtonRowDelegate {
     
     @objc func oneSecondUIRefresh() {
         timeRemaining = timeRemaining - timeInterval
-        let timeText = "00:\("%02d", Int(timeRemaining)) Remaining"
+        let timeText = String(format: "00:%02d", Int(timeRemaining))+" Remaining"
         timeRemainingLabel.text = timeText
         if timeRemaining < 1 {
-            buttonPressed(buttonText: "")
+            buttonPressed(buttonText: nil)
         }
     }
     
@@ -245,6 +246,11 @@ class CardsViewController: UIViewController, ButtonRowDelegate {
         } else {
             return longName ?? ""
         }
+    }
+    //MARK: - Buttons
+    
+    @IBAction func closeButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

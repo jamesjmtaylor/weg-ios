@@ -17,10 +17,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0Bh-F8-AgC">
-                    <rect key="frame" x="0.0" y="0.0" width="336" height="38"/>
+                    <rect key="frame" x="8" y="0.0" width="320" height="30"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0cI-RE-9Vm">
-                            <rect key="frame" x="0.0" y="0.0" width="106.5" height="38"/>
+                            <rect key="frame" x="0.0" y="0.0" width="101.5" height="30"/>
                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="tintColor" red="0.94509803920000002" green="0.95294117649999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="Button"/>
@@ -29,7 +29,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBS-yG-OtD">
-                            <rect key="frame" x="114.5" y="0.0" width="107" height="38"/>
+                            <rect key="frame" x="109.5" y="0.0" width="101" height="30"/>
                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="tintColor" red="0.94509803920000002" green="0.95294117649999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="Button"/>
@@ -38,7 +38,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d6w-GC-aoO">
-                            <rect key="frame" x="229.5" y="0.0" width="106.5" height="38"/>
+                            <rect key="frame" x="218.5" y="0.0" width="101.5" height="30"/>
                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="tintColor" red="0.94509803920000002" green="0.95294117649999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="Button"/>
@@ -65,9 +65,9 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="0Bh-F8-AgC" firstAttribute="width" secondItem="vUN-kp-3ea" secondAttribute="width" id="WSd-MP-UBe"/>
-                <constraint firstItem="0Bh-F8-AgC" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="d8L-Sm-ZOE"/>
-                <constraint firstItem="0Bh-F8-AgC" firstAttribute="height" secondItem="vUN-kp-3ea" secondAttribute="height" id="hKh-jp-4Gl"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="0Bh-F8-AgC" secondAttribute="top" id="A2i-nd-k8n"/>
+                <constraint firstItem="0Bh-F8-AgC" firstAttribute="width" secondItem="vUN-kp-3ea" secondAttribute="width" constant="-16" id="WSd-MP-UBe"/>
+                <constraint firstItem="0Bh-F8-AgC" firstAttribute="height" secondItem="vUN-kp-3ea" secondAttribute="height" constant="-8" id="hKh-jp-4Gl"/>
                 <constraint firstItem="0Bh-F8-AgC" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="p0d-za-5EJ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
