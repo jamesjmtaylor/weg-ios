@@ -117,7 +117,7 @@ class CardsViewController: UIViewController, ButtonRowDelegate {
                               numRows: numEows, rowHeight: rowHeight)
     }
     func buttonPressed(buttonText: String?) {
-        checkGuessAndIncrementTotal(selectedAnswer: buttonText ?? "") 
+        let correct = checkGuessAndIncrementTotal(selectedAnswer: buttonText ?? "")
         if isEnd(){ //Last answer
             self.initOneSecondTimer(start: false)
             let percentage = calculateCorrectPercentage()
@@ -133,11 +133,10 @@ class CardsViewController: UIViewController, ButtonRowDelegate {
             alert.addAction(changeAction)
             self.present(alert, animated: true, completion: nil)
             
-        } else { //Not last answer
+        } else if correct || buttonText == nil { //nil text means time expired, next question
             setNextCardGetChoicesResetTimer()
             updateUi()
         }
-
     }
     //MARK: - Card generation & progression
     private func getChoicesForDifficulty() -> Int {
