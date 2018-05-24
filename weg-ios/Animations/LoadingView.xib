@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="LoadingView" id="iN0-l3-epB" customClass="LoadingView" customModule="weg_ios" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bUf-kD-kPA" userLabel="dialogueView">
+                    <rect key="frame" x="71" y="258.5" width="232" height="170"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VyJ-fC-ab3" userLabel="animationView">
+                            <rect key="frame" x="16" y="16" width="200" height="100"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="100" id="UJk-G0-nFw"/>
+                                <constraint firstAttribute="width" constant="200" id="wcI-LN-XL8"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Equipment..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0R-dg-PLR">
+                            <rect key="frame" x="35" y="132" width="162" height="22"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" red="0.94509803920000002" green="0.95294117649999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="c0R-dg-PLR" firstAttribute="top" secondItem="VyJ-fC-ab3" secondAttribute="bottom" constant="16" id="ATR-vh-MN3"/>
+                        <constraint firstAttribute="height" constant="170" id="Hwq-SU-ESj"/>
+                        <constraint firstItem="VyJ-fC-ab3" firstAttribute="centerX" secondItem="bUf-kD-kPA" secondAttribute="centerX" id="L4V-hf-4gE"/>
+                        <constraint firstItem="VyJ-fC-ab3" firstAttribute="top" secondItem="bUf-kD-kPA" secondAttribute="top" constant="16" id="SNc-SW-Gjt"/>
+                        <constraint firstItem="c0R-dg-PLR" firstAttribute="centerX" secondItem="bUf-kD-kPA" secondAttribute="centerX" id="X7u-1N-E1O"/>
+                        <constraint firstAttribute="bottom" secondItem="c0R-dg-PLR" secondAttribute="bottom" constant="16" id="oXD-F2-qFf"/>
+                        <constraint firstAttribute="width" constant="232" id="yTs-I3-5ja"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="bUf-kD-kPA" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="4gW-IU-cVQ"/>
+                <constraint firstItem="bUf-kD-kPA" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="aeU-dL-Ol8"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="loadingView" destination="VyJ-fC-ab3" id="MXQ-dK-15o"/>
+            </connections>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
+        </view>
+    </objects>
+</document>

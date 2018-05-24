@@ -25,6 +25,9 @@
 		8F79EE8A208F5F72002E95F9 /* Sea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F79EE89208F5F72002E95F9 /* Sea.swift */; };
 		8F79EE8C208F5F79002E95F9 /* Air.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F79EE8B208F5F79002E95F9 /* Air.swift */; };
 		8F79EE8E208F5F81002E95F9 /* Gun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F79EE8D208F5F81002E95F9 /* Gun.swift */; };
+		8F90342820B6DF390077518F /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F90342720B6DF390077518F /* loading.json */; };
+		8F90342A20B6E6AD0077518F /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F90342920B6E6AD0077518F /* LoadingView.swift */; };
+		8F90342D20B6E6DD0077518F /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F90342C20B6E6DD0077518F /* LoadingView.xib */; };
 		8FC0051B209896F100E04417 /* UIView+ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC0051A209896F100E04417 /* UIView+ActivityIndicator.swift */; };
 		8FC0051D209896FD00E04417 /* UIViewController+PresentAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC0051C209896FC00E04417 /* UIViewController+PresentAlert.swift */; };
 		8FC11C66208EB31C00B083F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC11C65208EB31C00B083F8 /* AppDelegate.swift */; };
@@ -56,6 +59,9 @@
 		8F79EE89208F5F72002E95F9 /* Sea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sea.swift; sourceTree = "<group>"; };
 		8F79EE8B208F5F79002E95F9 /* Air.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Air.swift; sourceTree = "<group>"; };
 		8F79EE8D208F5F81002E95F9 /* Gun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gun.swift; sourceTree = "<group>"; };
+		8F90342720B6DF390077518F /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
+		8F90342920B6E6AD0077518F /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		8F90342C20B6E6DD0077518F /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		8FC0051A209896F100E04417 /* UIView+ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ActivityIndicator.swift"; sourceTree = "<group>"; };
 		8FC0051C209896FC00E04417 /* UIViewController+PresentAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+PresentAlert.swift"; sourceTree = "<group>"; };
 		8FC11C62208EB31C00B083F8 /* weg-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "weg-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +145,16 @@
 			path = Cards;
 			sourceTree = "<group>";
 		};
+		8F90342B20B6E6C60077518F /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				8F90342720B6DF390077518F /* loading.json */,
+				8F90342920B6E6AD0077518F /* LoadingView.swift */,
+				8F90342C20B6E6DD0077518F /* LoadingView.xib */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		8FC11C59208EB31C00B083F8 = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +176,7 @@
 		8FC11C64208EB31C00B083F8 /* weg-ios */ = {
 			isa = PBXGroup;
 			children = (
+				8F90342B20B6E6C60077518F /* Animations */,
 				8F1C830520962B3200570C8D /* Extensions */,
 				8F79EE84208F5E4C002E95F9 /* Cards */,
 				8F79EE83208F5E44002E95F9 /* Equipment */,
@@ -167,9 +184,9 @@
 				8FC11C65208EB31C00B083F8 /* AppDelegate.swift */,
 				8F1C82FF2094E3DD00570C8D /* Filesystem.swift */,
 				8F1C83012094E3F500570C8D /* Info.plist */,
-				8FC11C6B208EB31C00B083F8 /* Main.storyboard */,
 				8FC11C6E208EB31D00B083F8 /* Assets.xcassets */,
 				8FC11C70208EB31D00B083F8 /* LaunchScreen.storyboard */,
+				8FC11C6B208EB31C00B083F8 /* Main.storyboard */,
 				8F1C82FD2094AEF200570C8D /* EquipmentRepository.swift */,
 			);
 			path = "weg-ios";
@@ -245,9 +262,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FD30BE820A9B7DF00ED7C5B /* ButtonRow.xib in Resources */,
+				8F90342D20B6E6DD0077518F /* LoadingView.xib in Resources */,
 				8F6912C720A3BA910011C942 /* EquipmentDetailRow.xib in Resources */,
 				8F1C83022094E3F500570C8D /* Info.plist in Resources */,
 				8FC11C72208EB31D00B083F8 /* LaunchScreen.storyboard in Resources */,
+				8F90342820B6DF390077518F /* loading.json in Resources */,
 				8FC11C6F208EB31D00B083F8 /* Assets.xcassets in Resources */,
 				8FC11C6D208EB31C00B083F8 /* Main.storyboard in Resources */,
 			);
@@ -304,6 +323,7 @@
 				8F1C82FE2094AEF200570C8D /* EquipmentRepository.swift in Sources */,
 				8F79EE88208F5F6A002E95F9 /* Land.swift in Sources */,
 				8F79EE8C208F5F79002E95F9 /* Air.swift in Sources */,
+				8F90342A20B6E6AD0077518F /* LoadingView.swift in Sources */,
 				8F1C83042094E47600570C8D /* UIColor+AppColors.swift in Sources */,
 				8FD30BE620A9B30200ED7C5B /* CardsViewController.swift in Sources */,
 				8F6912C920A46C1A0011C942 /* UILabel+BoldUnderline.swift in Sources */,

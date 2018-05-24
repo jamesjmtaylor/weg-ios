@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Lottie
 
 class EquipmentCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate, UITabBarControllerDelegate {
 
@@ -33,11 +34,12 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
         collectionViewFlowLayout.minimumLineSpacing = 0
         collectionViewFlowLayout.minimumInteritemSpacing = 0
     }
-    var spinner : UIActivityIndicatorView?
+    
+    var loadingView : LoadingView?
     func getEquipment(){
         let storedEquipment = EquipmentRepository.getEquipment { (fetchedEquipment, error) in
             DispatchQueue.main.async {
-                self.spinner?.stopAnimating()
+                self.loadingView?.stopAnimation()
                 if let errorString = error {
                     self.presentAlert(alert: errorString)
                 } else if let e = fetchedEquipment {
@@ -47,7 +49,8 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
             }
         }
         guard let unwrappedEquipment = storedEquipment else {
-            spinner = self.view.getAndStartActivityIndicator();return
+            loadingView = LoadingView.getAndStartLoadingView()
+            return
         }
         allEquipment = unwrappedEquipment
         filterTypeToSelectedTab()
