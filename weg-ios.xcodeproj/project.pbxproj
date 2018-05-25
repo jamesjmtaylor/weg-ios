@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E459736774D2376060BE8F8 /* Pods_weg_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 953678E7444C56934AA747B4 /* Pods_weg_ios.framework */; };
 		8F1C82FE2094AEF200570C8D /* EquipmentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1C82FD2094AEF200570C8D /* EquipmentRepository.swift */; };
 		8F1C83002094E3DD00570C8D /* Filesystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1C82FF2094E3DD00570C8D /* Filesystem.swift */; };
 		8F1C83022094E3F500570C8D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F1C83012094E3F500570C8D /* Info.plist */; };
@@ -17,6 +16,7 @@
 		8F1C830D209631D400570C8D /* EquipmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1C830C209631D400570C8D /* EquipmentViewController.swift */; };
 		8F1C830F2096349400570C8D /* EquipmentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1C830E2096349400570C8D /* EquipmentCollectionViewCell.swift */; };
 		8F2DACE620B05B1C00F908FB /* Array+Shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2DACE520B05B1C00F908FB /* Array+Shuffle.swift */; };
+		8F62EA9620B8CB740054955E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F62EA9520B8CB740054955E /* GoogleService-Info.plist */; };
 		8F6912C520A3BA770011C942 /* EquipmentDetailRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6912C420A3BA770011C942 /* EquipmentDetailRow.swift */; };
 		8F6912C720A3BA910011C942 /* EquipmentDetailRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F6912C620A3BA910011C942 /* EquipmentDetailRow.xib */; };
 		8F6912C920A46C1A0011C942 /* UILabel+BoldUnderline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6912C820A46C1A0011C942 /* UILabel+BoldUnderline.swift */; };
@@ -38,10 +38,12 @@
 		8FD30BE620A9B30200ED7C5B /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD30BE520A9B30200ED7C5B /* CardsViewController.swift */; };
 		8FD30BE820A9B7DF00ED7C5B /* ButtonRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD30BE720A9B7DF00ED7C5B /* ButtonRow.xib */; };
 		8FD30BEA20A9BE7300ED7C5B /* ButtonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD30BE920A9BE7300ED7C5B /* ButtonRow.swift */; };
+		93B037466FD0052F88A77514 /* Pods_weg_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDC3FD3165F2E8B68BA9D847 /* Pods_weg_ios.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1E4178999A230A775DB0FA76 /* Pods-weg-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weg-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-weg-ios/Pods-weg-ios.release.xcconfig"; sourceTree = "<group>"; };
+		37C1B3E74A3D9C140DDC68F9 /* Pods-weg-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weg-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-weg-ios/Pods-weg-ios.release.xcconfig"; sourceTree = "<group>"; };
+		530FE803CDA3B49E386DC2EA /* Pods-weg-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weg-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-weg-ios/Pods-weg-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		8F1C82FD2094AEF200570C8D /* EquipmentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentRepository.swift; sourceTree = "<group>"; };
 		8F1C82FF2094E3DD00570C8D /* Filesystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filesystem.swift; sourceTree = "<group>"; };
 		8F1C83012094E3F500570C8D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +53,7 @@
 		8F1C830C209631D400570C8D /* EquipmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentViewController.swift; sourceTree = "<group>"; };
 		8F1C830E2096349400570C8D /* EquipmentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentCollectionViewCell.swift; sourceTree = "<group>"; };
 		8F2DACE520B05B1C00F908FB /* Array+Shuffle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Shuffle.swift"; sourceTree = "<group>"; };
+		8F62EA9520B8CB740054955E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8F6912C420A3BA770011C942 /* EquipmentDetailRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentDetailRow.swift; sourceTree = "<group>"; };
 		8F6912C620A3BA910011C942 /* EquipmentDetailRow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EquipmentDetailRow.xib; sourceTree = "<group>"; };
 		8F6912C820A46C1A0011C942 /* UILabel+BoldUnderline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+BoldUnderline.swift"; sourceTree = "<group>"; };
@@ -73,8 +76,7 @@
 		8FD30BE520A9B30200ED7C5B /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		8FD30BE720A9B7DF00ED7C5B /* ButtonRow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonRow.xib; sourceTree = "<group>"; };
 		8FD30BE920A9BE7300ED7C5B /* ButtonRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRow.swift; sourceTree = "<group>"; };
-		953678E7444C56934AA747B4 /* Pods_weg_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weg_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA16DFA6F3EDF1D7D9A2CDF8 /* Pods-weg-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weg-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-weg-ios/Pods-weg-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		DDC3FD3165F2E8B68BA9D847 /* Pods_weg_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weg_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,19 +84,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E459736774D2376060BE8F8 /* Pods_weg_ios.framework in Frameworks */,
+				93B037466FD0052F88A77514 /* Pods_weg_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7F8B5C696270B8CB6ECF9BF7 /* Frameworks */ = {
+		01EC47949E533B63AF1A1397 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				953678E7444C56934AA747B4 /* Pods_weg_ios.framework */,
+				DDC3FD3165F2E8B68BA9D847 /* Pods_weg_ios.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		778514C6096F5A1EDB89EF6C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				530FE803CDA3B49E386DC2EA /* Pods-weg-ios.debug.xcconfig */,
+				37C1B3E74A3D9C140DDC68F9 /* Pods-weg-ios.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		8F1C830520962B3200570C8D /* Extensions */ = {
@@ -160,8 +171,8 @@
 			children = (
 				8FC11C64208EB31C00B083F8 /* weg-ios */,
 				8FC11C63208EB31C00B083F8 /* Products */,
-				D551B24F1D4448031A5150D8 /* Pods */,
-				7F8B5C696270B8CB6ECF9BF7 /* Frameworks */,
+				778514C6096F5A1EDB89EF6C /* Pods */,
+				01EC47949E533B63AF1A1397 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -182,23 +193,15 @@
 				8F79EE83208F5E44002E95F9 /* Equipment */,
 				8F79EE82208F5E37002E95F9 /* Models */,
 				8FC11C65208EB31C00B083F8 /* AppDelegate.swift */,
+				8F1C82FD2094AEF200570C8D /* EquipmentRepository.swift */,
 				8F1C82FF2094E3DD00570C8D /* Filesystem.swift */,
 				8F1C83012094E3F500570C8D /* Info.plist */,
+				8F62EA9520B8CB740054955E /* GoogleService-Info.plist */,
 				8FC11C6E208EB31D00B083F8 /* Assets.xcassets */,
 				8FC11C70208EB31D00B083F8 /* LaunchScreen.storyboard */,
 				8FC11C6B208EB31C00B083F8 /* Main.storyboard */,
-				8F1C82FD2094AEF200570C8D /* EquipmentRepository.swift */,
 			);
 			path = "weg-ios";
-			sourceTree = "<group>";
-		};
-		D551B24F1D4448031A5150D8 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				FA16DFA6F3EDF1D7D9A2CDF8 /* Pods-weg-ios.debug.xcconfig */,
-				1E4178999A230A775DB0FA76 /* Pods-weg-ios.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,11 +211,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8FC11C76208EB31D00B083F8 /* Build configuration list for PBXNativeTarget "weg-ios" */;
 			buildPhases = (
-				012B5FD337F69109A1DE173A /* [CP] Check Pods Manifest.lock */,
+				00887F17D6F1C6D37B9452AA /* [CP] Check Pods Manifest.lock */,
 				8FC11C5E208EB31C00B083F8 /* Sources */,
 				8FC11C5F208EB31C00B083F8 /* Frameworks */,
 				8FC11C60208EB31C00B083F8 /* Resources */,
-				598535EBD98AA79EF9544A59 /* [CP] Embed Pods Frameworks */,
+				417BE873D4AC282D35DBDD6B /* [CP] Embed Pods Frameworks */,
+				8F62EA9720B8CCF60054955E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -263,6 +267,7 @@
 			files = (
 				8FD30BE820A9B7DF00ED7C5B /* ButtonRow.xib in Resources */,
 				8F90342D20B6E6DD0077518F /* LoadingView.xib in Resources */,
+				8F62EA9620B8CB740054955E /* GoogleService-Info.plist in Resources */,
 				8F6912C720A3BA910011C942 /* EquipmentDetailRow.xib in Resources */,
 				8F1C83022094E3F500570C8D /* Info.plist in Resources */,
 				8FC11C72208EB31D00B083F8 /* LaunchScreen.storyboard in Resources */,
@@ -275,7 +280,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		012B5FD337F69109A1DE173A /* [CP] Check Pods Manifest.lock */ = {
+		00887F17D6F1C6D37B9452AA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -293,25 +298,42 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		598535EBD98AA79EF9544A59 /* [CP] Embed Pods Frameworks */ = {
+		417BE873D4AC282D35DBDD6B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-weg-ios/Pods-weg-ios-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-weg-ios/Pods-weg-ios-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		8F62EA9720B8CCF60054955E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -483,7 +505,7 @@
 		};
 		8FC11C77208EB31D00B083F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FA16DFA6F3EDF1D7D9A2CDF8 /* Pods-weg-ios.debug.xcconfig */;
+			baseConfigurationReference = 530FE803CDA3B49E386DC2EA /* Pods-weg-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -502,7 +524,7 @@
 		};
 		8FC11C78208EB31D00B083F8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1E4178999A230A775DB0FA76 /* Pods-weg-ios.release.xcconfig */;
+			baseConfigurationReference = 37C1B3E74A3D9C140DDC68F9 /* Pods-weg-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
