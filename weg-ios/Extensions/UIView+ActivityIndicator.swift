@@ -21,12 +21,4 @@ extension UIView {
         indicator.backgroundColor = UIColor.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.2)
         return indicator
     }
-//    func getAndStartActivityIndicator() -> LOTAnimationView {
-//        let animationView = LOTAnimationView(name: "loading")
-//        animationView.frame = CGRect(x: 100, y: 100, width: 200, height: 100)
-//        self.addSubview(animationView)
-//        animationView.loopAnimation = true
-//        animationView.play()
-//        return animationView
-//    }
 }

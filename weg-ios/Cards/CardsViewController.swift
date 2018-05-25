@@ -32,13 +32,13 @@ class CardsViewController: UIViewController, ButtonRowDelegate {
     var oneSecondTimer: Timer?
     var timeRemaining = 10.0
     
-    var spinner : UIActivityIndicatorView?
+    var loadingView : LoadingView?
     override func viewDidLoad() {
         super.viewDidLoad()
-        spinner = self.view.getAndStartActivityIndicator()
+        loadingView = LoadingView.getAndStartLoadingView()
         let fetchedEquipment = EquipmentRepository.getEquipment { (fetchedEquipment, error) in
             DispatchQueue.main.async {
-                self.spinner?.stopAnimating()
+                self.loadingView?.stopAnimation()
                 if let errorString = error {
                     self.presentAlert(alert: errorString)
                 } else if let e = fetchedEquipment {
@@ -52,7 +52,7 @@ class CardsViewController: UIViewController, ButtonRowDelegate {
             }
         }
         if fetchedEquipment != nil {
-            self.spinner?.stopAnimating()
+            self.loadingView?.stopAnimation()
             equipment = fetchedEquipment!
             resetTest()
             updateUi()
