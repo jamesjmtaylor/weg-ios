@@ -29,6 +29,7 @@
 		8F90342A20B6E6AD0077518F /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F90342920B6E6AD0077518F /* LoadingView.swift */; };
 		8F90342D20B6E6DD0077518F /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F90342C20B6E6DD0077518F /* LoadingView.xib */; };
 		8F98121A20B99DD100681630 /* Equipment.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8F98121820B99DD100681630 /* Equipment.xcdatamodeld */; };
+		8F98123D20B9C5A600681630 /* CodingUserInfoKey+Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F98123C20B9C5A600681630 /* CodingUserInfoKey+Context.swift */; };
 		8FC0051B209896F100E04417 /* UIView+ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC0051A209896F100E04417 /* UIView+ActivityIndicator.swift */; };
 		8FC0051D209896FD00E04417 /* UIViewController+PresentAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC0051C209896FC00E04417 /* UIViewController+PresentAlert.swift */; };
 		8FC11C66208EB31C00B083F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC11C65208EB31C00B083F8 /* AppDelegate.swift */; };
@@ -67,6 +68,7 @@
 		8F90342920B6E6AD0077518F /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		8F90342C20B6E6DD0077518F /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		8F98121920B99DD100681630 /* Equipment.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Equipment.xcdatamodel; sourceTree = "<group>"; };
+		8F98123C20B9C5A600681630 /* CodingUserInfoKey+Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CodingUserInfoKey+Context.swift"; sourceTree = "<group>"; };
 		8FC0051A209896F100E04417 /* UIView+ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ActivityIndicator.swift"; sourceTree = "<group>"; };
 		8FC0051C209896FC00E04417 /* UIViewController+PresentAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+PresentAlert.swift"; sourceTree = "<group>"; };
 		8FC11C62208EB31C00B083F8 /* weg-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "weg-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +121,7 @@
 				8FC0051A209896F100E04417 /* UIView+ActivityIndicator.swift */,
 				8F6912C820A46C1A0011C942 /* UILabel+BoldUnderline.swift */,
 				8F2DACE520B05B1C00F908FB /* Array+Shuffle.swift */,
+				8F98123C20B9C5A600681630 /* CodingUserInfoKey+Context.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				8F79EE86208F5EA7002E95F9 /* Equipment.swift in Sources */,
 				8FD30BEA20A9BE7300ED7C5B /* ButtonRow.swift in Sources */,
 				8F1C830B209631BB00570C8D /* EquipmentCollectionViewController.swift in Sources */,
+				8F98123D20B9C5A600681630 /* CodingUserInfoKey+Context.swift in Sources */,
 				8F1C830D209631D400570C8D /* EquipmentViewController.swift in Sources */,
 				8F79EE8E208F5F81002E95F9 /* Gun.swift in Sources */,
 				8F1C830F2096349400570C8D /* EquipmentCollectionViewCell.swift in Sources */,

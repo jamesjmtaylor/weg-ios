@@ -136,7 +136,7 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchedEquipment = equipment.filter({ e in
-            return e.name.lowercased().contains(searchText.lowercased())  || searchText.isEmpty
+            return (e.name?.lowercased().contains(searchText.lowercased())) ?? false || searchText.isEmpty
         })
         if searchText.isEmpty {//searchString ∆-> nothing; user ended search
             searchActive = false

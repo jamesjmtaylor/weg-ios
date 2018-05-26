@@ -9,8 +9,7 @@
 import UIKit
 
 class EquipmentViewController: UIViewController{
-    
-    
+
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var groupImageView: UIImageView!
     @IBOutlet weak var individualImageView: UIImageView!
@@ -80,88 +79,88 @@ class EquipmentViewController: UIViewController{
         stackView.layoutIfNeeded()
     }
     func setDetailViews(gun: Gun){
-        if (gun.range ?? 0 > 0 ) {createDetailRow("Range",gun.range!.description+" meters")}
-        if (gun.altitude ?? 0 > 0 ) {createDetailRow("Altitude",gun.altitude!.description+" meters")}
-        if (gun.penetration ?? 0 > 0 ) {createDetailRow("Penetration",gun.penetration!.description+"mm")}
+        if (gun.range > 0 ) {createDetailRow("Range",gun.range.description+" meters")}
+        if (gun.altitude > 0 ) {createDetailRow("Altitude",gun.altitude.description+" meters")}
+        if (gun.penetration > 0 ) {createDetailRow("Penetration",gun.penetration.description+"mm")}
     }
     func setDetailViews(land: Land){
         if let it = land.primaryWeapon {
-            createDetailRow("Primary Weapon",it.name, true)
-            if (it.range ?? 0 > 0 ) {createDetailRow("Range",it.range!.description+" meters")}
-            if (it.altitude ?? 0 > 0){createDetailRow("Altitude",it.altitude!.description+" meters") }
-            if (it.penetration ?? 0 > 0){createDetailRow("Penetration",it.penetration!.description+"mm") }
+            createDetailRow("Primary Weapon",it.name ?? "", true)
+            if (it.range > 0 ) {createDetailRow("Range",it.range.description+" meters")}
+            if (it.altitude > 0){createDetailRow("Altitude",it.altitude.description+" meters") }
+            if (it.penetration > 0){createDetailRow("Penetration",it.penetration.description+"mm") }
         }
         if let it = land.secondaryWeapon {
-            createDetailRow("Secondary Weapon",it.name, true)
-            if (it.range ?? 0 > 0 ) {createDetailRow("Range",it.range!.description+" meters")}
-            if (it.altitude ?? 0 > 0){createDetailRow("Altitude",it.altitude!.description+" meters") }
-            if (it.penetration ?? 0 > 0){createDetailRow("Penetration",it.penetration!.description+"mm") }
+            createDetailRow("Secondary Weapon",it.name ?? "", true)
+            if (it.range > 0 ) {createDetailRow("Range",it.range.description+" meters")}
+            if (it.altitude > 0){createDetailRow("Altitude",it.altitude.description+" meters") }
+            if (it.penetration > 0){createDetailRow("Penetration",it.penetration.description+"mm") }
         }
         if let it = land.atgm {
-            createDetailRow("ATGM",it.name, true)
-            createDetailRow("Range",it.range!.description+" meters")
-            createDetailRow("Penetration",it.penetration!.description+"mm")
+            createDetailRow("ATGM",it.name ?? "", true)
+            createDetailRow("Range",it.range.description+" meters")
+            createDetailRow("Penetration",it.penetration.description+"mm")
         }
-        if let it = land.armor{ if (it > 0){createDetailRow("Armor",it.description+"mm", true)}}
-        if let it = land.speed{ if (it > 0){createDetailRow("Speed",it.description+" kph", true)}}
-        if let it = land.auto{ if (it > 0){createDetailRow("Autonomy",it.description+" km", true)}}
-        if let it = land.weight{ if (it > 0){createDetailRow("Weight",it.description+" tons", true)}}
+        if (land.armor > 0){createDetailRow("Armor",land.armor.description+"mm", true)}
+        if (land.speed > 0){createDetailRow("Speed",land.speed.description+" kph", true)}
+        if (land.auto > 0){createDetailRow("Autonomy",land.auto.description+" km", true)}
+        if (land.weight > 0){createDetailRow("Weight",land.weight.description+" tons", true)}
     }
     func setDetailViews(sea: Sea){
         if let it = sea.gun {
-            createDetailRow("Deck Gun",it.name, true)
-            if (it.range ?? 0 > 0 ) {createDetailRow("Range",it.range!.description+" meters")}
-            if (it.altitude ?? 0 > 0){createDetailRow("Altitude",it.altitude!.description+" meters") }
-            if (it.penetration ?? 0 > 0){createDetailRow("Penetration",it.penetration!.description+"mm") }
+            createDetailRow("Deck Gun",it.name ?? "", true)
+            if (it.range > 0 ) {createDetailRow("Range",it.range.description+" meters")}
+            if (it.altitude > 0){createDetailRow("Altitude",it.altitude.description+" meters")}
+            if (it.penetration > 0){createDetailRow("Penetration",it.penetration.description+"mm")}
         }
         if let it =  sea.asm {
-            createDetailRow("Anti-Ship Missile",it.name, true)
-            if (it.range ?? 0 > 0 ) {createDetailRow("Range",it.range!.description+" meters")}
-            if (it.altitude ?? 0 > 0){createDetailRow("Altitude",it.altitude!.description+" meters") }
-            if (it.penetration ?? 0 > 0){createDetailRow("Penetration",it.penetration!.description+"mm") }
+            createDetailRow("Anti-Ship Missile",it.name ?? "", true)
+            if (it.range > 0 ) {createDetailRow("Range",it.range.description+" meters")}
+            if (it.altitude > 0){createDetailRow("Altitude",it.altitude.description+" meters") }
+            if (it.penetration > 0){createDetailRow("Penetration",it.penetration.description+"mm") }
         }
         if let it = sea.sam {
-            createDetailRow("Surface-to-Air Missile",it.name, true)
-            if (it.range ?? 0 > 0 ) {createDetailRow("Range",it.range!.description+" meters")}
-            if (it.altitude ?? 0 > 0){createDetailRow("Altitude",it.altitude!.description+" meters") }
-            if (it.penetration ?? 0 > 0){createDetailRow("Penetration",it.penetration!.description+"mm") }
+            createDetailRow("Surface-to-Air Missile",it.name ?? "", true)
+            if (it.range > 0 ) {createDetailRow("Range",it.range.description+" meters")}
+            if (it.altitude > 0){createDetailRow("Altitude",it.altitude.description+" meters") }
+            if (it.penetration > 0){createDetailRow("Penetration",it.penetration.description+"mm") }
         }
         if let it = sea.torpedo {
-            createDetailRow("Torpedo",it.name, true)
-            if (it.range ?? 0 > 0 ) {createDetailRow("Range",it.range!.description+" meters")}
+            createDetailRow("Torpedo",it.name ?? "", true)
+            if (it.range > 0 ) {createDetailRow("Range",it.range.description+" meters")}
         }
-        if (!(sea.transports?.isEmpty ?? true || sea.transports?.contains("null") ?? true)){
+        if ((sea.transports?.isEmpty ?? true || sea.transports?.contains("null") ?? true)){
             createDetailRow("Transports",sea.transports?.description ?? "", true)
-            if (sea.qty ?? 0 > 0){createDetailRow("Quantity",sea.qty!.description) }
+            if (sea.qty > 0){createDetailRow("Quantity",sea.qty.description) }
         }
-        if (sea.dive ?? 0 > 0) {createDetailRow("Maximum Depth",sea.dive!.description+" meters", true)}
-        if let it = sea.speed { createDetailRow("Speed",it.description+" kph", true) }
-        if let it = sea.auto { createDetailRow("Autonomy",it.description+" km", true) }
-        if let it = sea.tonnage { createDetailRow("Displacement",it.description+" tons", true) }
+        if (sea.dive > 0) {createDetailRow("Maximum Depth",sea.dive.description+" meters", true)}
+        createDetailRow("Speed",sea.speed.description+" kph", true)
+        createDetailRow("Autonomy",sea.auto.description+" km", true)
+        createDetailRow("Displacement",sea.tonnage.description+" tons", true)
     }
     func setDetailViews(air: Air){
         if let it = air.gun{
-            createDetailRow("Cannon",it.name, true)
-            if (it.range ?? 0 > 0 ) {createDetailRow("Range",it.range!.description+" meters")}
-            if (it.penetration ?? 0 > 0){createDetailRow("Penetration",it.penetration!.description+"mm") }
+            createDetailRow("Cannon",it.name ?? "", true)
+            if (it.range > 0 ) {createDetailRow("Range",it.range.description+" meters")}
+            if (it.penetration > 0){createDetailRow("Penetration",it.penetration.description+"mm") }
         }
         if let it = air.agm{
-            createDetailRow("Air-to-Ground Missile",it.name, true)
-            if (it.range ?? 0 > 0 ) {createDetailRow("Range",it.range!.description+" meters")}
-            createDetailRow("Penetration",it.penetration!.description+"mm")
+            createDetailRow("Air-to-Ground Missile",it.name ?? "", true)
+            if (it.range > 0 ) {createDetailRow("Range",it.range.description+" meters")}
+            createDetailRow("Penetration",it.penetration.description+"mm")
         }
         if let it = air.asm {
-            createDetailRow("Air-to-Surface Missile",it.name, true)
-            if (it.range ?? 0 > 0 ) {createDetailRow("Range",it.range!.description+" meters")}
+            createDetailRow("Air-to-Surface Missile",it.name ?? "", true)
+            if (it.range > 0 ) {createDetailRow("Range",it.range.description+" meters")}
         }
         if let it = air.aam {
-            createDetailRow("Air-to-Air Missile",it.name, true)
-            if (it.range ?? 0 > 0 ) {createDetailRow("Range",it.range!.description+" meters")}
+            createDetailRow("Air-to-Air Missile",it.name ?? "", true)
+            if (it.range > 0 ) {createDetailRow("Range",it.range.description+" meters")}
         }
-        if let it = air.speed { createDetailRow("Speed",it.description+" kph", true) }
-        if let it = air.ceiling { createDetailRow("Ceiling",it.description+" meters", true) }
-        if let it = air.auto { createDetailRow("Autonomy",it.description+" km", true) }
-        if let it = air.weight { createDetailRow("Weight",it.description+" kg", true) }
+        createDetailRow("Speed",air.speed.description+" kph", true)
+        createDetailRow("Ceiling",air.ceiling.description+" meters", true)
+        createDetailRow("Autonomy",air.auto.description+" km", true)
+        createDetailRow("Weight",air.weight.description+" kg", true)
     }
     
     // MARK: - Buttons

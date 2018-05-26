@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E202" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Air" representedClassName="Air" syncable="YES" codeGenerationType="class">
+    <entity name="Air" representedClassName="Air" syncable="YES" codeGenerationType="category">
         <attribute name="auto" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="ceiling" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
@@ -10,22 +10,13 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="photoUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="speed" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="weight" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="aam" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Gun" syncable="YES"/>
         <relationship name="agm" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Gun" syncable="YES"/>
         <relationship name="asm" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Gun" syncable="YES"/>
         <relationship name="gun" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Gun" syncable="YES"/>
     </entity>
-    <entity name="Equipment" representedClassName="Equipment" isAbstract="YES" syncable="YES" codeGenerationType="class">
-        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="individualIconUrl" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="photoUrl" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
-    <entity name="Gun" representedClassName="Gun" syncable="YES" codeGenerationType="class">
+    <entity name="Gun" representedClassName="Gun" syncable="YES" codeGenerationType="category">
         <attribute name="altitude" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="groupIconUrl" optional="YES" attributeType="String" syncable="YES"/>
@@ -35,9 +26,8 @@
         <attribute name="penetration" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="photoUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="range" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Land" representedClassName="Land" syncable="YES" codeGenerationType="class">
+    <entity name="Land" representedClassName="Land" syncable="YES" codeGenerationType="category">
         <attribute name="armor" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="auto" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
@@ -47,20 +37,32 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="photoUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="speed" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="weight" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="atgm" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Gun" syncable="YES"/>
         <relationship name="primaryWeapon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Gun" syncable="YES"/>
         <relationship name="secondaryWeapon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Gun" syncable="YES"/>
     </entity>
-    <entity name="Sea" representedClassName="Sea" syncable="YES" codeGenerationType="class">
-        <attribute name="attribute" optional="YES" syncable="YES"/>
+    <entity name="Sea" representedClassName="Sea" syncable="YES" codeGenerationType="category">
+        <attribute name="auto" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dive" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="individualIconUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photoUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="qty" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="speed" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="tonnage" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="transports" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="asm" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Gun" syncable="YES"/>
+        <relationship name="gun" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Gun" syncable="YES"/>
+        <relationship name="sam" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Gun" syncable="YES"/>
+        <relationship name="torpedo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Gun" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Gun" positionX="-63" positionY="-18" width="128" height="195"/>
-        <element name="Land" positionX="-54" positionY="-9" width="128" height="255"/>
-        <element name="Sea" positionX="-36" positionY="9" width="128" height="60"/>
-        <element name="Air" positionX="-18" positionY="27" width="128" height="270"/>
-        <element name="Equipment" positionX="0" positionY="135" width="128" height="135"/>
+        <element name="Gun" positionX="-63" positionY="-18" width="128" height="178"/>
+        <element name="Land" positionX="126" positionY="-198" width="128" height="238"/>
+        <element name="Sea" positionX="304" positionY="-126" width="128" height="268"/>
+        <element name="Air" positionX="133" positionY="171" width="128" height="253"/>
     </elements>
 </model>
