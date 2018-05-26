@@ -7,30 +7,31 @@
 //
 
 import Foundation
+import CoreData
 
-class Air : Equipment {
+class Air : NSManagedObject, Equipment  {
     var id: Int = 0
     var name: String = ""
-    var description: String?
+    var desc: String?
     var groupIconUrl: String?
     var individualIconUrl: String?
     var photoUrl: String?
     
-    var  gun: Gun?
-    var  agm: Gun?
-    var  aam: Gun?
-    var  asm: Gun?
+    var gun: Gun?
+    var agm: Gun?
+    var aam: Gun?
+    var asm: Gun?
     
-    var  speed: Int?
-    var  auto: Int?
-    var  ceiling: Int?
-    var  weight: Int?
+    var speed: Int?
+    var auto: Int?
+    var ceiling: Int?
+    var weight: Int?
     var type = EquipmentType.AIR
     
     enum CodingKeys: String, CodingKey {
         case id
         case name
-        case description
+        case desc = "description"
         case groupIconUrl
         case individualIconUrl
         case photoUrl

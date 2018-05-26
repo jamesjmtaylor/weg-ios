@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+
 protocol Equipment : Codable {
     var id : Int {get set}
     var name : String {get set}

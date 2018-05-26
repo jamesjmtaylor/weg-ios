@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import CoreData
 
-struct Land : Equipment {
+struct Land : Equipment, NSManagedObject {
     var id: Int = 0
     var name: String = ""
-    var description: String?
+    var desc: String?
     var groupIconUrl: String?
     var individualIconUrl: String?
     var photoUrl: String?
@@ -27,7 +28,7 @@ struct Land : Equipment {
     enum CodingKeys: String, CodingKey {
         case id
         case name
-        case description
+        case desc = "description"
         case groupIconUrl
         case individualIconUrl
         case photoUrl

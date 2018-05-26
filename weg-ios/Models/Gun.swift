@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import CoreData
 
-struct Gun : Equipment {
+struct Gun : Equipment, NSManagedObject {
     var id: Int
     var name: String
-    var description: String?
+    var desc: String?
     var groupIconUrl: String?
     var individualIconUrl: String?
     var penetration: Int?
@@ -23,7 +24,7 @@ struct Gun : Equipment {
     enum CodingKeys: String, CodingKey {
         case id
         case name
-        case description
+        case desc = "description"
         case groupIconUrl
         case individualIconUrl
         case penetration

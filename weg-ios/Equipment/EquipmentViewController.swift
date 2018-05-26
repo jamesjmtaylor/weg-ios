@@ -34,20 +34,20 @@ class EquipmentViewController: UIViewController{
         if let item = item as? Gun {
             EquipmentRepository.setImage(groupImageView, item.groupIconUrl)
             EquipmentRepository.setImage(individualImageView, item.individualIconUrl)
-            formattedString.bold("Description: ").normal(item.description ?? "")
+            formattedString.bold("Description: ").normal(item.desc ?? "")
             descriptionLabel.attributedText = formattedString
 
             setDetailViews(gun: item)
         } else if let item = item as? Land {
             EquipmentRepository.setImage(groupImageView, item.groupIconUrl)
             EquipmentRepository.setImage(individualImageView, item.individualIconUrl)
-            formattedString.bold("Description: ").normal(item.description ?? "")
+            formattedString.bold("Description: ").normal(item.desc ?? "")
             descriptionLabel.attributedText = formattedString
 
             setDetailViews(land: item)
         } else if let item = item as? Sea {
             EquipmentRepository.setImage(individualImageView, item.individualIconUrl)
-            formattedString.bold("Description: ").normal(item.description ?? "")
+            formattedString.bold("Description: ").normal(item.desc ?? "")
             descriptionLabel.attributedText = formattedString
 
             groupImageView?.isHidden = true
@@ -55,7 +55,7 @@ class EquipmentViewController: UIViewController{
         } else if let item = item as? Air {
             EquipmentRepository.setImage(groupImageView, item.groupIconUrl)
             EquipmentRepository.setImage(individualImageView, item.individualIconUrl)
-            formattedString.bold("Description: ").normal(item.description ?? "")
+            formattedString.bold("Description: ").normal(item.desc ?? "")
             descriptionLabel.attributedText = formattedString
 
             setDetailViews(air: item)

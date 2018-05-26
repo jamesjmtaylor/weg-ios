@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import CoreData
 
-class Sea : Equipment {
+class Sea : Equipment, NSManagedObject {
     var id: Int = 0
     var name: String = ""
-    var description: String?
+    var desc: String?
     var individualIconUrl: String?
     var photoUrl: String?
     
@@ -31,7 +32,7 @@ class Sea : Equipment {
     enum CodingKeys: String, CodingKey {
         case id
         case name
-        case description
+        case desc = "description"
         case individualIconUrl
         case photoUrl
         

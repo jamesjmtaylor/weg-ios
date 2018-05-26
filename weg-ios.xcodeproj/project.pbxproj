@@ -28,6 +28,7 @@
 		8F90342820B6DF390077518F /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F90342720B6DF390077518F /* loading.json */; };
 		8F90342A20B6E6AD0077518F /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F90342920B6E6AD0077518F /* LoadingView.swift */; };
 		8F90342D20B6E6DD0077518F /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F90342C20B6E6DD0077518F /* LoadingView.xib */; };
+		8F98121A20B99DD100681630 /* Equipment.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8F98121820B99DD100681630 /* Equipment.xcdatamodeld */; };
 		8FC0051B209896F100E04417 /* UIView+ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC0051A209896F100E04417 /* UIView+ActivityIndicator.swift */; };
 		8FC0051D209896FD00E04417 /* UIViewController+PresentAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC0051C209896FC00E04417 /* UIViewController+PresentAlert.swift */; };
 		8FC11C66208EB31C00B083F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC11C65208EB31C00B083F8 /* AppDelegate.swift */; };
@@ -58,13 +59,14 @@
 		8F6912C620A3BA910011C942 /* EquipmentDetailRow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EquipmentDetailRow.xib; sourceTree = "<group>"; };
 		8F6912C820A46C1A0011C942 /* UILabel+BoldUnderline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+BoldUnderline.swift"; sourceTree = "<group>"; };
 		8F79EE85208F5EA7002E95F9 /* Equipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipment.swift; sourceTree = "<group>"; };
-		8F79EE87208F5F6A002E95F9 /* Land.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Land.swift; sourceTree = "<group>"; };
+		8F79EE87208F5F6A002E95F9 /* Land.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Land.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		8F79EE89208F5F72002E95F9 /* Sea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sea.swift; sourceTree = "<group>"; };
 		8F79EE8B208F5F79002E95F9 /* Air.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Air.swift; sourceTree = "<group>"; };
 		8F79EE8D208F5F81002E95F9 /* Gun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gun.swift; sourceTree = "<group>"; };
 		8F90342720B6DF390077518F /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		8F90342920B6E6AD0077518F /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		8F90342C20B6E6DD0077518F /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		8F98121920B99DD100681630 /* Equipment.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Equipment.xcdatamodel; sourceTree = "<group>"; };
 		8FC0051A209896F100E04417 /* UIView+ActivityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+ActivityIndicator.swift"; sourceTree = "<group>"; };
 		8FC0051C209896FC00E04417 /* UIViewController+PresentAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+PresentAlert.swift"; sourceTree = "<group>"; };
 		8FC11C62208EB31C00B083F8 /* weg-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "weg-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,6 +202,7 @@
 				8FC11C6E208EB31D00B083F8 /* Assets.xcassets */,
 				8FC11C70208EB31D00B083F8 /* LaunchScreen.storyboard */,
 				8FC11C6B208EB31C00B083F8 /* Main.storyboard */,
+				8F98121820B99DD100681630 /* Equipment.xcdatamodeld */,
 			);
 			path = "weg-ios";
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				8F79EE8E208F5F81002E95F9 /* Gun.swift in Sources */,
 				8F1C830F2096349400570C8D /* EquipmentCollectionViewCell.swift in Sources */,
 				8F79EE8A208F5F72002E95F9 /* Sea.swift in Sources */,
+				8F98121A20B99DD100681630 /* Equipment.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,6 +567,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8F98121820B99DD100681630 /* Equipment.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8F98121920B99DD100681630 /* Equipment.xcdatamodel */,
+			);
+			currentVersion = 8F98121920B99DD100681630 /* Equipment.xcdatamodel */;
+			path = Equipment.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8FC11C5A208EB31C00B083F8 /* Project object */;
 }
