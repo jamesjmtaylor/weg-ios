@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreData
-
+@objc(Air)
 class Air : NSManagedObject, Equipment  {
     var type = EquipmentType.AIR
     
@@ -19,12 +19,10 @@ class Air : NSManagedObject, Equipment  {
         case groupIconUrl
         case individualIconUrl
         case photoUrl
-        
         case gun
         case agm
         case aam
         case asm
-        
         case speed
         case auto
         case ceiling

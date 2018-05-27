@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreData
-
+@objc(Land)
 class Land : NSManagedObject, Equipment {
     var type = EquipmentType.LAND
     
@@ -39,11 +39,9 @@ class Land : NSManagedObject, Equipment {
         self.groupIconUrl = try container.decodeIfPresent(String.self, forKey: .groupIconUrl)
         self.individualIconUrl = try container.decodeIfPresent(String.self, forKey: .individualIconUrl)
         self.photoUrl = try container.decodeIfPresent(String.self, forKey: .photoUrl)
-    
         self.primaryWeapon = try container.decodeIfPresent(Gun.self, forKey: .primaryWeapon)
         self.secondaryWeapon = try container.decodeIfPresent(Gun.self, forKey: .secondaryWeapon)
         self.atgm = try container.decodeIfPresent(Gun.self, forKey: .atgm)
-        
         self.armor = try container.decode(Int64.self, forKey: .armor)
         self.speed = try container.decode(Int64.self, forKey: .speed)
         self.auto = try container.decode(Int64.self, forKey: .auto)
@@ -64,5 +62,8 @@ class Land : NSManagedObject, Equipment {
         try container.encode(speed, forKey: .speed)
         try container.encode(auto, forKey: .auto)
         try container.encode(weight, forKey: .weight)
+    }
+    public func setGun(gun: Gun){
+        
     }
 }

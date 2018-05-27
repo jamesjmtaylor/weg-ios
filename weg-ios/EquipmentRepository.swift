@@ -8,13 +8,14 @@
 
 import Foundation
 import Kingfisher
+import CoreData
 
 class EquipmentRepository {
     static func baseUrl() -> String {return "http://api.jjmtaylor.com:8080/"}
     static func getAllUrl() -> String {return baseUrl() + "getAllCombined"}
+    static func app() -> AppDelegate {return UIApplication.shared.delegate as! AppDelegate}
     enum method:String {case GET;case POST;case PATCH;case DELETE}
-    
-    //TODO: Implement last fetch date & coreData
+
     static var equipment : [Equipment]?
     static func getEquipment(completionHandler: @escaping ([Equipment]?, String?)->()) -> [Equipment]?{
         if equipment != nil { return equipment }
@@ -39,10 +40,17 @@ class EquipmentRepository {
             if (error != nil) {
                 completionHandler(nil,error.debugDescription)
             } else {
-                let decoder = JSONDecoder()
-                guard let jsonData = data else {completionHandler(nil,"Network returned an empty response.");return}
                 do {
+                    
+                    let context = app().persistentContainer.newBackgroundContext()
+                    let decoder = JSONDecoder()
+                    decoder.userInfo[CodingUserInfoKey.context!] = context
+                    guard let jsonData = data else {
+                        completionHandler(nil,"Network returned an empty response.")
+                        return
+                    }
                     let combined = try decoder.decode(CombinedList.self, from: jsonData)
+                    try context.save()
                     prefetchImages(combined: combined) { (fetched, error) in
                         let filteredFetch = fetched.filter({ (e) -> Bool in return e.photoUrl != nil})
                         completionHandler(filteredFetch,nil)

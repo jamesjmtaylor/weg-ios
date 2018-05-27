@@ -60,9 +60,9 @@
         <relationship name="torpedo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Gun" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Gun" positionX="-63" positionY="-18" width="128" height="178"/>
-        <element name="Land" positionX="126" positionY="-198" width="128" height="238"/>
+        <element name="Air" positionX="133" positionY="171" width="128" height="255"/>
+        <element name="Gun" positionX="-63" positionY="-18" width="128" height="180"/>
+        <element name="Land" positionX="126" positionY="-198" width="128" height="240"/>
         <element name="Sea" positionX="304" positionY="-126" width="128" height="268"/>
-        <element name="Air" positionX="133" positionY="171" width="128" height="253"/>
     </elements>
 </model>

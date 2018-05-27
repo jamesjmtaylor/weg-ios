@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreData
-
+@objc(Sea)
 class Sea : NSManagedObject, Equipment {
     var type = EquipmentType.SEA
     
