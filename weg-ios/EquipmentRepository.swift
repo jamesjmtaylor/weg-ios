@@ -84,7 +84,7 @@ class EquipmentRepository {
         
         let prefetcher = ImagePrefetcher(urls: urls) {
             skippedResources, failedResources, completedResources in
-            completionHandler(combined.getEquipment(),nil)
+            completionHandler(e,nil)
         }
         prefetcher.start()
     }

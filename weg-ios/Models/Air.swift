@@ -31,7 +31,7 @@ class Air : NSManagedObject, Equipment  {
     
     required convenience init(from decoder: Decoder) throws {
         guard let context = decoder.userInfo[CodingUserInfoKey.context!] as? NSManagedObjectContext else { fatalError() }
-        guard let entity = NSEntityDescription.entity(forEntityName: "Land", in: context) else { fatalError() }
+        guard let entity = NSEntityDescription.entity(forEntityName: "Air", in: context) else { fatalError() }
         self.init(entity: entity, insertInto: context)
         let container = try! decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(Int64.self, forKey: .id)
