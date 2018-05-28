@@ -36,14 +36,16 @@ class CardsViewController: UIViewController, ButtonRowDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadingView = LoadingView.getAndStartLoadingView()
-        let fetchedEquipment = EquipmentRepository.getEquipment { (fetchedEquipment, error) in
+        let fetchedEquipment = EquipmentRepository.getEquipment { (error) in
             DispatchQueue.main.async {
                 self.loadingView?.stopAnimation()
                 if let errorString = error {
                     self.presentAlert(alert: errorString)
-                } else if let e = fetchedEquipment {
+                } else {
                     if self.equipment.count == 0 {
-                        self.equipment = e
+                        guard let equipment = EquipmentRepository.getEquipmentFromDatabase() else {return}
+                        let eWithPhotos = equipment.filter({ (e) -> Bool in  return e.photoUrl != nil})
+                        self.equipment = eWithPhotos
                         self.resetTest()
                         self.updateUi()
                     }

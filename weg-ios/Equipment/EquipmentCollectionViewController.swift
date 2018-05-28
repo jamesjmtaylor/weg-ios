@@ -34,16 +34,17 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
         collectionViewFlowLayout.minimumLineSpacing = 0
         collectionViewFlowLayout.minimumInteritemSpacing = 0
     }
-    
+
     var loadingView : LoadingView?
     func getEquipment(){
-        let storedEquipment = EquipmentRepository.getEquipment { (fetchedEquipment, error) in
+        let storedEquipment = EquipmentRepository.getEquipment { (error) in
             DispatchQueue.main.async {
                 self.loadingView?.stopAnimation()
                 if let errorString = error {
                     self.presentAlert(alert: errorString)
-                } else if let e = fetchedEquipment {
-                    self.allEquipment = e
+                } else {
+                    guard let equipment = EquipmentRepository.getEquipmentFromDatabase() else {return}
+                    self.allEquipment = equipment
                     self.filterTypeToSelectedTab()
                 }
             }
@@ -60,6 +61,8 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
     func filterTypeToSelectedTab(){
         guard let tabBar = UIApplication.shared.keyWindow?.rootViewController
             as? UITabBarController else {return}
+        let eWithPhotos = allEquipment.filter({ (e) -> Bool in  return e.photoUrl != nil})
+        allEquipment = eWithPhotos
         guard let selectedTab = tabBar.selectedViewController else {return}
         switch selectedTab.restorationIdentifier {
         case LandNavController: self.setEquipmentToLand()
