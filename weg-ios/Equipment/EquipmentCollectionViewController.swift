@@ -37,7 +37,7 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
 
     var loadingView : LoadingView?
     func getEquipment(){
-        let storedEquipment = EquipmentRepository.getEquipment { (equipment,error) in
+        let storedEquipment = EquipmentRepository.getEquipment { (error) in
             DispatchQueue.main.async {
                 self.loadingView?.stopAnimation()
                 if let errorString = error {

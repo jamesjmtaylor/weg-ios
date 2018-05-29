@@ -19,11 +19,11 @@ class EquipmentRepository {
     static var equipment : [Equipment]?
     
     
-    static func getEquipment(completionHandler: @escaping ([Equipment]?, String?)->()) -> [Equipment]?{
+    static func getEquipment(completionHandler: @escaping (String?)->()) -> [Equipment]?{
         if equipment != nil { return equipment } //in-memory fetch
         equipment = getEquipmentFromDatabase()
         if equipment != nil && equipment!.count > 0 { return equipment } //database fetch
-        getEquipmentFromNetwork {(equipment, error) in completionHandler(equipment, error)}
+        getEquipmentFromNetwork {(equipment, error) in completionHandler(error)}
         return nil
     }
     static func getEquipmentFromDatabase() -> [Equipment]? {
