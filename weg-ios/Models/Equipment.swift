@@ -18,6 +18,38 @@ protocol Equipment : Codable {
     var type : EquipmentType {get set}
 }
 
+func sortAndFilterEquipment(equipment: [Equipment]) -> [Equipment] {
+    let photosOnly = equipment.filter({ (e) -> Bool in  return e.photoUrl != nil})
+    let unique = removeDuplicates(photosOnly)
+    let sorted = unique.sorted { (this, that) -> Bool in
+        return this.name ?? "" < that.name ?? ""
+    }
+    return sorted
+}
+//This is manual implementation is necesary because protocols can't conform to Hashable, which prevents
+//the use of the Set data structure.
+func removeDuplicates(_ equipment: [Equipment]) -> [Equipment] {
+    var results = [Equipment]()
+    var exists = false
+    for e in equipment {
+        for r in results {
+            if (e.name == r.name) {
+                exists = true
+                break
+            }
+            exists = false
+        }
+        if exists {
+            exists = false
+            continue
+        } else {
+            results.append(e)
+        }
+        
+    }
+    return results
+}
+
 struct CombinedList : Codable {
     let guns : [Gun]
     let land : [Land]
@@ -40,3 +72,6 @@ enum EquipmentType: String, Codable {
     case GUN
     case ALL
 }
+
+
+

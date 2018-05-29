@@ -33,23 +33,27 @@ class CardsViewController: UIViewController, ButtonRowDelegate {
     var timeRemaining = 10.0
     
     var loadingView : LoadingView?
+    let moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     override func viewDidLoad() {
         super.viewDidLoad()
         loadingView = LoadingView.getAndStartLoadingView()
-        let fetchedEquipment = EquipmentRepository.getEquipment { (error) in
+        let fetchedEquipment = EquipmentRepository.getEquipment { (equipment,error)  in
             DispatchQueue.main.async {
                 self.loadingView?.stopAnimation()
                 if let errorString = error {
                     self.presentAlert(alert: errorString)
                 } else {
-                    if self.equipment.count == 0 {
-                        guard let equipment = EquipmentRepository.getEquipmentFromDatabase() else {return}
-                        let eWithPhotos = equipment.filter({ (e) -> Bool in  return e.photoUrl != nil})
-                        self.equipment = eWithPhotos
-                        self.resetTest()
-                        self.updateUi()
+                    guard let equipment = equipment else {return}
+                    if self.moc.hasChanges {
+                        do {
+                            try self.moc.save()
+                        } catch {
+                            print("\(error)")
+                        }
                     }
-                    
+                    let eWithPhotos = equipment.filter({ (e) -> Bool in  return e.photoUrl != nil})
+                    self.equipment = eWithPhotos
+                    self.resetTest()
                 }
             }
         }

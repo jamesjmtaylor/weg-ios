@@ -10,7 +10,7 @@ import UIKit
 import Lottie
 
 class EquipmentCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate, UITabBarControllerDelegate {
-
+    let moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var collectionViewFlowLayout: UICollectionViewFlowLayout!
     var allEquipment = [Equipment]()
@@ -21,11 +21,11 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
-        searchBar.delegate = self     
+        searchBar.delegate = self
+        getEquipment()
     }
     override func viewDidLayoutSubviews() {
         setupCollectionViewLayout()
-        getEquipment()
     }
     var sideSize: CGFloat = 0
     func setupCollectionViewLayout(){
@@ -37,7 +37,7 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
 
     var loadingView : LoadingView?
     func getEquipment(){
-        let storedEquipment = EquipmentRepository.getEquipment { (error) in
+        let storedEquipment = EquipmentRepository.getEquipment { (equipment,error) in
             DispatchQueue.main.async {
                 self.loadingView?.stopAnimation()
                 if let errorString = error {
@@ -61,9 +61,8 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
     func filterTypeToSelectedTab(){
         guard let tabBar = UIApplication.shared.keyWindow?.rootViewController
             as? UITabBarController else {return}
-        let eWithPhotos = allEquipment.filter({ (e) -> Bool in  return e.photoUrl != nil})
-        allEquipment = eWithPhotos
         guard let selectedTab = tabBar.selectedViewController else {return}
+        allEquipment = sortAndFilterEquipment(equipment: allEquipment)
         switch selectedTab.restorationIdentifier {
         case LandNavController: self.setEquipmentToLand()
         case AirNavController: self.setEquipmentToAir()

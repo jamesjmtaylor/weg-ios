@@ -19,11 +19,11 @@ class EquipmentRepository {
     static var equipment : [Equipment]?
     
     
-    static func getEquipment(completionHandler: @escaping (String?)->()) -> [Equipment]?{
+    static func getEquipment(completionHandler: @escaping ([Equipment]?, String?)->()) -> [Equipment]?{
         if equipment != nil { return equipment } //in-memory fetch
         equipment = getEquipmentFromDatabase()
-        if equipment != nil { return equipment } //database fetch
-        getEquipmentFromNetwork {(error) in completionHandler(error)}
+        if equipment != nil && equipment!.count > 0 { return equipment } //database fetch
+        getEquipmentFromNetwork {(equipment, error) in completionHandler(equipment, error)}
         return nil
     }
     static func getEquipmentFromDatabase() -> [Equipment]? {
@@ -44,9 +44,9 @@ class EquipmentRepository {
         }
         return nil
     }
-    fileprivate static func getEquipmentFromNetwork(completionHandler: @escaping (String?)->()) {
+    fileprivate static func getEquipmentFromNetwork(completionHandler: @escaping ([Equipment]?,String?)->()) {
         guard let url = URL(string: getAllUrl()) else {
-            completionHandler("Failed to convert url to string"); return
+            completionHandler(nil,"Failed to convert url to string"); return
         }
         let headers = ["Cache-Control": "no-cache"]
         let request = NSMutableURLRequest(url: url, cachePolicy: .useProtocolCachePolicy,timeoutInterval: 10.0)
@@ -55,21 +55,21 @@ class EquipmentRepository {
         
         let session = URLSession.shared
         let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
-            if (error != nil) { completionHandler(error.debugDescription)
+            if (error != nil) { completionHandler(nil, error.debugDescription)
             } else {
                 do {
-                    let context = app().persistentContainer.newBackgroundContext()
+                    let moc = app().persistentContainer.newBackgroundContext()
                     let decoder = JSONDecoder()
-                    decoder.userInfo[CodingUserInfoKey.context!] = context
+                    decoder.userInfo[CodingUserInfoKey.context!] = moc
                     guard let jsonData = data else {
-                        completionHandler("Network returned an empty response.")
+                        completionHandler(nil, "Network returned an empty response.")
                         return
                     }
                     let combined = try decoder.decode(CombinedList.self, from: jsonData)
-                    try context.save()
+                    try moc.save()
                     prefetchImages(combined: combined)
-                    completionHandler(nil)
-                } catch { completionHandler(error.localizedDescription); return }
+                    completionHandler(combined.getEquipment(), nil)
+                } catch { completionHandler(nil, error.localizedDescription); return }
             }
         })
         dataTask.resume()
