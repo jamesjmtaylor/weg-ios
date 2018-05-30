@@ -59,11 +59,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "weg-ios/Equipment/EquipmentCollectionViewController.swift"
-            timestampString = "549292555.625255"
+            timestampString = "549373784.847782"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "getEquipment()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "weg-ios/Equipment/EquipmentCollectionViewController.swift"
+            timestampString = "549373784.848147"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "getEquipment()"
             landmarkType = "7">
          </BreakpointContent>

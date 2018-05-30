@@ -22,6 +22,9 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
         collectionView.dataSource = self
         collectionView.delegate = self
         searchBar.delegate = self
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         getEquipment()
     }
     override func viewDidLayoutSubviews() {
