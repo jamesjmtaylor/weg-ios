@@ -42,11 +42,10 @@ class CardsViewController: UIViewController, ButtonRowDelegate {
                 self.loadingView?.stopAnimation()
                 if let errorString = error {
                     self.presentAlert(alert: errorString)
-                } else {
-                    guard let equipment = EquipmentRepository.getEquipmentFromDatabase() else {return}
-                    self.equipment = sortAndFilterEquipment(equipment: equipment)
-                    self.resetTest()
                 }
+                guard let equipment = EquipmentRepository.getEquipmentFromDatabase() else {return}
+                self.equipment = sortAndFilterEquipment(equipment: equipment)
+                self.resetTest() 
             }
         }
         if fetchedEquipment != nil {

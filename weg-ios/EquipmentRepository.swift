@@ -16,13 +16,12 @@ class EquipmentRepository {
     static func app() -> AppDelegate {return UIApplication.shared.delegate as! AppDelegate}
     enum method:String {case GET;case POST;case PATCH;case DELETE}
 
+    //MARK: - Repository pattern
     static var equipment : [Equipment]?
-    
-    
     static func getEquipment(completionHandler: @escaping (String?)->()) -> [Equipment]?{
         if equipment != nil && equipment!.count > 0 { return equipment } //in-memory fetch
-        equipment = getEquipmentFromDatabase()
-        if equipment != nil && equipment!.count > 0 { return equipment } //database fetch
+        equipment = getEquipmentFromDatabase() //database fetch
+        if !fetchNeeded() && equipment != nil && equipment!.count > 0 { return equipment }
         getEquipmentFromNetwork {(equipment, error) in completionHandler(error)}
         return nil
     }
@@ -55,7 +54,7 @@ class EquipmentRepository {
         
         let session = URLSession.shared
         let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
-            if (error != nil) { completionHandler(nil, error.debugDescription)
+            if (error != nil) { completionHandler(nil, error?.localizedDescription)
             } else {
                 do {
                     let moc = app().persistentContainer.newBackgroundContext()
@@ -67,6 +66,7 @@ class EquipmentRepository {
                     }
                     let combined = try decoder.decode(CombinedList.self, from: jsonData)
                     try moc.save()
+                    setLastFetchDate()
                     prefetchImages(combined: combined)
                     completionHandler(combined.getEquipment(), nil)
                 } catch { completionHandler(nil, error.localizedDescription); return }
@@ -74,7 +74,25 @@ class EquipmentRepository {
         })
         dataTask.resume()
     }
-    private static func prefetchImages(combined : CombinedList) {
+    //MARK: - Network Fetch one week refresh
+    static let fetchDateKey = "fetchDateKey"
+    fileprivate static func getLastFetchDate() -> Date {
+        let lastFetchTimeInterval = UserDefaults.standard.double(forKey: fetchDateKey)
+        return Date(timeIntervalSince1970: lastFetchTimeInterval)
+    }
+    fileprivate static func setLastFetchDate(_ date: Date = Date()) {
+        let timeInterval = date.timeIntervalSince1970
+        UserDefaults.standard.set(timeInterval,forKey: fetchDateKey)
+    }
+    fileprivate static func fetchNeeded() -> Bool {
+        return true
+        let lastFetch = getLastFetchDate().timeIntervalSince1970
+        let now = Date().timeIntervalSince1970
+        let oneWeek = Double(7 * 24 * 60 * 60)
+        return now - oneWeek > lastFetch
+    }
+    //MARK: - Image methods
+    fileprivate static func prefetchImages(combined : CombinedList) {
         var urls = [URL]()
         let e = combined.getEquipment()
         let placeholder = URL(string: EquipmentRepository.baseUrl())!

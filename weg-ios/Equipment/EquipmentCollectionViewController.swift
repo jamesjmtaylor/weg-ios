@@ -45,11 +45,10 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
                 self.loadingView?.stopAnimation()
                 if let errorString = error {
                     self.presentAlert(alert: errorString)
-                } else {
-                    guard let equipment = EquipmentRepository.getEquipmentFromDatabase() else {return}
-                    self.allEquipment = equipment
-                    self.filterTypeToSelectedTab()
                 }
+                guard let equipment = EquipmentRepository.getEquipmentFromDatabase() else {return}
+                self.allEquipment = equipment
+                self.filterTypeToSelectedTab()
             }
         }
         guard let unwrappedEquipment = storedEquipment else {
