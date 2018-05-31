@@ -372,9 +372,9 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AY3-cr-VE9">
                                                     <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oB0-3M-vRU">
-                                                    <rect key="frame" x="54" y="121" width="42" height="21"/>
-                                                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oB0-3M-vRU">
+                                                    <rect key="frame" x="54" y="121.5" width="42" height="20.5"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.94509803920000002" green="0.95294117649999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -393,6 +393,8 @@
                                             <constraint firstItem="AY3-cr-VE9" firstAttribute="top" secondItem="lhL-Gp-q5H" secondAttribute="top" id="0Gm-PU-A1V"/>
                                             <constraint firstItem="AY3-cr-VE9" firstAttribute="leading" secondItem="lhL-Gp-q5H" secondAttribute="leading" id="6za-md-Cwf"/>
                                             <constraint firstItem="oB0-3M-vRU" firstAttribute="bottom" secondItem="AY3-cr-VE9" secondAttribute="bottom" constant="-8" id="Jqa-Dj-4oN"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oB0-3M-vRU" secondAttribute="trailing" constant="8" id="Q9W-pS-zVO"/>
+                                            <constraint firstItem="oB0-3M-vRU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lhL-Gp-q5H" secondAttribute="leading" constant="8" id="nYr-D2-6Oo"/>
                                             <constraint firstItem="oB0-3M-vRU" firstAttribute="centerX" secondItem="AY3-cr-VE9" secondAttribute="centerX" id="r0d-W4-eXh"/>
                                             <constraint firstAttribute="trailing" secondItem="AY3-cr-VE9" secondAttribute="trailing" id="y6Y-1j-FdN"/>
                                             <constraint firstAttribute="bottom" secondItem="AY3-cr-VE9" secondAttribute="bottom" id="yvg-k2-94k"/>
