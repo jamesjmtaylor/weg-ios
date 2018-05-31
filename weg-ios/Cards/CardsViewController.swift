@@ -12,8 +12,6 @@ import Lottie
 class CardsViewController: UIViewController, ButtonRowDelegate {
     var equipment = [Equipment]()
     var selectedTypes = [EquipmentType]()
-    
-    private let repo = EquipmentRepository()
     private var cards = [Equipment]()
     var correctCard : Equipment? = nil
     
@@ -31,35 +29,13 @@ class CardsViewController: UIViewController, ButtonRowDelegate {
     
     var oneSecondTimer: Timer?
     var timeRemaining = 10.0
-    
-    var loadingView : LoadingView?
-    let moc = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadingView = LoadingView.getAndStartLoadingView()
-        let fetchedEquipment = EquipmentRepository.getEquipment { (error)  in
-            DispatchQueue.main.async {
-                self.loadingView?.stopAnimation()
-                if let errorString = error {
-                    self.presentAlert(alert: errorString)
-                }
-                guard let equipment = EquipmentRepository.getEquipmentFromDatabase() else {return}
-                self.equipment = sortAndFilterEquipment(equipment: equipment)
-                self.resetTest() 
-            }
-        }
-        if fetchedEquipment != nil {
-            self.loadingView?.stopAnimation()
-            equipment = sortAndFilterEquipment(equipment: fetchedEquipment!)
-            resetTest()
-            updateUi()
-        }
-        
+        resetTest()
+        updateUi()
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.initOneSecondTimer(start: true)
-    }
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.initOneSecondTimer(start: false)

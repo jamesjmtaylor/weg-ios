@@ -11,6 +11,8 @@ import UIKit
 class CardsSetupViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var qtyStepper: UIStepper!
     @IBOutlet weak var pickerView: UIPickerView!
+    private let repo = EquipmentRepository()
+    private var equipment = [Equipment]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +22,24 @@ class CardsSetupViewController: UIViewController, UIPickerViewDelegate, UIPicker
         qtyStepper.stepValue = 5.0
         qtyStepper.minimumValue = 5.0
         qtyStepper.maximumValue = 100.0
+        getEquipment()
     }
-    
+    var loadingView : LoadingView?
+    func getEquipment(){
+        let storedEquipment = EquipmentRepository.getEquipment { (error) in
+            DispatchQueue.main.async {
+                self.loadingView?.stopAnimation()
+                if let errorString = error {
+                    self.presentAlert(alert: errorString)
+                }
+                guard let equipment = EquipmentRepository.getEquipmentFromDatabase() else {return}
+                self.equipment = equipment
+            }
+        }
+        if let e = storedEquipment { equipment = e } else {
+            loadingView = LoadingView.getAndStartLoadingView()
+        }
+    }
     // MARK: - Navigation
     let presentCardsSegue = "presentCardsSegue"
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
@@ -31,6 +49,7 @@ class CardsSetupViewController: UIViewController, UIPickerViewDelegate, UIPicker
             vc.deckSize = Int(qtyStepper.value)
             vc.difficulty = selectedDifficulty
             vc.selectedTypes = getSelectedTypes()
+            vc.equipment = sortAndFilterEquipment(equipment: equipment)
         } else {
             super.prepare(for: segue, sender: sender)
         }
@@ -73,7 +92,11 @@ class CardsSetupViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     @IBAction func startButtonPressed(_ sender: Any) {
-        performSegue(withIdentifier: presentCardsSegue, sender: self)
+        if (equipment.count > 0){
+            performSegue(withIdentifier: presentCardsSegue, sender: self)
+        } else {
+            self.presentAlert(alert: "No equipment available for flashcards.")
+        }
     }
 }
 enum Difficulty: String {case EASY; case MEDIUM; case HARD}

@@ -85,7 +85,6 @@ class EquipmentRepository {
         UserDefaults.standard.set(timeInterval,forKey: fetchDateKey)
     }
     fileprivate static func fetchNeeded() -> Bool {
-        return true
         let lastFetch = getLastFetchDate().timeIntervalSince1970
         let now = Date().timeIntervalSince1970
         let oneWeek = Double(7 * 24 * 60 * 60)
