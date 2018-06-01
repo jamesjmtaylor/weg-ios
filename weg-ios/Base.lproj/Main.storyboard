@@ -347,7 +347,7 @@
         <!--WEG 2015-->
         <scene sceneID="yXf-Lg-Ftc">
             <objects>
-                <viewController storyboardIdentifier="EquipmentCollectionViewController" title="WEG 2015" useStoryboardIdentifierAsRestorationIdentifier="YES" id="oWy-b2-iTn" customClass="EquipmentCollectionViewController" customModule="weg_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EquipmentCollectionViewController" title="WEG 2015" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="oWy-b2-iTn" customClass="EquipmentCollectionViewController" customModule="weg_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tu3-HT-cqd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -439,7 +439,7 @@
         <!--Equipment Name-->
         <scene sceneID="ajx-br-EmC">
             <objects>
-                <viewController storyboardIdentifier="EquipmentViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ngz-0c-au8" customClass="EquipmentViewController" customModule="weg_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EquipmentViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ngz-0c-au8" customClass="EquipmentViewController" customModule="weg_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uRd-NV-e6B">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
