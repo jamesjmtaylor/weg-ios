@@ -92,10 +92,10 @@ class CardsSetupViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     @IBAction func startButtonPressed(_ sender: Any) {
-        if (equipment.count > 0){
+        if (getSelectedTypes().count > 0){
             performSegue(withIdentifier: presentCardsSegue, sender: self)
         } else {
-            self.presentAlert(alert: "No equipment available for flashcards.")
+            self.presentAlert(alert: "The selected flashcard setup resulted in a test with no cards. Try toggling at least one equipment type on.")
         }
     }
 }

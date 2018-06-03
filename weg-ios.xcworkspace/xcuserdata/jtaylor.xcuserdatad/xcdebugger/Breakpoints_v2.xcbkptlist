@@ -59,11 +59,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "weg-ios/Equipment/EquipmentCollectionViewController.swift"
-            timestampString = "549551328.693496"
+            timestampString = "549724237.47325"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "getEquipment()"
             landmarkType = "7">
          </BreakpointContent>

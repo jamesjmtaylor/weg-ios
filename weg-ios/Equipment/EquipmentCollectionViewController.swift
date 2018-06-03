@@ -31,8 +31,14 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
         setupCollectionViewLayout()
     }
     var sideSize: CGFloat = 0
-    func setupCollectionViewLayout(){
-        sideSize = (collectionView.bounds.width ) / 3
+    func calculateNoOfColumns() -> CGFloat {
+        let screenWidth = collectionView.bounds.width
+        let columnWidth = collectionViewFlowLayout.itemSize.width
+        let noOfColumns = Int(screenWidth / columnWidth)
+        return CGFloat(noOfColumns)
+    }
+    func setupCollectionViewLayout(){ //This removes excess space between cells.
+        sideSize = (collectionView.bounds.width ) / calculateNoOfColumns()
         collectionViewFlowLayout.itemSize = CGSize(width: sideSize, height: sideSize)
         collectionViewFlowLayout.minimumLineSpacing = 0
         collectionViewFlowLayout.minimumInteritemSpacing = 0

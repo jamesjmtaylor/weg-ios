@@ -33,7 +33,7 @@ func removeDuplicates(_ equipment: [Equipment]) -> [Equipment] {
     var exists = false
     for e in equipment {
         for r in results {
-            if (e.name == r.name) {
+            if (e.name == r.name && e.id == r.id) {
                 exists = true
                 break
             }
