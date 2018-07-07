@@ -9,4 +9,13 @@ target 'weg-ios' do
   pod 'lottie-ios'
   pod 'Fabric', '~> 1.7.7'
   pod 'Crashlytics', '~> 3.10.2'
+
+  target 'wegUnitTests' do
+        inherit! :search_paths
+        pod 'Firebase/Core'
+        pod 'Kingfisher', '~> 4.7.0'
+        pod 'lottie-ios'
+        pod 'Fabric', '~> 1.7.7'
+        pod 'Crashlytics', '~> 3.10.2'
+    end
 end
