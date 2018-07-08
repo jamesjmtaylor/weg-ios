@@ -17,38 +17,6 @@
             endingLineNumber = "71"
             landmarkName = "encode(to:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "weg_ios.Air.encode(to: Swift.Encoder) throws -&gt; ()"
-                  moduleName = "weg-ios"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jtaylor/Desktop/GitHub/weg-ios/weg-ios/Models/Air.swift"
-                  timestampString = "552673353.646023"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "71"
-                  endingLineNumber = "71"
-                  offsetFromSymbolStart = "2660">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "wegUnitTests.Air.encode(to: Swift.Encoder) throws -&gt; ()"
-                  moduleName = "wegUnitTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jtaylor/Desktop/GitHub/weg-ios/weg-ios/Models/Air.swift"
-                  timestampString = "552673354.066643"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "71"
-                  endingLineNumber = "71"
-                  offsetFromSymbolStart = "2660">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -91,11 +59,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "weg-ios/Equipment/EquipmentCollectionViewController.swift"
-            timestampString = "549724237.47325"
+            timestampString = "552747642.330549"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "getEquipment()"
             landmarkType = "7">
          </BreakpointContent>

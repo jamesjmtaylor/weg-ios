@@ -22,23 +22,29 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
         collectionView.dataSource = self
         collectionView.delegate = self
         searchBar.delegate = self
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(EquipmentCollectionViewController.rotated),
+                                               name: NSNotification.Name.UIDeviceOrientationDidChange,
+                                               object: nil)
+    }
+    @objc func rotated() {
+        setupCollectionViewLayout()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         getEquipment()
-    }
-    override func viewDidLayoutSubviews() {
         setupCollectionViewLayout()
     }
+
     var sideSize: CGFloat = 0
-    func calculateNoOfColumns() -> CGFloat {
-        let screenWidth = collectionView.bounds.width
-        let columnWidth = collectionViewFlowLayout.itemSize.width
+    static func calculateNoOfColumns(cv : UICollectionView) -> CGFloat {
+        let screenWidth = cv.bounds.width
+        let columnWidth : CGFloat = 150.0//collectionViewFlowLayout.itemSize.width
         let noOfColumns = Int(screenWidth / columnWidth)
         return CGFloat(noOfColumns)
     }
     func setupCollectionViewLayout(){ //This removes excess space between cells.
-        sideSize = (collectionView.bounds.width ) / calculateNoOfColumns()
+        sideSize = (collectionView.bounds.width ) / EquipmentCollectionViewController.calculateNoOfColumns(cv: collectionView)
         collectionViewFlowLayout.itemSize = CGSize(width: sideSize, height: sideSize)
         collectionViewFlowLayout.minimumLineSpacing = 0
         collectionViewFlowLayout.minimumInteritemSpacing = 0

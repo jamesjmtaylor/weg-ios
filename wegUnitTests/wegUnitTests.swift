@@ -9,17 +9,24 @@
 import XCTest
 
 class wegUnitTests: XCTestCase {
+    var vc : EquipmentCollectionViewController?
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        let main = UIStoryboard.init(name: "Main", bundle: nil)
+        vc = main.instantiateViewController(withIdentifier: "EquipmentCollectionViewController") as? EquipmentCollectionViewController
     }
     
     override func tearDown() {super.tearDown()}
     
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let frame = CGRect(x: 0, y: 0, width: 375, height: 500)
+        let layout = UICollectionViewLayout()
+        let collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
+        
+        let actual = EquipmentCollectionViewController.calculateNoOfColumns(cv: collectionView)
+        let expected : CGFloat = 2.0
+        XCTAssertEqual(actual, expected)
     }
     
     func testPerformanceExample() {
