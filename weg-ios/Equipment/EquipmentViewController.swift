@@ -24,7 +24,7 @@ class EquipmentViewController: UIViewController{
         super.viewDidLoad()
         Crashlytics.sharedInstance().crash()
         configureViewToEquipmentType(item: equipmentToView)
-        EquipmentRepºository.setImage(photoImageView, equipmentToView?.photoUrl)
+        EquipmentRepository.setImage(photoImageView, equipmentToView?.photoUrl)
     }
     
     func configureViewToEquipmentType(item: Equipment?){
