@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Crashlytics
 
 class EquipmentViewController: UIViewController{
 
@@ -21,14 +22,14 @@ class EquipmentViewController: UIViewController{
     var equipmentToView : Equipment?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        Crashlytics.sharedInstance().crash()
         configureViewToEquipmentType(item: equipmentToView)
-        EquipmentRepository.setImage(photoImageView, equipmentToView?.photoUrl)
+        EquipmentRepºository.setImage(photoImageView, equipmentToView?.photoUrl)
     }
     
     func configureViewToEquipmentType(item: Equipment?){
         self.navigationItem.title = item?.name
-
+        
         let formattedString = NSMutableAttributedString()
         if let item = item as? Gun {
             EquipmentRepository.setImage(groupImageView, item.groupIconUrl)
