@@ -332,7 +332,7 @@
 				8FC11C5E208EB31C00B083F8 /* Sources */,
 				8FC11C5F208EB31C00B083F8 /* Frameworks */,
 				8FC11C60208EB31C00B083F8 /* Resources */,
-				8F62EA9720B8CCF60054955E /* ShellScript */,
+				8F62EA9720B8CCF60054955E /* Run Script */,
 				52D09EA544F6DBB94D5474A1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -458,13 +458,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-weg-ios/Pods-weg-ios-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8F62EA9720B8CCF60054955E /* ShellScript */ = {
+		8F62EA9720B8CCF60054955E /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
