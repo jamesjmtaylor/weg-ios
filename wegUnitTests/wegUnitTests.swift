@@ -8,7 +8,7 @@
 
 import XCTest
 
-class wegUnitTests: XCTestCase {
+class equipmentCollectionViewTests: XCTestCase {
     var vc : EquipmentCollectionViewController?
     
     override func setUp() {
@@ -19,7 +19,7 @@ class wegUnitTests: XCTestCase {
     
     override func tearDown() {super.tearDown()}
     
-    func testExample() {
+    func testFrameShouldHoldTwoColumns() {
         let frame = CGRect(x: 0, y: 0, width: 375, height: 500)
         let layout = UICollectionViewLayout()
         let collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
@@ -29,10 +29,13 @@ class wegUnitTests: XCTestCase {
         XCTAssertEqual(actual, expected)
     }
     
-    func testPerformanceExample() {
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testFrameShouldHoldSixColumns() {
+        let frame = CGRect(x: 0, y: 0, width: 1000, height: 1000)
+        let layout = UICollectionViewLayout()
+        let collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
+        
+        let actual = EquipmentCollectionViewController.calculateNoOfColumns(cv: collectionView)
+        let expected : CGFloat = 6.0
+        XCTAssertEqual(actual, expected)
     }
-    
 }

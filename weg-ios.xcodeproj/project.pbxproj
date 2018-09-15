@@ -24,7 +24,7 @@
 		8F79EE8A208F5F72002E95F9 /* Sea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F79EE89208F5F72002E95F9 /* Sea.swift */; };
 		8F79EE8C208F5F79002E95F9 /* Air.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F79EE8B208F5F79002E95F9 /* Air.swift */; };
 		8F79EE8E208F5F81002E95F9 /* Gun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F79EE8D208F5F81002E95F9 /* Gun.swift */; };
-		8F8B270720F11A45002A4617 /* wegUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8B270620F11A45002A4617 /* wegUnitTests.swift */; };
+		8F8B270720F11A45002A4617 /* equipmentCollectionViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8B270620F11A45002A4617 /* equipmentCollectionViewTests.swift */; };
 		8F8B270E20F11AA4002A4617 /* EquipmentCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1C830A209631BB00570C8D /* EquipmentCollectionViewController.swift */; };
 		8F8B270F20F11AA4002A4617 /* EquipmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1C830C209631D400570C8D /* EquipmentViewController.swift */; };
 		8F8B271020F11AA4002A4617 /* EquipmentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1C830E2096349400570C8D /* EquipmentCollectionViewCell.swift */; };
@@ -113,7 +113,7 @@
 		8F79EE8B208F5F79002E95F9 /* Air.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Air.swift; sourceTree = "<group>"; };
 		8F79EE8D208F5F81002E95F9 /* Gun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gun.swift; sourceTree = "<group>"; };
 		8F8B270420F11A45002A4617 /* wegUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wegUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8F8B270620F11A45002A4617 /* wegUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wegUnitTests.swift; sourceTree = "<group>"; };
+		8F8B270620F11A45002A4617 /* equipmentCollectionViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = equipmentCollectionViewTests.swift; sourceTree = "<group>"; };
 		8F8B270820F11A45002A4617 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F90342720B6DF390077518F /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		8F90342920B6E6AD0077518F /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -233,7 +233,7 @@
 		8F8B270520F11A45002A4617 /* wegUnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				8F8B270620F11A45002A4617 /* wegUnitTests.swift */,
+				8F8B270620F11A45002A4617 /* equipmentCollectionViewTests.swift */,
 				8F8B270820F11A45002A4617 /* Info.plist */,
 			);
 			path = wegUnitTests;
@@ -470,7 +470,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\"";
+			shellScript = "\"${PODS_ROOT}/Fabric/upload-symbols\" -gsp \"${PROJECT_DIR}/weg-ios/\"GoogleService-Info.plist -p ios \"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\"";
 		};
 		984184AB70B9D32F45F78D24 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -531,7 +531,7 @@
 				8F8B272B20F11C61002A4617 /* Sea.swift in Sources */,
 				8F8B271420F11AA9002A4617 /* CardsViewController.swift in Sources */,
 				8F8B271F20F11AB2002A4617 /* LoadingView.swift in Sources */,
-				8F8B270720F11A45002A4617 /* wegUnitTests.swift in Sources */,
+				8F8B270720F11A45002A4617 /* equipmentCollectionViewTests.swift in Sources */,
 				8F8B271020F11AA4002A4617 /* EquipmentCollectionViewCell.swift in Sources */,
 				8F8B270E20F11AA4002A4617 /* EquipmentCollectionViewController.swift in Sources */,
 				8F8B273420F11CCF002A4617 /* Array+Shuffle.swift in Sources */,
@@ -774,8 +774,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 3UNUY4A2PK;
 				INFOPLIST_FILE = "weg-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -785,8 +785,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jamesjmtaylor.weg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fc0739cc-1114-4a6a-b7d1-5846f20a8f98";
-				PROVISIONING_PROFILE_SPECIFIER = "Personal Development Ad Hoc";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -797,9 +797,9 @@
 			baseConfigurationReference = 98CFA5E9F005148975EA2FF5 /* Pods-weg-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 3UNUY4A2PK;
 				INFOPLIST_FILE = "weg-ios/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -809,8 +809,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jamesjmtaylor.weg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "753d207e-d53d-490e-ba3d-82f92e5474bc";
-				PROVISIONING_PROFILE_SPECIFIER = "WEG Distro Provisioning Profile";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
