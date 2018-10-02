@@ -19,11 +19,19 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.4)
   - Kingfisher (4.7.0)
   - lottie-ios (2.5.0)
+  - Mockingjay (2.0.1):
+    - Mockingjay/Core (= 2.0.1)
+    - Mockingjay/XCTest (= 2.0.1)
+  - Mockingjay/Core (2.0.1):
+    - URITemplate (~> 2.0)
+  - Mockingjay/XCTest (2.0.1):
+    - Mockingjay/Core
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - URITemplate (2.0.3)
 
 DEPENDENCIES:
   - Crashlytics (~> 3.10.2)
@@ -31,6 +39,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Kingfisher (~> 4.7.0)
   - lottie-ios
+  - Mockingjay
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -43,7 +52,9 @@ SPEC REPOS:
     - GoogleToolboxForMac
     - Kingfisher
     - lottie-ios
+    - Mockingjay
     - nanopb
+    - URITemplate
 
 SPEC CHECKSUMS:
   Crashlytics: 0360624eea1c978a743feddb2fb1ef8b37fb7a0d
@@ -55,8 +66,10 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   Kingfisher: da6b005aa96d37698e3e4f1ccfe96a5b9bbf27d6
   lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
+  Mockingjay: 11a621880d2887f1775bdcf824341eb68f218450
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  URITemplate: ace0c4c46dcf8afe6e89b4060621852886b15c3b
 
-PODFILE CHECKSUM: 9442309adda68b650f76e70142f1fc0dafddbcd7
+PODFILE CHECKSUM: d0b242aadea19f63d44bf1641cca71cd271a1298
 
 COCOAPODS: 1.5.0

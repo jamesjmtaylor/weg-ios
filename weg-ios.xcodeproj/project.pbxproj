@@ -16,6 +16,8 @@
 		8F1C830D209631D400570C8D /* EquipmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1C830C209631D400570C8D /* EquipmentViewController.swift */; };
 		8F1C830F2096349400570C8D /* EquipmentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1C830E2096349400570C8D /* EquipmentCollectionViewCell.swift */; };
 		8F2DACE620B05B1C00F908FB /* Array+Shuffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2DACE520B05B1C00F908FB /* Array+Shuffle.swift */; };
+		8F6062822162F82D005F4BEB /* repoUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6062812162F82C005F4BEB /* repoUnitTests.swift */; };
+		8F6062842162F91E005F4BEB /* getAllResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 8F6062832162F91E005F4BEB /* getAllResponse.json */; };
 		8F6912C520A3BA770011C942 /* EquipmentDetailRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6912C420A3BA770011C942 /* EquipmentDetailRow.swift */; };
 		8F6912C720A3BA910011C942 /* EquipmentDetailRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F6912C620A3BA910011C942 /* EquipmentDetailRow.xib */; };
 		8F6912C920A46C1A0011C942 /* UILabel+BoldUnderline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6912C820A46C1A0011C942 /* UILabel+BoldUnderline.swift */; };
@@ -79,6 +81,7 @@
 		8FD30BE820A9B7DF00ED7C5B /* ButtonRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD30BE720A9B7DF00ED7C5B /* ButtonRow.xib */; };
 		8FD30BEA20A9BE7300ED7C5B /* ButtonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD30BE920A9BE7300ED7C5B /* ButtonRow.swift */; };
 		9030863C1DE05DE05C40B97E /* Pods_wegUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A975C1801A0E2E8EB9BF8A /* Pods_wegUnitTests.framework */; };
+		A0D15E95646DF73AD369B1D9 /* Pods_weg_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA92A0820F11FBB006E7AE6 /* Pods_weg_ios.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +107,8 @@
 		8F1C830C209631D400570C8D /* EquipmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentViewController.swift; sourceTree = "<group>"; };
 		8F1C830E2096349400570C8D /* EquipmentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentCollectionViewCell.swift; sourceTree = "<group>"; };
 		8F2DACE520B05B1C00F908FB /* Array+Shuffle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Shuffle.swift"; sourceTree = "<group>"; };
+		8F6062812162F82C005F4BEB /* repoUnitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = repoUnitTests.swift; sourceTree = "<group>"; };
+		8F6062832162F91E005F4BEB /* getAllResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = getAllResponse.json; sourceTree = "<group>"; };
 		8F6912C420A3BA770011C942 /* EquipmentDetailRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentDetailRow.swift; sourceTree = "<group>"; };
 		8F6912C620A3BA910011C942 /* EquipmentDetailRow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EquipmentDetailRow.xib; sourceTree = "<group>"; };
 		8F6912C820A46C1A0011C942 /* UILabel+BoldUnderline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+BoldUnderline.swift"; sourceTree = "<group>"; };
@@ -161,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				54C34C7F536801431A789854 /* Pods_weg_ios.framework in Frameworks */,
+				A0D15E95646DF73AD369B1D9 /* Pods_weg_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +239,8 @@
 		8F8B270520F11A45002A4617 /* wegUnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				8F6062832162F91E005F4BEB /* getAllResponse.json */,
+				8F6062812162F82C005F4BEB /* repoUnitTests.swift */,
 				8F8B270620F11A45002A4617 /* equipmentCollectionViewTests.swift */,
 				8F8B270820F11A45002A4617 /* Info.plist */,
 			);
@@ -388,6 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F8B271520F11AA9002A4617 /* ButtonRow.xib in Resources */,
+				8F6062842162F91E005F4BEB /* getAllResponse.json in Resources */,
 				8F8B272720F11ACB002A4617 /* LaunchScreen.storyboard in Resources */,
 				8F8B272020F11AB2002A4617 /* LoadingView.xib in Resources */,
 				8F8B271220F11AA4002A4617 /* EquipmentDetailRow.xib in Resources */,
@@ -483,6 +492,8 @@
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/Mockingjay/Mockingjay.framework",
+				"${BUILT_PRODUCTS_DIR}/URITemplate/URITemplate.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -490,6 +501,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mockingjay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/URITemplate.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -546,6 +559,7 @@
 				8F8B273120F11CCF002A4617 /* UILabel+IBDesignable.swift in Sources */,
 				8F8B272320F11AC1002A4617 /* Filesystem.swift in Sources */,
 				8F8B273520F11CCF002A4617 /* CodingUserInfoKey+Context.swift in Sources */,
+				8F6062822162F82D005F4BEB /* repoUnitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
