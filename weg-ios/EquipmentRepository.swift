@@ -93,6 +93,8 @@ class EquipmentRepository {
     //MARK: - Image methods
     fileprivate static func prefetchImages(combined : CombinedList) {
         var urls = [URL]()
+        //Setting this value to a negative value means disk cache never expires.
+        ImageCache.default.maxCachePeriodInSecond = -1
         let e = combined.getEquipment()
         let placeholder = URL(string: EquipmentRepository.baseUrl())!
         let photoUrls = e.map { URL(string: EquipmentRepository.baseUrl() + ($0.photoUrl ?? "")) ?? placeholder }
