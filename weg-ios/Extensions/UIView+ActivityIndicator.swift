@@ -14,7 +14,7 @@ extension UIView {
     func getAndStartActivityIndicator() -> UIActivityIndicatorView {
         let indicator = UIActivityIndicatorView(frame:
             CGRect.init(x: 0, y: 0, width: 40, height: 40))
-        indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        indicator.style = UIActivityIndicatorView.Style.whiteLarge
         indicator.center = self.center
         self.addSubview(indicator)
         indicator.startAnimating()

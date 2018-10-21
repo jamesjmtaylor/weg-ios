@@ -42,7 +42,7 @@ DEPENDENCIES:
   - Mockingjay
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - Crashlytics
     - Fabric
     - Firebase
@@ -70,6 +70,6 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   URITemplate: ace0c4c46dcf8afe6e89b4060621852886b15c3b
 
-PODFILE CHECKSUM: d0b242aadea19f63d44bf1641cca71cd271a1298
+PODFILE CHECKSUM: ce2cb4c560702c3adb195bf07079738c023b3189
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3

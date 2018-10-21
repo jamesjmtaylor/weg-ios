@@ -24,7 +24,7 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
         searchBar.delegate = self
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(EquipmentCollectionViewController.rotated),
-                                               name: NSNotification.Name.UIDeviceOrientationDidChange,
+                                               name: UIDevice.orientationDidChangeNotification,
                                                object: nil)
     }
     @objc func rotated() {

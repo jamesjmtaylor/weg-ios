@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		54C34C7F536801431A789854 /* Pods_weg_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A40A04DB30F6F3906C48F93 /* Pods_weg_ios.framework */; };
+		6EE3870167EAC23A0075D19C /* Pods_weg_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA92A0820F11FBB006E7AE6 /* Pods_weg_ios.framework */; };
+		7F0629E623FA9C2CA31F796C /* Pods_wegUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A975C1801A0E2E8EB9BF8A /* Pods_wegUnitTests.framework */; };
 		8F1C82FE2094AEF200570C8D /* EquipmentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1C82FD2094AEF200570C8D /* EquipmentRepository.swift */; };
 		8F1C83002094E3DD00570C8D /* Filesystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1C82FF2094E3DD00570C8D /* Filesystem.swift */; };
 		8F1C83042094E47600570C8D /* UIColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1C83032094E47600570C8D /* UIColor+AppColors.swift */; };
@@ -69,7 +71,6 @@
 		8FA92A0320F11FBB006E7AE6 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA92A0220F11FBB006E7AE6 /* Kingfisher.framework */; };
 		8FA92A0520F11FBB006E7AE6 /* Lottie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA92A0420F11FBB006E7AE6 /* Lottie.framework */; };
 		8FA92A0720F11FBB006E7AE6 /* nanopb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA92A0620F11FBB006E7AE6 /* nanopb.framework */; };
-		8FA92A0920F11FBB006E7AE6 /* Pods_weg_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA92A0820F11FBB006E7AE6 /* Pods_weg_ios.framework */; };
 		8FC0051B209896F100E04417 /* UIView+ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC0051A209896F100E04417 /* UIView+ActivityIndicator.swift */; };
 		8FC0051D209896FD00E04417 /* UIViewController+PresentAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC0051C209896FC00E04417 /* UIViewController+PresentAlert.swift */; };
 		8FC11C66208EB31C00B083F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC11C65208EB31C00B083F8 /* AppDelegate.swift */; };
@@ -80,7 +81,6 @@
 		8FD30BE620A9B30200ED7C5B /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD30BE520A9B30200ED7C5B /* CardsViewController.swift */; };
 		8FD30BE820A9B7DF00ED7C5B /* ButtonRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD30BE720A9B7DF00ED7C5B /* ButtonRow.xib */; };
 		8FD30BEA20A9BE7300ED7C5B /* ButtonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD30BE920A9BE7300ED7C5B /* ButtonRow.swift */; };
-		9030863C1DE05DE05C40B97E /* Pods_wegUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7A975C1801A0E2E8EB9BF8A /* Pods_wegUnitTests.framework */; };
 		A0D15E95646DF73AD369B1D9 /* Pods_weg_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA92A0820F11FBB006E7AE6 /* Pods_weg_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,7 +96,7 @@
 
 /* Begin PBXFileReference section */
 		0CE54F0CEC421B015A91736D /* Pods-weg-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weg-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-weg-ios/Pods-weg-ios.debug.xcconfig"; sourceTree = "<group>"; };
-		3A13FAC67B9E91FFB5A5D087 /* Pods-wegUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wegUnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wegUnitTests/Pods-wegUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6DD22F672D562D78937AC16E /* Pods-wegUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wegUnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-wegUnitTests/Pods-wegUnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		8A40A04DB30F6F3906C48F93 /* Pods_weg_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weg_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F1C82FD2094AEF200570C8D /* EquipmentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentRepository.swift; sourceTree = "<group>"; };
 		8F1C82FF2094E3DD00570C8D /* Filesystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filesystem.swift; sourceTree = "<group>"; };
@@ -142,9 +142,9 @@
 		8FD30BE520A9B30200ED7C5B /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		8FD30BE720A9B7DF00ED7C5B /* ButtonRow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonRow.xib; sourceTree = "<group>"; };
 		8FD30BE920A9BE7300ED7C5B /* ButtonRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRow.swift; sourceTree = "<group>"; };
-		903ABF2C4FD84DFFFC442C7A /* Pods-wegUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wegUnitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-wegUnitTests/Pods-wegUnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		98CFA5E9F005148975EA2FF5 /* Pods-weg-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weg-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-weg-ios/Pods-weg-ios.release.xcconfig"; sourceTree = "<group>"; };
 		B7A975C1801A0E2E8EB9BF8A /* Pods_wegUnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wegUnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD48C79C241AFEB09A0BE9E6 /* Pods-wegUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wegUnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wegUnitTests/Pods-wegUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,8 +156,7 @@
 				8FA92A0320F11FBB006E7AE6 /* Kingfisher.framework in Frameworks */,
 				8FA92A0520F11FBB006E7AE6 /* Lottie.framework in Frameworks */,
 				8FA92A0720F11FBB006E7AE6 /* nanopb.framework in Frameworks */,
-				8FA92A0920F11FBB006E7AE6 /* Pods_weg_ios.framework in Frameworks */,
-				9030863C1DE05DE05C40B97E /* Pods_wegUnitTests.framework in Frameworks */,
+				7F0629E623FA9C2CA31F796C /* Pods_wegUnitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +166,7 @@
 			files = (
 				54C34C7F536801431A789854 /* Pods_weg_ios.framework in Frameworks */,
 				A0D15E95646DF73AD369B1D9 /* Pods_weg_ios.framework in Frameworks */,
+				6EE3870167EAC23A0075D19C /* Pods_weg_ios.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,8 +303,8 @@
 			children = (
 				0CE54F0CEC421B015A91736D /* Pods-weg-ios.debug.xcconfig */,
 				98CFA5E9F005148975EA2FF5 /* Pods-weg-ios.release.xcconfig */,
-				3A13FAC67B9E91FFB5A5D087 /* Pods-wegUnitTests.debug.xcconfig */,
-				903ABF2C4FD84DFFFC442C7A /* Pods-wegUnitTests.release.xcconfig */,
+				BD48C79C241AFEB09A0BE9E6 /* Pods-wegUnitTests.debug.xcconfig */,
+				6DD22F672D562D78937AC16E /* Pods-wegUnitTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -316,11 +316,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8F8B270D20F11A45002A4617 /* Build configuration list for PBXNativeTarget "wegUnitTests" */;
 			buildPhases = (
-				E8743EC162B17A3D898AF8CC /* [CP] Check Pods Manifest.lock */,
+				AE59E826BF202F243092C664 /* [CP] Check Pods Manifest.lock */,
 				8F8B270020F11A45002A4617 /* Sources */,
 				8F8B270120F11A45002A4617 /* Frameworks */,
 				8F8B270220F11A45002A4617 /* Resources */,
-				984184AB70B9D32F45F78D24 /* [CP] Embed Pods Frameworks */,
+				51E519A9F3E02D9905DC1138 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -443,6 +443,38 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		51E519A9F3E02D9905DC1138 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-wegUnitTests/Pods-wegUnitTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/Mockingjay/Mockingjay.framework",
+				"${BUILT_PRODUCTS_DIR}/URITemplate/URITemplate.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mockingjay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/URITemplate.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-wegUnitTests/Pods-wegUnitTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		52D09EA544F6DBB94D5474A1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -482,44 +514,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
 		};
-		984184AB70B9D32F45F78D24 /* [CP] Embed Pods Frameworks */ = {
+		AE59E826BF202F243092C664 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-wegUnitTests/Pods-wegUnitTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-				"${BUILT_PRODUCTS_DIR}/Mockingjay/Mockingjay.framework",
-				"${BUILT_PRODUCTS_DIR}/URITemplate/URITemplate.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mockingjay.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/URITemplate.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-wegUnitTests/Pods-wegUnitTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E8743EC162B17A3D898AF8CC /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-wegUnitTests-checkManifestLockResult.txt",
 			);
@@ -627,7 +635,7 @@
 /* Begin XCBuildConfiguration section */
 		8F8B270B20F11A45002A4617 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A13FAC67B9E91FFB5A5D087 /* Pods-wegUnitTests.debug.xcconfig */;
+			baseConfigurationReference = BD48C79C241AFEB09A0BE9E6 /* Pods-wegUnitTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -641,7 +649,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jamesjmtaylor.wegUnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/weg-ios.app/weg-ios";
 			};
@@ -649,7 +657,7 @@
 		};
 		8F8B270C20F11A45002A4617 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 903ABF2C4FD84DFFFC442C7A /* Pods-wegUnitTests.release.xcconfig */;
+			baseConfigurationReference = 6DD22F672D562D78937AC16E /* Pods-wegUnitTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -663,7 +671,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jamesjmtaylor.wegUnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/weg-ios.app/weg-ios";
 			};
@@ -802,7 +810,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -826,7 +834,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

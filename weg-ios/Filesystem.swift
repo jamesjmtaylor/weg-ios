@@ -23,7 +23,7 @@ struct Filesystem {
         let fileManager = FileManager.default
         let file = removeFoldersFromFilename(filename: fileName)
         let paths = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(file)
-        let imageData = UIImageJPEGRepresentation(image, 0.5)
+        let imageData = image.jpegData(compressionQuality: 0.5)
         fileManager.createFile(atPath: paths as String, contents: imageData, attributes: nil)
     }
     

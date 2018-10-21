@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import Mockingjay
+//import Mockingjay
 
 class repoUnitTests: XCTestCase {
 
@@ -16,7 +16,7 @@ class repoUnitTests: XCTestCase {
         let url = Bundle(for: type(of: self)).url(forResource: "getAllResponse", withExtension: "json")!
         let data = try! Data(contentsOf: url)
         let getAllUrl = EquipmentRepository.getAllUrl()
-        stub(http(.get, uri: getAllUrl), jsonData(data))
+//        stub(http(.get, uri: getAllUrl), jsonData(data))
     }
 
     func testExample() {
