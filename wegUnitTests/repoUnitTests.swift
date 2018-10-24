@@ -7,7 +7,8 @@
 //
 
 import XCTest
-//import Mockingjay
+import Mockingjay
+@testable import weg_ios
 
 class repoUnitTests: XCTestCase {
 

@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import weg_ios
 
 class equipmentCollectionViewTests: XCTestCase {
     var vc : EquipmentCollectionViewController?

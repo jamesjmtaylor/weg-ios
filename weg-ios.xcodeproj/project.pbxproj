@@ -44,7 +44,6 @@
 		8F8B272120F11AC1002A4617 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC11C65208EB31C00B083F8 /* AppDelegate.swift */; };
 		8F8B272220F11AC1002A4617 /* EquipmentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1C82FD2094AEF200570C8D /* EquipmentRepository.swift */; };
 		8F8B272320F11AC1002A4617 /* Filesystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1C82FF2094E3DD00570C8D /* Filesystem.swift */; };
-		8F8B272420F11AC1002A4617 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F1C83012094E3F500570C8D /* Info.plist */; };
 		8F8B272620F11AC4002A4617 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FC11C6E208EB31D00B083F8 /* Assets.xcassets */; };
 		8F8B272720F11ACB002A4617 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FC11C70208EB31D00B083F8 /* LaunchScreen.storyboard */; };
 		8F8B272820F11ACB002A4617 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FC11C6B208EB31C00B083F8 /* Main.storyboard */; };
@@ -400,7 +399,6 @@
 				8F8B272720F11ACB002A4617 /* LaunchScreen.storyboard in Resources */,
 				8F8B272020F11AB2002A4617 /* LoadingView.xib in Resources */,
 				8F8B271220F11AA4002A4617 /* EquipmentDetailRow.xib in Resources */,
-				8F8B272420F11AC1002A4617 /* Info.plist in Resources */,
 				8F8B272620F11AC4002A4617 /* Assets.xcassets in Resources */,
 				8F8B272820F11ACB002A4617 /* Main.storyboard in Resources */,
 				8F8B271E20F11AB2002A4617 /* loading.json in Resources */,

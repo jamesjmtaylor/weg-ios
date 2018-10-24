@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -81,7 +80,7 @@
         <!--WEG 2015-->
         <scene sceneID="TcG-lp-hRJ">
             <objects>
-                <viewController storyboardIdentifier="CardsSetupViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1bA-D9-EbV" customClass="CardsSetupViewController" customModule="weg_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CardsSetupViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1bA-D9-EbV" customClass="CardsSetupViewController" customModule="wegUnitTests" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="69F-bR-9NZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -163,7 +162,7 @@
                                 <rect key="frame" x="255" y="331" width="51" height="31"/>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ueT-RC-I1Y">
-                                <rect key="frame" x="137" y="473" width="47" height="30"/>
+                                <rect key="frame" x="136.5" y="473" width="47" height="30"/>
                                 <state key="normal" title="START"/>
                                 <connections>
                                     <action selector="startButtonPressed:" destination="1bA-D9-EbV" eventType="touchUpInside" id="qUF-Z9-YTX"/>
@@ -235,7 +234,7 @@
         <!--Identify the Equipment-->
         <scene sceneID="BER-aP-L9d">
             <objects>
-                <viewController storyboardIdentifier="CardsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UR3-QE-T93" customClass="CardsViewController" customModule="weg_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CardsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UR3-QE-T93" customClass="CardsViewController" customModule="wegUnitTests" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eAw-TK-eDI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -253,7 +252,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:06 Remaining" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Tj-2b-CUm">
-                                <rect key="frame" x="95" y="289" width="131" height="21"/>
+                                <rect key="frame" x="94.5" y="289" width="131" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -347,7 +346,7 @@
         <!--WEG 2015-->
         <scene sceneID="yXf-Lg-Ftc">
             <objects>
-                <viewController storyboardIdentifier="EquipmentCollectionViewController" title="WEG 2015" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="oWy-b2-iTn" customClass="EquipmentCollectionViewController" customModule="weg_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EquipmentCollectionViewController" title="WEG 2015" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="oWy-b2-iTn" customClass="EquipmentCollectionViewController" customModule="wegUnitTests" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tu3-HT-cqd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -362,7 +361,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="EquipmentCollectionViewCell" reuseIdentifier="EquipmentCollectionViewCell" id="lhL-Gp-q5H" customClass="EquipmentCollectionViewCell" customModule="weg_ios" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="EquipmentCollectionViewCell" reuseIdentifier="EquipmentCollectionViewCell" id="lhL-Gp-q5H" customClass="EquipmentCollectionViewCell" customModule="wegUnitTests" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -372,7 +371,7 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AY3-cr-VE9">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oB0-3M-vRU">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oB0-3M-vRU">
                                                     <rect key="frame" x="29" y="71.5" width="42" height="20.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -392,9 +391,9 @@
                                         <constraints>
                                             <constraint firstItem="AY3-cr-VE9" firstAttribute="top" secondItem="lhL-Gp-q5H" secondAttribute="top" id="0Gm-PU-A1V"/>
                                             <constraint firstItem="AY3-cr-VE9" firstAttribute="leading" secondItem="lhL-Gp-q5H" secondAttribute="leading" id="6za-md-Cwf"/>
-                                            <constraint firstItem="oB0-3M-vRU" firstAttribute="bottom" secondItem="AY3-cr-VE9" secondAttribute="bottom" constant="-8" id="Jqa-Dj-4oN"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oB0-3M-vRU" secondAttribute="trailing" constant="8" id="Q9W-pS-zVO"/>
-                                            <constraint firstItem="oB0-3M-vRU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lhL-Gp-q5H" secondAttribute="leading" constant="8" id="nYr-D2-6Oo"/>
+                                            <constraint firstItem="AY3-cr-VE9" firstAttribute="bottom" secondItem="oB0-3M-vRU" secondAttribute="bottom" constant="8" id="Jqa-Dj-4oN"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oB0-3M-vRU" secondAttribute="trailing" priority="999" constant="8" id="Q9W-pS-zVO"/>
+                                            <constraint firstItem="oB0-3M-vRU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lhL-Gp-q5H" secondAttribute="leading" priority="999" constant="8" id="nYr-D2-6Oo"/>
                                             <constraint firstItem="oB0-3M-vRU" firstAttribute="centerX" secondItem="AY3-cr-VE9" secondAttribute="centerX" id="r0d-W4-eXh"/>
                                             <constraint firstAttribute="trailing" secondItem="AY3-cr-VE9" secondAttribute="trailing" id="y6Y-1j-FdN"/>
                                             <constraint firstAttribute="bottom" secondItem="AY3-cr-VE9" secondAttribute="bottom" id="yvg-k2-94k"/>
@@ -434,12 +433,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g0e-xb-Q5N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1438" y="-251"/>
+            <point key="canvasLocation" x="1436.25" y="-251.40845070422534"/>
         </scene>
         <!--Equipment Name-->
         <scene sceneID="ajx-br-EmC">
             <objects>
-                <viewController storyboardIdentifier="EquipmentViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ngz-0c-au8" customClass="EquipmentViewController" customModule="weg_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EquipmentViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ngz-0c-au8" customClass="EquipmentViewController" customModule="wegUnitTests" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uRd-NV-e6B">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
