@@ -355,24 +355,24 @@
                                 <rect key="frame" x="0.0" y="120" width="320" height="399"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Mmq-4f-aGQ">
-                                    <size key="itemSize" width="150" height="150"/>
+                                    <size key="itemSize" width="153" height="146"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="EquipmentCollectionViewCell" reuseIdentifier="EquipmentCollectionViewCell" id="lhL-Gp-q5H" customClass="EquipmentCollectionViewCell" customModule="wegUnitTests" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="153" height="146"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="153" height="146"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AY3-cr-VE9">
-                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="153" height="146"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oB0-3M-vRU">
-                                                    <rect key="frame" x="29" y="71.5" width="42" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="501" verticalHuggingPriority="501" horizontalCompressionResistancePriority="499" verticalCompressionResistancePriority="1000" text="Equipment Placeholder" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oB0-3M-vRU">
+                                                    <rect key="frame" x="31" y="97" width="91" height="41"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.94509803920000002" green="0.95294117649999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -392,13 +392,13 @@
                                             <constraint firstItem="AY3-cr-VE9" firstAttribute="top" secondItem="lhL-Gp-q5H" secondAttribute="top" id="0Gm-PU-A1V"/>
                                             <constraint firstItem="AY3-cr-VE9" firstAttribute="leading" secondItem="lhL-Gp-q5H" secondAttribute="leading" id="6za-md-Cwf"/>
                                             <constraint firstItem="AY3-cr-VE9" firstAttribute="bottom" secondItem="oB0-3M-vRU" secondAttribute="bottom" constant="8" id="Jqa-Dj-4oN"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oB0-3M-vRU" secondAttribute="trailing" priority="999" constant="8" id="Q9W-pS-zVO"/>
-                                            <constraint firstItem="oB0-3M-vRU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lhL-Gp-q5H" secondAttribute="leading" priority="999" constant="8" id="nYr-D2-6Oo"/>
+                                            <constraint firstAttribute="trailing" secondItem="oB0-3M-vRU" secondAttribute="trailing" priority="500" constant="8" id="Q9W-pS-zVO"/>
+                                            <constraint firstItem="oB0-3M-vRU" firstAttribute="leading" secondItem="lhL-Gp-q5H" secondAttribute="leading" priority="500" constant="8" id="nYr-D2-6Oo"/>
                                             <constraint firstItem="oB0-3M-vRU" firstAttribute="centerX" secondItem="AY3-cr-VE9" secondAttribute="centerX" id="r0d-W4-eXh"/>
                                             <constraint firstAttribute="trailing" secondItem="AY3-cr-VE9" secondAttribute="trailing" id="y6Y-1j-FdN"/>
                                             <constraint firstAttribute="bottom" secondItem="AY3-cr-VE9" secondAttribute="bottom" id="yvg-k2-94k"/>
                                         </constraints>
-                                        <size key="customSize" width="100" height="100"/>
+                                        <size key="customSize" width="153" height="146"/>
                                         <connections>
                                             <outlet property="imageView" destination="AY3-cr-VE9" id="UYL-Cc-K5o"/>
                                             <outlet property="nameLabel" destination="oB0-3M-vRU" id="cu2-pB-MiU"/>
