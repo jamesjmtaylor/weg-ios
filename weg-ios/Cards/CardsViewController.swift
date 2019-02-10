@@ -32,6 +32,7 @@ class CardsViewController: UIViewController, ButtonRowDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        saveTabView(tabName: "Cards")
         resetTest()
         updateUi()
     }

@@ -33,6 +33,7 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         getEquipment()
+        
         setupCollectionViewLayout()
     }
 
@@ -76,6 +77,7 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
         guard let tabBar = UIApplication.shared.keyWindow?.rootViewController
             as? UITabBarController else {return}
         guard let selectedTab = tabBar.selectedViewController else {return}
+        saveTabView(tabName: selectedTab.restorationIdentifier ?? "Tab not returned")
         allEquipment = sortAndFilterEquipment(equipment: allEquipment)
         switch selectedTab.restorationIdentifier {
         case LandNavController: self.setEquipmentToLand()
@@ -141,7 +143,7 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchActive = false
         self.view.endEditing(true)
-        saveUserSearch(searchQuery: searchBar.text ?? "", resultCount: collectionView.numberOfItems(inSection: 0))
+        saveUserSearch(searchQuery: searchBar.text ?? "", resultCount: searchedEquipment.count)
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false
