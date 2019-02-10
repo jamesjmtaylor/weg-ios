@@ -21,6 +21,8 @@ class EquipmentViewController: UIViewController{
     var equipmentToView : Equipment?
     override func viewDidLoad() {
         super.viewDidLoad()
+        saveEquipmentView(equipmentName: equipmentToView?.name ?? "No name",
+                          category: equipmentToView?.type.rawValue ?? "No category")
         configureViewToEquipmentType(item: equipmentToView)
         EquipmentRepository.setImage(photoImageView, equipmentToView?.photoUrl)
     }

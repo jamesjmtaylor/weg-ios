@@ -96,6 +96,7 @@ class CardsViewController: UIViewController, ButtonRowDelegate {
             self.initOneSecondTimer(start: false)
             let percentage = calculateCorrectPercentage()
             let alert = UIAlertController(title: "Quiz Completed", message: "You got \(percentage)% correct.", preferredStyle: .alert)
+            saveQuizResults(categories: selectedTypes.description, score: percentage, difficulty: difficulty)
             let restartAction = UIAlertAction(title: "Restart Quiz", style: .default) { (_) in
                 self.resetTest()
                 self.updateUi()

@@ -141,6 +141,7 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchActive = false
         self.view.endEditing(true)
+        saveUserSearch(searchQuery: searchBar.text ?? "", resultCount: collectionView.numberOfItems(inSection: 0))
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false

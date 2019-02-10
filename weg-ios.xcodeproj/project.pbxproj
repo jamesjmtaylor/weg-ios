@@ -80,6 +80,7 @@
 		8FD30BE620A9B30200ED7C5B /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD30BE520A9B30200ED7C5B /* CardsViewController.swift */; };
 		8FD30BE820A9B7DF00ED7C5B /* ButtonRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD30BE720A9B7DF00ED7C5B /* ButtonRow.xib */; };
 		8FD30BEA20A9BE7300ED7C5B /* ButtonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD30BE920A9BE7300ED7C5B /* ButtonRow.swift */; };
+		8FD6A53E2210AC5D00C5B09A /* WegAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD6A53D2210AC5D00C5B09A /* WegAnalytics.swift */; };
 		A0D15E95646DF73AD369B1D9 /* Pods_weg_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FA92A0820F11FBB006E7AE6 /* Pods_weg_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -141,6 +142,7 @@
 		8FD30BE520A9B30200ED7C5B /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		8FD30BE720A9B7DF00ED7C5B /* ButtonRow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonRow.xib; sourceTree = "<group>"; };
 		8FD30BE920A9BE7300ED7C5B /* ButtonRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRow.swift; sourceTree = "<group>"; };
+		8FD6A53D2210AC5D00C5B09A /* WegAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WegAnalytics.swift; sourceTree = "<group>"; };
 		98CFA5E9F005148975EA2FF5 /* Pods-weg-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weg-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-weg-ios/Pods-weg-ios.release.xcconfig"; sourceTree = "<group>"; };
 		B7A975C1801A0E2E8EB9BF8A /* Pods_wegUnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wegUnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD48C79C241AFEB09A0BE9E6 /* Pods-wegUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wegUnitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wegUnitTests/Pods-wegUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				8FC11C65208EB31C00B083F8 /* AppDelegate.swift */,
 				8F1C82FD2094AEF200570C8D /* EquipmentRepository.swift */,
 				8F1C82FF2094E3DD00570C8D /* Filesystem.swift */,
+				8FD6A53D2210AC5D00C5B09A /* WegAnalytics.swift */,
 				8F9A74302129A50200C4CA07 /* GoogleService-Info.plist */,
 				8F1C83012094E3F500570C8D /* Info.plist */,
 				8FC11C6E208EB31D00B083F8 /* Assets.xcassets */,
@@ -594,6 +597,7 @@
 				8F1C830B209631BB00570C8D /* EquipmentCollectionViewController.swift in Sources */,
 				8F98123D20B9C5A600681630 /* CodingUserInfoKey+Context.swift in Sources */,
 				8F1C830D209631D400570C8D /* EquipmentViewController.swift in Sources */,
+				8FD6A53E2210AC5D00C5B09A /* WegAnalytics.swift in Sources */,
 				8F79EE8E208F5F81002E95F9 /* Gun.swift in Sources */,
 				8F1C830F2096349400570C8D /* EquipmentCollectionViewCell.swift in Sources */,
 				8F79EE8A208F5F72002E95F9 /* Sea.swift in Sources */,
