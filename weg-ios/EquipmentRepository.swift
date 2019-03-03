@@ -13,7 +13,11 @@ import CoreData
 class EquipmentRepository {
     static func baseUrl() -> String {return "http://api.jjmtaylor.com:8080/"}
     static func getAllUrl() -> String {return baseUrl() + "getAllCombined"}
-    static func app() -> AppDelegate {return UIApplication.shared.delegate as! AppDelegate}
+    static func app(completion: @escaping (AppDelegate) -> ()) {
+        DispatchQueue.main.async {
+            completion(UIApplication.shared.delegate as! AppDelegate)
+        }
+    }
     enum method:String {case GET;case POST;case PATCH;case DELETE}
 
     //MARK: - Repository pattern
@@ -51,25 +55,27 @@ class EquipmentRepository {
         let request = NSMutableURLRequest(url: url, cachePolicy: .useProtocolCachePolicy,timeoutInterval: 10.0)
         request.httpMethod = method.GET.rawValue
         request.allHTTPHeaderFields = headers
-        
+
         let session = URLSession.shared
         let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
             if (error != nil) { completionHandler(nil, error?.localizedDescription)
             } else {
-                do {
-                    let moc = app().persistentContainer.newBackgroundContext()
-                    let decoder = JSONDecoder()
-                    decoder.userInfo[CodingUserInfoKey.context!] = moc
-                    guard let jsonData = data else {
-                        completionHandler(nil, "Network returned an empty response.")
-                        return
-                    }
-                    let combined = try decoder.decode(CombinedList.self, from: jsonData)
-                    try moc.save()
-                    setLastFetchDate()
-                    prefetchImages(combined: combined)
-                    completionHandler(combined.getEquipment(), nil)
-                } catch { completionHandler(nil, error.localizedDescription); return }
+                app() { app in
+                    do {
+                        let moc = app.persistentContainer.newBackgroundContext()
+                        let decoder = JSONDecoder()
+                        decoder.userInfo[CodingUserInfoKey.context!] = moc
+                        guard let jsonData = data else {
+                            completionHandler(nil, "Network returned an empty response.")
+                            return
+                        }
+                        let combined = try decoder.decode(CombinedList.self, from: jsonData)
+                        try moc.save()
+                        setLastFetchDate()
+                        prefetchImages(combined: combined)
+                        completionHandler(combined.getEquipment(), nil)
+                    } catch { completionHandler(nil, error.localizedDescription); return }
+                }
             }
         })
         dataTask.resume()
@@ -105,13 +111,13 @@ class EquipmentRepository {
             URL(string: EquipmentRepository.baseUrl() + ($0.groupIconUrl ?? "")) ?? placeholder }
         let gunGroupIconUrls = combined.guns.map {
             URL(string: EquipmentRepository.baseUrl() + ($0.groupIconUrl ?? "")) ?? placeholder }
-        
+
         urls.append(contentsOf: photoUrls)
         urls.append(contentsOf: indIconUrls)
         urls.append(contentsOf: airGroupIconUrls)
         urls.append(contentsOf: landGroupIconUrls)
         urls.append(contentsOf: gunGroupIconUrls)
-        
+
         let prefetcher = ImagePrefetcher(urls: urls) {skippedResources, failedResources, completedResources in}
         prefetcher.start()
     }
