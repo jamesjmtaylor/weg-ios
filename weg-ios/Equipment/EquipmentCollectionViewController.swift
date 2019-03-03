@@ -125,7 +125,10 @@ class EquipmentCollectionViewController: UIViewController, UICollectionViewDeleg
         return (searchActive) ? searchedEquipment.count : equipment.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! EquipmentCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier,
+                                                            for: indexPath) as? EquipmentCollectionViewCell else {
+            return UICollectionViewCell()
+        }
         let e = (searchActive) ? searchedEquipment[indexPath.row] : equipment[indexPath.row]
         cell.configure(e: e)
         return cell
