@@ -8,6 +8,7 @@
 
 import UIKit
 import Lottie
+import StoreKit
 
 class CardsViewController: UIViewController, ButtonRowDelegate {
     var equipment = [Equipment]()
@@ -91,29 +92,66 @@ class CardsViewController: UIViewController, ButtonRowDelegate {
         adjustStackViewHeight(stackViewHeight: guessStackViewHeight,
                               numRows: numEows, rowHeight: rowHeight)
     }
+    fileprivate let promptedKey = "PROMPTED"
     func buttonPressed(buttonText: String?) {
         let correct = checkGuessAndIncrementTotal(selectedAnswer: buttonText ?? "")
         if isEnd(){ //Last answer
             self.initOneSecondTimer(start: false)
             let percentage = calculateCorrectPercentage()
-            let alert = UIAlertController(title: "Quiz Completed", message: "You got \(percentage)% correct.", preferredStyle: .alert)
             saveQuizResults(categories: selectedTypes.description, score: percentage, difficulty: difficulty)
-            let restartAction = UIAlertAction(title: "Restart Quiz", style: .default) { (_) in
-                self.resetTest()
-                self.updateUi()
+            let previouslyPrompted = UserDefaults.standard.bool(forKey: promptedKey) ?? false
+            if percentage > 90 && !previouslyPrompted {
+                showRequestRatingAlert(percentage)
+            } else {
+                showQuizCompleteAlert(percentage)
             }
-            let changeAction = UIAlertAction(title: "Change Quiz", style: .default) { (_) in
-                self.dismiss(animated: true, completion: nil)
-            }
-            alert.addAction(restartAction)
-            alert.addAction(changeAction)
-            self.present(alert, animated: true, completion: nil)
+            showQuizCompleteAlert(percentage)
             
         } else if correct || buttonText == nil { //nil text means time expired, next question
             setNextCardGetChoicesResetTimer()
             updateUi()
         }
     }
+    //MARK: - Alert Dialogues
+    fileprivate func showQuizCompleteAlert(_ percentage: Int) {
+        let alert = UIAlertController(title: "Quiz Completed", message: "You got \(percentage)% correct.", preferredStyle: .alert)
+        let restartAction = UIAlertAction(title: "Restart Quiz", style: .default) { (_) in
+            self.resetTest()
+            self.updateUi()
+        }
+        let changeAction = UIAlertAction(title: "Change Quiz", style: .default) { (_) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(restartAction)
+        alert.addAction(changeAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    fileprivate let appId = "id1392413944"
+    fileprivate func showRequestRatingAlert(_ percentage: Int) {
+        UserDefaults.standard.set(true, forKey: promptedKey)
+        let alert = UIAlertController(title: "Congratulations!", message: "You got \(percentage) correct.  Would you please rate the app? This will be the only time that you're prompted to leave a rating.", preferredStyle: .alert)
+
+        let dismissAction = UIAlertAction(title: "No thanks", style: .default) { (_) in
+            self.dismiss(animated: true, completion: nil)
+        }
+        let reviewAction = UIAlertAction(title: "Rate now", style: .default) { (_) in
+            if #available( iOS 10.3,*){
+                SKStoreReviewController.requestReview()
+            } else {
+                guard let url = URL(string: "itms-apps://itunes.apple.com/app/\(self.appId)") else {
+                    self.dismiss(animated: true, completion: nil)
+                    return
+                }
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+            self.dismiss(animated: true, completion: nil)
+        }
+        alert.addAction(dismissAction)
+        alert.addAction(reviewAction)
+
+        self.present(alert, animated: true, completion: nil)
+    }
+
     //MARK: - Card generation & progression
     private func getChoicesForDifficulty() -> Int {
         switch difficulty {
