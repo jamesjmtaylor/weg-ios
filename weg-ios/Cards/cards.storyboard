@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="D4v-O7-De9">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Identify the Equipment-->
+        <scene sceneID="kv7-b8-7T5">
+            <objects>
+                <viewController storyboardIdentifier="CardsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Mkx-da-Fcl" customClass="CardsViewController" customModule="wegUnitTests" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AuF-Ow-kdD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 of 40" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y8u-Ig-Cjx">
+                                <rect key="frame" x="159.5" y="72" width="56" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qov-Q0-1MT">
+                                <rect key="frame" x="0.0" y="101" width="375" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="FAS-1Y-UTi"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:06 Remaining" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LAr-Qf-J91">
+                                <rect key="frame" x="122" y="289" width="131" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="omi-gb-yHl">
+                                <rect key="frame" x="0.0" y="325" width="375" height="0.0"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="JNk-2f-qck"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="LAr-Qf-J91" firstAttribute="centerX" secondItem="qov-Q0-1MT" secondAttribute="centerX" id="2zi-mc-OrG"/>
+                            <constraint firstItem="qov-Q0-1MT" firstAttribute="leading" secondItem="ENe-9a-hnj" secondAttribute="leading" id="3h5-WL-LL5"/>
+                            <constraint firstItem="Y8u-Ig-Cjx" firstAttribute="top" secondItem="ENe-9a-hnj" secondAttribute="top" constant="8" id="CW6-S8-HaD"/>
+                            <constraint firstItem="LAr-Qf-J91" firstAttribute="top" secondItem="qov-Q0-1MT" secondAttribute="bottom" constant="8" id="Sg6-qd-31t"/>
+                            <constraint firstItem="omi-gb-yHl" firstAttribute="leading" secondItem="ENe-9a-hnj" secondAttribute="leading" id="a4V-vC-JIe"/>
+                            <constraint firstItem="Y8u-Ig-Cjx" firstAttribute="centerX" secondItem="ENe-9a-hnj" secondAttribute="centerX" id="cYD-dl-U8U"/>
+                            <constraint firstItem="ENe-9a-hnj" firstAttribute="trailing" secondItem="omi-gb-yHl" secondAttribute="trailing" id="fc3-8x-MBI"/>
+                            <constraint firstItem="ENe-9a-hnj" firstAttribute="trailing" secondItem="qov-Q0-1MT" secondAttribute="trailing" id="hPk-ob-DYf"/>
+                            <constraint firstItem="omi-gb-yHl" firstAttribute="top" secondItem="LAr-Qf-J91" secondAttribute="bottom" constant="15" id="see-2u-LSS"/>
+                            <constraint firstItem="qov-Q0-1MT" firstAttribute="top" secondItem="Y8u-Ig-Cjx" secondAttribute="bottom" constant="8" id="tXk-Of-bjx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ENe-9a-hnj"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Identify the Equipment" id="DeI-j7-Hxp">
+                        <barButtonItem key="leftBarButtonItem" image="close" style="plain" id="8Sp-tk-50o">
+                            <color key="tintColor" red="0.94509803920000002" green="0.95294117649999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="closeButtonPressed:" destination="Mkx-da-Fcl" id="1h9-pN-ykX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cardCountLabel" destination="Y8u-Ig-Cjx" id="PKb-Xd-YVn"/>
+                        <outlet property="equipmentImageView" destination="qov-Q0-1MT" id="fDf-ra-LYp"/>
+                        <outlet property="guessStackView" destination="omi-gb-yHl" id="wdx-RU-qTA"/>
+                        <outlet property="guessStackViewHeight" destination="JNk-2f-qck" id="rMB-Ol-eTx"/>
+                        <outlet property="timeRemainingLabel" destination="LAr-Qf-J91" id="cLX-W9-Tdc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HDD-bt-BNM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2256" y="1181"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="X4o-lR-mMK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="D4v-O7-De9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="B5z-vc-33o">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.94509803920000002" green="0.95294117649999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Mkx-da-Fcl" kind="relationship" relationship="rootViewController" id="gjs-mA-qcw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aYX-HL-ZVx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1434.375" y="1180.9859154929577"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="close" width="16" height="16"/>
+    </resources>
+</document>
