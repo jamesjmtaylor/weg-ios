@@ -11,7 +11,7 @@ import Lottie
 
 class LoadingView: UIView {
     @IBOutlet weak var loadingView: LoadingView!
-    var animationView : LOTAnimationView?
+    var animationView : AnimationView?
     
     static func getAndStartLoadingView() -> LoadingView {
         guard let rootView = UIApplication.shared.keyWindow?.rootViewController?.view else {
@@ -26,13 +26,14 @@ class LoadingView: UIView {
         rootView.addSubview(loadingView)
         loadingView.startAnimation()
         loadingView.startAnimation()
+
         return loadingView
     }
     func startAnimation(){
-        animationView = LOTAnimationView(name: "loading")
+        animationView = AnimationView(name: "loading")
         animationView?.frame = CGRect(x: 0, y: 0, width: 200, height: 100)
         loadingView.addSubview(animationView!)
-        animationView?.loopAnimation = true
+        animationView?.loopMode = .loop
         animationView?.play()
     }
     func stopAnimation(){
